@@ -1,0 +1,78 @@
+@use '../../../theme/values/colors' as *;
+@use '../../../theme/values/mixins' as *;
+
+.mode-table-wrapper {
+	border-radius: 8px;
+	overflow: hidden;
+	@include useThemeShadow(0, 2px, 8px, -2px, $shadow_color_strong);
+	margin: 24px 0;
+}
+
+.mode-table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 13px;
+
+	thead {
+		position: sticky;
+		top: 0;
+	}
+
+	th {
+		background: $primary_dark;
+		color: $white;
+		padding: 10px 12px;
+		text-align: left;
+		font-weight: 600;
+		font-size: 13px;
+		letter-spacing: 0.3px;
+	}
+
+	td {
+		border: 1px solid $black_light;
+		padding: 8px 12px;
+		color: $grey_light;
+		transition: background 0.15s;
+	}
+
+	tr {
+		background: $black;
+
+		&:nth-child(even) {
+			background: $black_dark;
+		}
+
+		&:hover td {
+			background: rgba($primary, 0.08);
+		}
+	}
+}
+
+details {
+	margin-bottom: 18px;
+	border: 1px solid $black_light;
+	padding: 14px 16px;
+	border-radius: 8px;
+	background: $black;
+	transition: border-color 0.15s;
+
+	&:hover {
+		border-color: $grey_dark;
+	}
+
+	&[open] {
+		border-color: $primary_dark;
+	}
+}
+
+summary {
+	cursor: pointer;
+	color: $grey_light;
+	font-size: 14px;
+	font-weight: 600;
+
+	h3 {
+		display: inline;
+		color: $white;
+	}
+}

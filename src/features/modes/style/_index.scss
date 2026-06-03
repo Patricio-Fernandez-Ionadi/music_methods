@@ -1,0 +1,8 @@
+@forward './mode-header';
+@forward './mode-table';
+@forward './pentagram';
+
+// los jsx importan directamente los partials con _:
+//   mode-header.jsx → _mode-header.scss
+//   mode-table.jsx  → _mode-table.scss
+//   pentagram.jsx   → _pentagram.scss

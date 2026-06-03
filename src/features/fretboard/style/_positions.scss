@@ -1,0 +1,43 @@
+@use '../../../theme/values/colors' as *;
+/* ===== Position Controls ===== */
+.controls {
+	padding: 20px;
+	.position-toggle-group {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		gap: 10px;
+		align-items: center;
+	}
+
+	.position-btn {
+		flex-grow: 1;
+		background: $black;
+		border: 1px solid $black_light;
+		border-radius: 6px;
+		padding: 6px 14px;
+		cursor: pointer;
+		font-size: 13px;
+		color: $grey_light;
+		transition: all 0.15s;
+		font-family: inherit;
+
+		&:hover {
+			border-color: $grey_dark;
+			color: $white;
+		}
+
+		&.active {
+			border-color: $primary;
+			background: rgba($primary, 0.12);
+			color: $primary_light;
+		}
+
+		&.all-btn {
+			font-weight: 600;
+			text-transform: uppercase;
+			font-size: 11px;
+			letter-spacing: 0.3px;
+		}
+	}
+}

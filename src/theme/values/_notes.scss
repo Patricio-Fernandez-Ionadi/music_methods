@@ -1,0 +1,16 @@
+// Colores por nota musical (usados vía CSS custom properties en el diapasón)
+// Los nombres usan 's' para sostenido (#) y 'b' para bemol
+:root {
+	--note-C:  hsl(15, 52%, 56%);
+	--note-Cs: hsl(45, 52%, 56%);
+	--note-D:  hsl(75, 52%, 56%);
+	--note-Ds: hsl(105, 52%, 56%);
+	--note-E:  hsl(135, 52%, 56%);
+	--note-F:  hsl(165, 52%, 56%);
+	--note-Fs: hsl(195, 52%, 56%);
+	--note-G:  hsl(225, 52%, 56%);
+	--note-Gs: hsl(255, 52%, 56%);
+	--note-A:  hsl(285, 52%, 56%);
+	--note-Bb: hsl(315, 52%, 56%);
+	--note-B:  hsl(345, 52%, 56%);
+}

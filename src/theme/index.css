@@ -1,0 +1,468 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Geneva, Verdana, sans-serif;
+}
+
+#root {
+  max-width: 100vw;
+}
+
+button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.df {
+  display: flex;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.aic {
+  align-items: center;
+}
+
+.fc {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap {
+  gap: 10px;
+}
+
+@media (max-width: 769px) {
+  .non-mobile {
+    display: none;
+  }
+}
+.field {
+  margin-top: 16px;
+  border: 1px solid #616161;
+  border-radius: 6px;
+  padding: 15px 0;
+  position: relative;
+}
+.field h4 {
+  position: absolute;
+  padding: 0 5px;
+  top: -16px;
+  left: 20px;
+  background-color: #121212;
+}
+
+:root {
+  font-size: 18px;
+  line-height: 145%;
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: #616161;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (max-width: 1025px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+body {
+  background: #121212;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1126px;
+  margin: 0 auto;
+  padding: 120px 60px 40px;
+  box-sizing: border-box;
+}
+
+div[itemID],
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+h1,
+h2 {
+  font-family: "Segoe UI", Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+}
+@media (max-width: 1025px) {
+  h1 {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+}
+@media (max-width: 1025px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 118%;
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 0;
+}
+
+.section.modes {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+:root {
+  --note-C: hsl(15, 52%, 56%);
+  --note-Cs: hsl(45, 52%, 56%);
+  --note-D: hsl(75, 52%, 56%);
+  --note-Ds: hsl(105, 52%, 56%);
+  --note-E: hsl(135, 52%, 56%);
+  --note-F: hsl(165, 52%, 56%);
+  --note-Fs: hsl(195, 52%, 56%);
+  --note-G: hsl(225, 52%, 56%);
+  --note-Gs: hsl(255, 52%, 56%);
+  --note-A: hsl(285, 52%, 56%);
+  --note-Bb: hsl(315, 52%, 56%);
+  --note-B: hsl(345, 52%, 56%);
+}
+
+/* ===== Scale Header ===== */
+.scale-header {
+  margin-bottom: 24px;
+}
+.scale-header p {
+  color: #8e8e8e;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.fretboard-container {
+  width: 100%;
+  position: relative;
+  height: 220px;
+  background: repeating-linear-gradient(90deg, transparent 0px, rgba(255, 255, 255, 0.015) 1px, transparent 2px, transparent 30px), linear-gradient(180deg, #2f2925 0%, #27221e 40%, #211d1a 100%);
+  border-radius: 6px;
+  border: 1px solid #3a3430;
+  overflow: hidden;
+  /* ===== Fret Markers (overlay) ===== */
+}
+.fretboard-container .fret-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  display: flex;
+  z-index: 5;
+  pointer-events: none;
+}
+.fretboard-container .fret-markers .marker-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.fretboard-container .fret-markers .marker-cell .marker-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+.fretboard-container .fret-markers .marker-cell .marker-dot .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e8e4da, #b8b0a0);
+  box-shadow: 0 0 4px rgba(200, 190, 170, 0.15);
+}
+.fretboard-container .fret-markers .marker-cell .marker-dot.double {
+  gap: 2px;
+}
+.fretboard-container .fret-markers .marker-cell .marker-label {
+  position: absolute;
+  top: 100%;
+  margin-top: 1px;
+  font-size: 8px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  letter-spacing: 0.3px;
+}
+.fretboard-container {
+  /* ===== Fretboard ===== */
+}
+.fretboard-container .fretboardDinamic {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.fretboard-container .fretboardDinamic .string-container {
+  flex: 1;
+  display: flex;
+  position: relative;
+  min-height: 0;
+}
+.fretboard-container .fretboardDinamic .string-container .visual-string {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+  border-bottom: 1px solid #706e6e;
+  opacity: 0.12;
+}
+.fretboard-container .fretboardDinamic .string-container .fret {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Fret line (metal wire) */
+}
+.fretboard-container .fretboardDinamic .string-container .fret::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(180, 175, 165, 0.06) 0%, rgba(180, 175, 165, 0.12) 50%, rgba(180, 175, 165, 0.06) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+.fretboard-container .fretboardDinamic .string-container .fret {
+  /* Nut (fret 0) */
+}
+.fretboard-container .fretboardDinamic .string-container .fret[data-fret="0"] {
+  background: linear-gradient(90deg, #1f1b18 0%, transparent 100%);
+}
+.fretboard-container .fretboardDinamic .string-container .fret[data-fret="0"]::before {
+  display: none;
+}
+.fretboard-container .fretboardDinamic .string-container .fret[data-fret="0"] {
+  /* Thick nut border on the right side (boundary with fret 1) */
+}
+.fretboard-container .fretboardDinamic .string-container .fret[data-fret="0"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(100, 95, 85, 0.4) 0%, rgba(130, 122, 110, 0.5) 50%, rgba(100, 95, 85, 0.4) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+.fretboard-container .fretboardDinamic .string-container .fret {
+  /* Scale notes */
+}
+.fretboard-container .fretboardDinamic .string-container .fret.fretActive span {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #22c7bf;
+  opacity: 0.08;
+  z-index: 2;
+}
+.fretboard-container .fretboardDinamic .string-container .fret {
+  /* Position shape notes */
+}
+.fretboard-container .fretboardDinamic .string-container .fret.positionNote span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  opacity: 1;
+  background-color: #22c7bf;
+  box-shadow: 0 0 6px rgba(34, 199, 191, 0.2);
+}
+.fretboard-container .fretboardDinamic .string-container .fret {
+  /* Scale tonic */
+}
+.fretboard-container .fretboardDinamic .string-container .fret.fretTonic span {
+  opacity: 1;
+  background-color: #8fde8f;
+  box-shadow: 0 0 6px rgba(143, 222, 143, 0.2);
+}
+.fretboard-container .fretboardDinamic .string-container .fret {
+  /* Triad notes */
+}
+.fretboard-container .fretboardDinamic .string-container .fret.triadRoot span, .fretboard-container .fretboardDinamic .string-container .fret.triadThird span, .fretboard-container .fretboardDinamic .string-container .fret.triadFifth span {
+  width: 18px;
+  height: 18px;
+  opacity: 1;
+  background-color: var(--note-color);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Triads ===== */
+.triad-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.triad-btn {
+  background: #212121;
+  border: 1px solid #484848;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.triad-btn strong {
+  color: #f5f5f5;
+  font-size: 15px;
+  font-weight: 600;
+}
+.triad-btn span {
+  color: #8e8e8e;
+  font-size: 11px;
+}
+.triad-btn:hover {
+  border-color: #373737;
+  background: #2a2a2a;
+}
+.triad-btn.active {
+  border-color: #00adb5;
+  background: rgba(0, 173, 181, 0.1);
+}
+.triad-btn.active strong {
+  color: #5cdfe7;
+}
+
+/* ===== Selectors ===== */
+.selector-group {
+  display: flex;
+  justify-content: space-around;
+}
+.selector-group .selector-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+}
+.selector-group .selector-input label {
+  color: #8e8e8e;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.selector-group .selector-input select {
+  background: #212121;
+  color: #f5f5f5;
+  border: 1px solid #484848;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  width: 90px;
+  text-align: center;
+}
+.selector-group .selector-input select:hover {
+  border-color: #373737;
+}
+.selector-group .selector-input select:focus {
+  outline: none;
+  border-color: #00adb5;
+}
+
+/* ===== Position Controls ===== */
+.controls {
+  padding: 20px;
+}
+.controls .position-toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+}
+.controls .position-btn {
+  flex-grow: 1;
+  background: #212121;
+  border: 1px solid #484848;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #8e8e8e;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.controls .position-btn:hover {
+  border-color: #373737;
+  color: #f5f5f5;
+}
+.controls .position-btn.active {
+  border-color: #00adb5;
+  background: rgba(0, 173, 181, 0.12);
+  color: #5cdfe7;
+}
+.controls .position-btn.all-btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+}
+
+.scale-info {
+  padding: 20px;
+}
+.scale-info .scale-notes {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+.scale-info .scale-notes span {
+  flex: 1;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 8px 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+}/*# sourceMappingURL=index.css.map */

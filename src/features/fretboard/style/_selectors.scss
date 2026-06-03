@@ -1,0 +1,43 @@
+@use '../../../theme/values/colors' as *;
+@use '../../../theme/values/sizes' as *;
+
+/* ===== Selectors ===== */
+.selector-group {
+	display: flex;
+	justify-content: space-around;
+	.selector-input {
+		display: inline-flex;
+		align-items: center;
+		gap: $gap;
+		margin-right: 20px;
+		label {
+			color: $grey_light;
+			font-size: 13px;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.3px;
+		}
+
+		select {
+			background: $black;
+			color: $white;
+			border: 1px solid $black_light;
+			border-radius: 6px;
+			padding: 6px 10px;
+			font-size: 14px;
+			cursor: pointer;
+			transition: border-color 0.15s;
+			width: 90px;
+			text-align: center;
+
+			&:hover {
+				border-color: $grey_dark;
+			}
+
+			&:focus {
+				outline: none;
+				border-color: $primary;
+			}
+		}
+	}
+}

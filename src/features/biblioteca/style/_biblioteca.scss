@@ -1,0 +1,108 @@
+@use '../../../theme/values' as *;
+
+.biblioteca-view {
+  padding: $padding-container;
+}
+
+.biblioteca-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: $gap;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.btn-add {
+  padding: $pad-tb 1rem;
+  border: none;
+  border-radius: $smooth;
+  background: $primary;
+  color: $white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+}
+
+.filters {
+  display: flex;
+  gap: $gap;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-input {
+  flex: 1 1 180px;
+  padding: $pad;
+  border: 1px solid $grey;
+  border-radius: $smooth;
+  background: $black_light;
+  color: $white;
+  font-size: 0.9rem;
+
+  &::placeholder {
+    color: $grey_light;
+  }
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $pad;
+  border-bottom: 1px solid $grey_dark;
+  gap: $gap;
+  flex-wrap: wrap;
+
+  &:hover {
+    background: rgba($white, 0.03);
+  }
+}
+
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+
+  strong {
+    color: $white;
+  }
+
+  span {
+    color: $grey_light;
+    font-size: 0.9rem;
+  }
+}
+
+.song-key {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: $thin;
+  background: $primary_darken;
+  color: $white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.empty {
+  color: $grey_light;
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+}

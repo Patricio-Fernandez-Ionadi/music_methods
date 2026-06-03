@@ -1,0 +1,12 @@
+@use '../../../theme/values/colors' as *;
+
+/* ===== Scale Header ===== */
+.scale-header {
+	margin-bottom: 24px;
+
+	p {
+		color: $grey_light;
+		font-size: 14px;
+		line-height: 1.5;
+	}
+}

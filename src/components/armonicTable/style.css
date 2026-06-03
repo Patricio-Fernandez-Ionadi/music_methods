@@ -1,0 +1,33 @@
+.degree-table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 13px;
+  width: 100%;
+}
+.degree-table th,
+.degree-table td {
+  border: 1px solid #484848;
+  padding: 10px 14px;
+  min-width: 50px;
+}
+.degree-table th {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.grado-tonica {
+  background: #ffe08a;
+  color: #333;
+}
+
+.grado-importante {
+  background: #c8f7c5;
+  color: #333;
+}
+
+.grado-evitar {
+  background: #f7c5c5;
+  color: #333;
+}/*# sourceMappingURL=style.css.map */
