@@ -1,5 +1,5 @@
 import { MODES } from '../data/modes'
-import { ModeComponent } from '../features/modes/mode-component'
+import { ModeComponent } from '../modules/modes/mode-component'
 
 const MODAL_MODES = ['dorico', 'frigio', 'lidio', 'mixolidio', 'locrio']
 

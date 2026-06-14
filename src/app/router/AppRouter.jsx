@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { AppProvider } from '../context/AppContext'
-import { MainLayout } from '../layouts/MainLayout'
-import { FuncionalPage } from '../pages/FuncionalPage'
-import { ModosPage } from '../pages/ModosPage'
-import { GuitarraPage } from '../pages/GuitarraPage'
-import { BibliotecaPage } from '../pages/BibliotecaPage'
-import { BibliotecaView } from '../features/biblioteca/BibliotecaView'
-import { SongDetail } from '../features/biblioteca/SongDetail'
-import { SongFormView } from '../features/biblioteca/SongFormView'
+import { AppProvider } from '../../context/AppContext'
+import { MainLayout } from '../layout/main-layout'
+import { FuncionalPage } from '../../views/FuncionalPage'
+import { ModosPage } from '../../views/ModosPage'
+import { GuitarraPage } from '../../views/GuitarraPage'
+import { BibliotecaPage } from '../../views/BibliotecaPage'
+import { BibliotecaView } from '../../modules/biblioteca/BibliotecaView'
+import { SongDetail } from '../../modules/biblioteca/SongDetail'
+import { SongFormView } from '../../modules/biblioteca/SongFormView'
 
 export const AppRouter = () => {
 	return (

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { Header } from '../components/header/header'
+import { Header } from '../../components/header/header'
 
 export const MainLayout = () => {
 	const location = useLocation()

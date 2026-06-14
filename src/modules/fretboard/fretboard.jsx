@@ -31,9 +31,10 @@ export function Fretboard() {
 	} = useFretboard()
 
 	const positionIndexes = getPositionIndexes()
-	const chordVoicingIndexes = showTriad && activePositions.length > 0
-		? getChordVoicingIndexes(activeTriadIndex, activeInversion)
-		: new Set()
+	const chordVoicingIndexes =
+		showTriad && activePositions.length > 0
+			? getChordVoicingIndexes(activeTriadIndex, activeInversion)
+			: new Set()
 	const { root, third, fifth } = currentTriadDegrees
 	const hasActivePositions = activePositions.length > 0
 	const hasChordVoicing = chordVoicingIndexes.size > 0
@@ -55,22 +56,41 @@ export function Fretboard() {
 							const isThird = showThird && note === third
 							const isFifth = showFifth && note === fifth
 
-							const chordLabel = showTriad ? getChordNoteLabel(note, root, third, fifth, currentExtensions) : null
-							const isExtension = chordLabel !== null && !['root', 'third', 'fifth'].includes(chordLabel)
-							const inTriad = isRoot || isThird || isFifth || chordLabel !== null
+							const chordLabel = showTriad
+								? getChordNoteLabel(note, root, third, fifth, currentExtensions)
+								: null
+							const isExtension =
+								chordLabel !== null &&
+								!['root', 'third', 'fifth'].includes(chordLabel)
+							const inTriad =
+								isRoot || isThird || isFifth || chordLabel !== null
 
 							const usingChordVoicing = hasChordVoicing && showTriad
 							const isVoicingNote = usingChordVoicing && inChordVoicing
-							const showInThisPosition = !hasActivePositions || (hasActivePositions && inPosition)
-							const showChordNote = showTriad && ((isRoot || isThird || isFifth || isExtension) && showInThisPosition) || isVoicingNote
+							const showInThisPosition =
+								!hasActivePositions || (hasActivePositions && inPosition)
+							const showChordNote =
+								(showTriad &&
+									(isRoot || isThird || isFifth || isExtension) &&
+									showInThisPosition) ||
+								isVoicingNote
 
 							const classes = ['fret']
-							if (inScale && !showChordNote && !isVoicingNote) classes.push('fretActive')
-							if (isTonic && !inTriad && !isVoicingNote) classes.push('fretTonic')
-							if (inPosition && inScale && !showChordNote && !isVoicingNote) classes.push('positionNote')
+							if (inScale && !showChordNote && !isVoicingNote)
+								classes.push('fretActive')
+							if (isTonic && !inTriad && !isVoicingNote)
+								classes.push('fretTonic')
+							if (inPosition && inScale && !showChordNote && !isVoicingNote)
+								classes.push('positionNote')
 
 							if (isVoicingNote) {
-								const vLabel = getChordNoteLabel(note, root, third, fifth, currentExtensions)
+								const vLabel = getChordNoteLabel(
+									note,
+									root,
+									third,
+									fifth,
+									currentExtensions,
+								)
 								if (vLabel === 'root') classes.push('triadRoot')
 								else if (vLabel === 'third') classes.push('triadThird')
 								else if (vLabel === 'fifth') classes.push('triadFifth')
@@ -82,7 +102,10 @@ export function Fretboard() {
 								if (isExtension) classes.push('triadExtension')
 							}
 
-							const noteVar = (showChordNote || isVoicingNote) ? NOTE_CSS_VARS[note] || null : null
+							const noteVar =
+								showChordNote || isVoicingNote
+									? NOTE_CSS_VARS[note] || null
+									: null
 							const noteColorVar = noteVar ? `var(${noteVar})` : null
 
 							return (

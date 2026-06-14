@@ -1,28 +1,27 @@
 @use './sizes' as *;
 @use './mediaqueries' as *;
 
-.df {
-  display: flex;
+.flex {
+	display: flex;
 }
-.jcc {
-  justify-content: center;
-}
-
-.aic {
-  align-items: center;
+.flex-col {
+	display: flex;
+	flex-direction: column;
 }
 
-.fc {
-  display: flex;
-  flex-direction: column;
+.jc {
+	justify-content: center;
+}
+.ac {
+	align-items: center;
 }
 
 .gap {
-  gap: $gap;
+	gap: $gap;
 }
 
 @media (max-width: $medium) {
-  .non-mobile {
-    display: none;
-  }
+	.non-mobile {
+		display: none;
+	}
 }

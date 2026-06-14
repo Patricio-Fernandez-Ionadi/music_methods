@@ -1,5 +1,5 @@
 import { MODES } from '../data/modes'
-import { ModeComponent } from '../features/modes/mode-component'
+import { ModeComponent } from '../modules/modes/mode-component'
 
 const TONAL_MODES = ['jonico', 'eolico']
 
