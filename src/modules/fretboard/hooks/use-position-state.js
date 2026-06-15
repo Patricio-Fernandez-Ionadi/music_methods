@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { POSITIONS } from '../../../data'
+import { POSITIONS, STRING_INDEXES } from '../../../data'
 import { CHORD_VOICINGS } from '../data/chord-voicings'
 import {
 	TOTAL_FRETS,
