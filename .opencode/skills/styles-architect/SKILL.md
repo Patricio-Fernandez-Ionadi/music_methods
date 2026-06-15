@@ -35,7 +35,7 @@ theme/index.scss
  │         └── button/_back-button.scss
  └── modules/style/_index.scss   (forwards each module)
       ├── fretboard/style/_index.scss
-      │    ├── _fretboard, _triads, _selectors, _positions, _scale-info, _extensions, _inversions, _fretboard-header
+       │    ├── _fretboard, _triads, _selectors, _positions, _scale-info, _extensions, _fretboard-header
       ├── modes/style/_index.scss
       │    ├── _mode-header, _mode-table, _pentagram
       └── biblioteca/style/_index.scss
