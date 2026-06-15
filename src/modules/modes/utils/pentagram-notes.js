@@ -1,0 +1,15 @@
+export const pentagramNoteHeight = {
+	C1: 89,
+	D1: 80,
+	E1: 72,
+	F1: 64,
+	G1: 56,
+	A1: 49,
+	B: 41,
+	C: 34,
+	D: 26,
+	E: 19,
+	F: 11,
+	G: 5,
+	A: -5,
+}

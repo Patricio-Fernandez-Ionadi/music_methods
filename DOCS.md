@@ -105,6 +105,9 @@ _Generated on 2026-06-15_
 ### `modules/fretboard/inversion-controls.jsx`
   - `InversionControls`
 
+### `modules/fretboard/note/fret-note.jsx`
+  - `FretNote`
+
 ### `modules/fretboard/position-controls.jsx`
   - `Positions`
 
@@ -114,8 +117,33 @@ _Generated on 2026-06-15_
 ### `modules/fretboard/selectors.jsx`
   - `Selectors`
 
+### `modules/fretboard/string/fretboard-string.jsx`
+  - `FretboardString`
+
+### `modules/fretboard/triad-button.jsx`
+  - `TriadButton`
+
 ### `modules/fretboard/triads.jsx`
   - `Triads`
+
+### `modules/fretboard/utils/chord-labels.js`
+  - `getChordNoteLabel`
+
+### `modules/fretboard/utils/chord-names.js`
+  - `buildChordName`
+
+### `modules/fretboard/utils/position-utils.js`
+  - `TOTAL_FRETS`
+  - `getNoteIndexes`
+  - `positionApplies`
+  - `noteToGlobalIndex`
+  - `normalizeDegree`
+  - `findLowestChordNote`
+
+### `modules/fretboard/utils/scale-utils.js`
+  - `CHROMATIC`
+  - `normalizeNote`
+  - `getExtensionNotesForDegree`
 
 ### `modules/modes/mode-component.jsx`
   - `ModeComponent`
@@ -123,11 +151,20 @@ _Generated on 2026-06-15_
 ### `modules/modes/mode-header.jsx`
   - `ModeHeader`
 
+### `modules/modes/mode-table-row.jsx`
+  - `ModeTableRow`
+
 ### `modules/modes/mode-table.jsx`
   - `ModeTable`
 
+### `modules/modes/pentagram-note.jsx`
+  - `PentagramNote`
+
 ### `modules/modes/pentagram.jsx`
   - `Pentagram`
+
+### `modules/modes/utils/pentagram-notes.js`
+  - `pentagramNoteHeight`
 
 ## Shared Components
 
