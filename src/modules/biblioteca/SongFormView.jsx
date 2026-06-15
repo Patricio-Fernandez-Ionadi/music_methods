@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../app/context/app-context'
-import { useSongForm } from './useSongForm'
-import { stringToLyrics } from './lyrics'
+import { useSongForm } from './hooks/useSongForm'
+import { stringToLyrics } from './utils/lyrics'
 import './style/_song-form.scss'
 
 /**
