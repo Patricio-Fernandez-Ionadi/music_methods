@@ -210,3 +210,4 @@ When extracting inline JSX into atomic components:
 7. **Remove the inline JSX** from the view
 8. **Strip view SCSS**: if the view had a `.scss` with styles that now live in the component, remove them. Views should only keep minimal container styles.
 9. **Verify**: `npm run build`
+10. **Update docs**: `npm run docs` (regenera `DOCS.md` con el listado actualizado de componentes)
