@@ -1,11 +1,12 @@
+import { Field } from '../../app/components/field/field'
 import { useFretboard } from './context/FretboardContext'
 
 export const InversionControls = () => {
-	const { activeInversion, selectInversion, INVERSION_OPTIONS, showTriad } = useFretboard()
+	const { activeInversion, selectInversion, INVERSION_OPTIONS, showTriad } =
+		useFretboard()
 
 	return (
-		<div className='field inversion-controls'>
-			<h4>Inversiones</h4>
+		<Field label={'Inversiones'}>
 			<div className='inversion-toggle-group'>
 				{INVERSION_OPTIONS.map(({ value, label }) => (
 					<button
@@ -18,6 +19,6 @@ export const InversionControls = () => {
 					</button>
 				))}
 			</div>
-		</div>
+		</Field>
 	)
 }

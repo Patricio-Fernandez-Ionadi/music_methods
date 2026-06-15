@@ -1,7 +1,7 @@
 // ##### Theme #####
 @use 'values' as *;
 
-@use '../app/style/index';
+@use '../app/style/index' as *;
 
 // ##### features #####
 @use '../modules/style/index' as *;

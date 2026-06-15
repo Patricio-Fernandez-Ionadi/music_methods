@@ -1,11 +1,12 @@
+import { Field } from '../../app/components/field/field'
 import { useFretboard } from './context/FretboardContext'
 
 export const ExtensionControls = () => {
-	const { activeExtensions, toggleExtension, EXTENSION_OPTIONS, showTriad } = useFretboard()
+	const { activeExtensions, toggleExtension, EXTENSION_OPTIONS, showTriad } =
+		useFretboard()
 
 	return (
-		<div className='field extension-controls'>
-			<h4>Extensiones</h4>
+		<Field label={'Extensiones'}>
 			<div className='extension-toggle-group'>
 				{EXTENSION_OPTIONS.map(({ key, label }) => (
 					<button
@@ -18,6 +19,6 @@ export const ExtensionControls = () => {
 					</button>
 				))}
 			</div>
-		</div>
+		</Field>
 	)
 }

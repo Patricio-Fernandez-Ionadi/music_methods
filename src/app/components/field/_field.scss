@@ -1,0 +1,17 @@
+@use '../../../theme/values/colors' as *;
+@use '../../../theme/values/sizes' as *;
+
+.field {
+	margin-top: 16px;
+	border: 1px solid $grey;
+	border-radius: $smooth;
+	padding: 15px;
+	position: relative;
+	h4 {
+		position: absolute;
+		padding: 0 5px;
+		top: -16px;
+		left: 20px;
+		background-color: $background;
+	}
+}

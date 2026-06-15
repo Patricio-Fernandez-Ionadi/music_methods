@@ -1,4 +1,3 @@
-import './style.scss'
 const DEGREE_NAMES = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']
 
 function getDegreeClass(index, mode) {

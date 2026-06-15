@@ -1,12 +1,25 @@
 import { useMemo } from 'react'
-import { useApp } from '../../../context/AppContext'
+import { useApp } from '../../../app/context/app-context'
 import { ENHARMONICS } from '../../../data'
 import { useTriadState } from './useTriadState'
 import { usePositionState } from './usePositionState'
 import { useExtensionState } from './useExtensionState'
 import { useInversionState } from './useInversionState'
 
-const CHROMATIC = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B']
+const CHROMATIC = [
+	'C',
+	'C#',
+	'D',
+	'D#',
+	'E',
+	'F',
+	'F#',
+	'G',
+	'G#',
+	'A',
+	'Bb',
+	'B',
+]
 
 function normalizeNote(note) {
 	return ENHARMONICS[note] || note
@@ -43,8 +56,12 @@ export function useFretboardState() {
 	const positionState = usePositionState(normalizedScale, selectedMode.id)
 
 	const currentDegExtensions = useMemo(() => {
-		if (normalizedScale.length !== 7 || triadState.activeTriadIndex == null) return {}
-		return getExtensionNotesForDegree(normalizedScale, triadState.activeTriadIndex)
+		if (normalizedScale.length !== 7 || triadState.activeTriadIndex == null)
+			return {}
+		return getExtensionNotesForDegree(
+			normalizedScale,
+			triadState.activeTriadIndex,
+		)
 	}, [normalizedScale, triadState.activeTriadIndex])
 
 	const extensionState = useExtensionState(currentDegExtensions)

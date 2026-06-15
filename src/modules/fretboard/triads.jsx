@@ -1,6 +1,7 @@
 import { useFretboard } from './context/FretboardContext'
 import { useMemo } from 'react'
 import { ENHARMONICS } from '../../data'
+import { Field } from '../../app/components/field/field'
 
 function chordSuffix(type) {
 	if (type === 'm') return 'm'
@@ -86,13 +87,23 @@ export const Triads = () => {
 	const activeChordName = useMemo(() => {
 		if (activeTriadIndex == null || !rawTriads?.length) return ''
 		const triad = rawTriads[activeTriadIndex]
-		return buildChordName(triad[0], selectedMode.chords[activeTriadIndex], activeExtensions, activeInversion)
-	}, [rawTriads, activeTriadIndex, selectedMode, activeExtensions, activeInversion])
+		return buildChordName(
+			triad[0],
+			selectedMode.chords[activeTriadIndex],
+			activeExtensions,
+			activeInversion,
+		)
+	}, [
+		rawTriads,
+		activeTriadIndex,
+		selectedMode,
+		activeExtensions,
+		activeInversion,
+	])
 
 	return (
 		<>
-			<div id='triad-viewer' className='field'>
-				<h4>Tríadas</h4>
+			<Field id='triad-viewer' label={'Tríadas'}>
 				{rawTriads?.length > 0 && (
 					<div className='triad-selector'>
 						{(rawTriads ?? []).map((triad, i) => {
@@ -103,9 +114,7 @@ export const Triads = () => {
 									key={i}
 									className={`triad-btn${isActive ? ' active' : ''}`}
 									onClick={() => {
-										isActive
-											? deselectTriad()
-											: selectTriad(i)
+										isActive ? deselectTriad() : selectTriad(i)
 									}}
 								>
 									<strong>{isActive ? activeChordName : name}</strong>
@@ -116,7 +125,9 @@ export const Triads = () => {
 													key={j}
 													style={
 														isActive
-															? { color: `var(${NOTE_CSS_VARS[ENHARMONICS[note] || note]})` }
+															? {
+																	color: `var(${NOTE_CSS_VARS[ENHARMONICS[note] || note]})`,
+																}
 															: {}
 													}
 												>
@@ -131,7 +142,7 @@ export const Triads = () => {
 						})}
 					</div>
 				)}
-			</div>
+			</Field>
 		</>
 	)
 }

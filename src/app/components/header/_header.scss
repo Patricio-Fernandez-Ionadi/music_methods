@@ -1,5 +1,5 @@
-@use '../../theme/values/colors' as *;
-@use '../../theme/values/mediaqueries' as *;
+@use '../../../theme/values/colors' as *;
+@use '../../../theme/values/mediaqueries' as *;
 
 .header {
 	display: flex;
@@ -68,7 +68,9 @@
 		text-decoration: none;
 		font-size: 13px;
 		border-radius: 6px;
-		transition: background 0.15s, color 0.15s;
+		transition:
+			background 0.15s,
+			color 0.15s;
 
 		&:hover {
 			background: rgba($primary, 0.1);

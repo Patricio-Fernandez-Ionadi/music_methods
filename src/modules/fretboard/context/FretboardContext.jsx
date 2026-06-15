@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { useApp } from '../../../context/AppContext'
+import { useApp } from '../../../app/context/app-context'
 import { useFretboardState } from '../hooks/useFretboardState'
 import { NOTES } from '../../../data'
 

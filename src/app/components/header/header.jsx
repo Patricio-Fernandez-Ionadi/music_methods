@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import './style.scss'
 
 export const Header = () => {
 	const [navOpen, setNavOpen] = useState(false)
