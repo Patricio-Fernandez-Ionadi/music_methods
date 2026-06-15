@@ -27,36 +27,6 @@ function noteToGlobalIndex(stringName, rootFret, fretOffset) {
 	return STRING_INDEXES[stringName] + rootFret + fretOffset
 }
 
-function normalizeDegree(deg) {
-	if (deg === 'b3') return 3
-	if (deg === 'b5') return 5
-	if (deg === 'b7') return 7
-	return deg
-}
-
-function findLowestChordNote(voicingNotes, rootFret) {
-	let bestStringIdx = -1
-	let bestFret = 999
-	let bestDegree = null
-
-	for (const { string, fretOffset, degree } of voicingNotes) {
-		const stringIdx = STRING_INDEXES[string]
-		const noteFret = rootFret + fretOffset
-		if (noteFret < 0 || noteFret >= 20) continue
-
-		const globalIdx = stringIdx + noteFret
-		if (globalIdx < 0 || globalIdx >= TOTAL_FRETS) continue
-
-		if (stringIdx > bestStringIdx || (stringIdx === bestStringIdx && noteFret < bestFret)) {
-			bestStringIdx = stringIdx
-			bestFret = noteFret
-			bestDegree = degree
-		}
-	}
-
-	return normalizeDegree(bestDegree)
-}
-
 export function usePositionState(normalizedScale, modeId) {
 	const [activePositions, setActivePositions] = useState([])
 
@@ -81,16 +51,10 @@ export function usePositionState(normalizedScale, modeId) {
 		return activeIndexes
 	}, [normalizedScale, modeId, activePositions])
 
-	const getChordVoicingIndexes = useCallback((activeTriadIndex, activeInversion) => {
+	const getChordVoicingIndexes = useCallback((activeTriadIndex) => {
 		const tonicIndexes = getNoteIndexes(normalizedScale[0])
 		const modeVoicings = CHORD_VOICINGS[modeId]
 		if (!modeVoicings || !tonicIndexes.length) return new Set()
-
-		const rootDeg = activeTriadIndex + 1
-		const thirdDeg = ((activeTriadIndex + 1) + 2) % 7 || 7
-		const fifthDeg = ((activeTriadIndex + 1) + 4) % 7 || 7
-		const seventhDeg = ((activeTriadIndex + 1) + 6) % 7 || 7
-		const requiredDeg = [rootDeg, thirdDeg, fifthDeg, seventhDeg][activeInversion] ?? rootDeg
 
 		const activeIndexes = new Set()
 		tonicIndexes.forEach((tonicIndex) => {
@@ -106,11 +70,6 @@ export function usePositionState(normalizedScale, modeId) {
 				if (!positionApplies(pos, tonicIndex)) return
 				const posVoicing = modeVoicings[pos]
 				if (!posVoicing) return
-
-				if (activeInversion > 0) {
-					const lowestDeg = findLowestChordNote(posVoicing.notes, rootFret)
-					if (lowestDeg !== requiredDeg) return
-				}
 
 				posVoicing.notes.forEach(({ string, fretOffset }) => {
 					const globalIdx = noteToGlobalIndex(string, rootFret, fretOffset)

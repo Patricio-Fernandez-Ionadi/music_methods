@@ -4,7 +4,6 @@ import { ENHARMONICS } from '../../../data'
 import { useTriadState } from './use-triad-state'
 import { usePositionState } from './use-position-state'
 import { useExtensionState } from './use-extension-state'
-import { useInversionState } from './use-inversion-state'
 
 const CHROMATIC = [
 	'C',
@@ -65,7 +64,6 @@ export function useFretboardState() {
 	}, [normalizedScale, triadState.activeTriadIndex])
 
 	const extensionState = useExtensionState(currentDegExtensions)
-	const inversionState = useInversionState()
 
 	return {
 		rawTriads,
@@ -74,6 +72,5 @@ export function useFretboardState() {
 		...triadState,
 		...positionState,
 		...extensionState,
-		...inversionState,
 	}
 }

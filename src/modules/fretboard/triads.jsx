@@ -73,7 +73,6 @@ export const Triads = () => {
 		deselectTriad,
 		selectedMode,
 		activeExtensions,
-		activeInversion,
 		NOTE_CSS_VARS,
 	} = useFretboard()
 
@@ -91,14 +90,13 @@ export const Triads = () => {
 			triad[0],
 			selectedMode.chords[activeTriadIndex],
 			activeExtensions,
-			activeInversion,
+			0,
 		)
 	}, [
 		rawTriads,
 		activeTriadIndex,
 		selectedMode,
 		activeExtensions,
-		activeInversion,
 	])
 
 	return (
