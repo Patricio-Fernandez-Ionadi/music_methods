@@ -1,89 +1,162 @@
+@use '../../../theme/values/colors' as *;
+
 .fretboard-container {
 	width: 100%;
 	position: relative;
-	height: 150px;
+	height: 210px;
 	background-color: #302924;
+	border-radius: 8px;
+
 	.fretboardDinamic {
 		width: 100%;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
 		position: relative;
+		overflow: hidden;
+
 		.string-container {
 			height: 100%;
 			display: flex;
 			position: relative;
-			& :nth-child(2) {
-				background-color: #25201c;
-				border-left: #363535 solid 3px;
-			}
-			& :nth-child(5),
-			& :nth-child(7),
-			& :nth-child(9),
-			& :nth-child(11),
-			& :nth-child(17),
-			& :nth-child(19) {
-				background-color: #25201c;
-			}
-			& :nth-child(14) {
-				background-color: #1f1c1a;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background: linear-gradient(
+					to right,
+					transparent 0%,
+					rgba(112, 110, 110, 0.5) 3%,
+					rgba(112, 110, 110, 0.3) 97%,
+					transparent 100%
+				);
+				pointer-events: none;
+				z-index: 1;
 			}
 
-			.visual-string {
-				position: absolute;
-				border-bottom: #706e6e solid 2px;
-				opacity: 0.4;
-				top: 50%;
-				width: 100%;
-			}
 			.fret {
-				border-left: #a3a2a2 solid 2px;
 				flex: 1;
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				position: relative;
+				border-left: 1px solid rgba(163, 162, 162, 0.35);
+				transition: background-color 0.2s;
+
+				&:first-child {
+					border-left: 2px solid rgba(163, 162, 162, 0.6);
+				}
+
+				&.fret-marker::before {
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+					background: rgba(255, 255, 255, 0.08);
+					pointer-events: none;
+				}
+
+				&.fret-marker-double::before,
+				&.fret-marker-double::after {
+					content: '';
+					position: absolute;
+					width: 5px;
+					height: 5px;
+					border-radius: 50%;
+					background: rgba(255, 255, 255, 0.08);
+					pointer-events: none;
+				}
+
+				&.fret-marker-double::before {
+					top: 35%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+
+				&.fret-marker-double::after {
+					top: 65%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+
+				/* Base note indicator */
+				span {
+					display: none;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+					transition: all 0.2s ease;
+					z-index: 2;
+					position: relative;
+					font-size: 9px;
+					font-weight: 700;
+					color: #fff;
+					text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+				}
+
+				&.highlighted span {
+					display: inline-flex;
+				}
+
+				/* Scale notes (fondo base) */
 				&.fretActive span {
-					/* ---- Notas de la escala (visibilidad base) ---- */
-					display: inline-block;
-					height: 14px;
-					width: 14px;
-					border-radius: 50%;
-					background-color: rgb(5, 172, 144);
-					opacity: 0.08;
-					z-index: 1;
+					width: 18px;
+					height: 18px;
+					background: rgba(5, 172, 144, 0.25);
+					font-size: 0;
 				}
+
+				/* CAGED position notes */
 				&.positionNote span {
-					/* ---- Posiciones (1-5) colores fijos por shape ---- */
-					display: inline-block;
-					width: 16px;
-					height: 16px;
-					border-radius: 50%;
-					opacity: 1;
-					background-color: #22c7bf;
+					width: 20px;
+					height: 20px;
+					background: #22c7bf;
+					box-shadow: 0 0 6px rgba(34, 199, 191, 0.5);
 				}
-				&.fret.fretTonic span {
-					/* ---- Tónica de escala ---- */
-					opacity: 1;
-					background-color: lightgreen;
+
+				/* Tonic */
+				&.fretTonic span {
+					width: 22px;
+					height: 22px;
+					background: #69db7c;
+					box-shadow: 0 0 8px rgba(105, 219, 124, 0.5);
+					font-size: 10px;
 				}
+
+				/* Triad root / third / fifth */
 				&.triadRoot span,
 				&.triadThird span,
 				&.triadFifth span {
-					/* ---- Tríadas: usan --note-color definido inline ---- */
-					width: 16px;
-					height: 16px;
-					opacity: 1;
-					background-color: var(--note-color);
+					width: 24px;
+					height: 24px;
+					background: var(--note-color);
+					box-shadow: 0 0 10px var(--note-color);
+					font-size: 10px;
 				}
-			&.triadExtension span {
-				/* ---- Extensiones (7, 6, 9, etc.) ---- */
-				width: 12px;
-				height: 12px;
-				opacity: 0.8;
-				background-color: var(--note-color);
-				border: 2px solid var(--note-color);
-			}
 
+				&.triadRoot span {
+					width: 28px;
+					height: 28px;
+					box-shadow: 0 0 12px var(--note-color), 0 0 0 3px color-mix(in srgb, var(--note-color) 40%, transparent);
+				}
+
+				/* Extensions (b7, 9, sus4, etc.) */
+				&.triadExtension span {
+					width: 18px;
+					height: 18px;
+					background: transparent;
+					border: 2px solid var(--note-color);
+					box-shadow: 0 0 6px var(--note-color);
+					font-size: 0;
+				}
 			}
 		}
 	}

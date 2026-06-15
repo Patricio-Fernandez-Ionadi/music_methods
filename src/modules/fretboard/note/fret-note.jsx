@@ -48,7 +48,23 @@ export function FretNote({
 			showInThisPosition) ||
 		isVoicingNote
 
+	const isHighlighted =
+		(isTonic && !inTriad && !isVoicingNote) ||
+		(inScale && !showChordNote && !isVoicingNote) ||
+		(inPosition && inScale && !showChordNote && !isVoicingNote) ||
+		showChordNote ||
+		isVoicingNote
+
+	const SINGLE_MARKERS = [3, 5, 7, 9, 15, 17, 19]
+	const DOUBLE_MARKERS = [12]
+	const markerClass = SINGLE_MARKERS.includes(fret)
+		? 'fret-marker'
+		: DOUBLE_MARKERS.includes(fret)
+			? 'fret-marker-double'
+			: null
+
 	const classes = ['fret']
+	if (markerClass) classes.push(markerClass)
 	if (inScale && !showChordNote && !isVoicingNote)
 		classes.push('fretActive')
 	if (isTonic && !inTriad && !isVoicingNote)
@@ -75,6 +91,8 @@ export function FretNote({
 		if (isExtension) classes.push('triadExtension')
 	}
 
+	if (isHighlighted) classes.push('highlighted')
+
 	const noteVar =
 		showChordNote || isVoicingNote
 			? NOTE_CSS_VARS[note] || null
@@ -88,7 +106,7 @@ export function FretNote({
 			className={classes.join(' ')}
 			style={noteColorVar ? { '--note-color': noteColorVar } : {}}
 		>
-			<span></span>
+			<span>{isHighlighted ? note : ''}</span>
 		</div>
 	)
 }

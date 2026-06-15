@@ -20,7 +20,6 @@ export function FretboardString({
 }) {
 	return (
 		<div key={stringName} id={stringName} className='string-container'>
-			<div className='visual-string'></div>
 			{STRING_NOTES[stringName].map((note, fret) => (
 				<FretNote
 					key={fret}
