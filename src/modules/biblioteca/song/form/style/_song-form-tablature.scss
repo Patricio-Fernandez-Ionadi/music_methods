@@ -1,0 +1,24 @@
+@use '../../../../../theme/values' as *;
+
+.tabs-textarea {
+	font-family: 'Courier New', monospace !important;
+	font-size: 0.82rem !important;
+	line-height: 1.5 !important;
+}
+
+.insert-template {
+	margin-top: 0.6rem;
+	background: transparent;
+	border: 1px dashed $grey;
+	color: $grey_light;
+	padding: $pad-tb $pad-lr;
+	border-radius: $thin;
+	cursor: pointer;
+	font-size: 0.82rem;
+
+	&:hover {
+		border-color: $primary;
+		color: $primary_light;
+		background: rgba($primary, 0.06);
+	}
+}

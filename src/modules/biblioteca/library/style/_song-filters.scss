@@ -1,0 +1,22 @@
+@use '../../../../theme/values' as *;
+
+.filters {
+	display: flex;
+	gap: $gap;
+	margin-bottom: 1rem;
+	flex-wrap: wrap;
+}
+
+.filter-input {
+	flex: 1 1 180px;
+	padding: $pad;
+	border: 1px solid $grey;
+	border-radius: $smooth;
+	background: $black_light;
+	color: $white;
+	font-size: 0.9rem;
+
+	&::placeholder {
+		color: $grey_light;
+	}
+}

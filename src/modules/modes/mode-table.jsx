@@ -1,5 +1,4 @@
 import { SCALES } from '../../data/scales'
-import './style/_mode-table.scss'
 
 export const ModeTable = ({ mode }) => {
 	return (

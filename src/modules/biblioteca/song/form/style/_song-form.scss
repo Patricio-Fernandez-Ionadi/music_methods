@@ -1,0 +1,13 @@
+@use '../../../../../theme/values' as *;
+
+.song-form-view {
+	padding: $padding-container;
+
+	> h2 {
+		margin-bottom: 1.5rem;
+	}
+}
+
+.song-form {
+	max-width: 640px;
+}

@@ -1,0 +1,17 @@
+@use '../../../theme/values' as *;
+
+.back-btn {
+	padding: $pad-tb $pad-lr;
+	margin-bottom: 1rem;
+	border: 1px solid $grey;
+	border-radius: $thin;
+	background: transparent;
+	color: $grey_light;
+	cursor: pointer;
+	font-size: 0.85rem;
+
+	&:hover {
+		background: $grey_dark;
+		color: $white;
+	}
+}

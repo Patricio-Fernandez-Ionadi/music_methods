@@ -1,5 +1,3 @@
-import './style/_pentagram.scss'
-
 const pentagramNoteHeight = {
 	C1: 89,
 	D1: 80,

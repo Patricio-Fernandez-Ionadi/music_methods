@@ -4,10 +4,6 @@ import { AppProvider } from '../context/app-context'
 import { MainLayout } from '../layout/main-layout'
 import * as v from '../../views'
 
-import { BibliotecaView } from '../../modules/biblioteca/biblioteca-view'
-import { SongDetail } from '../../modules/biblioteca/song-detail'
-import { SongFormView } from '../../modules/biblioteca/song-form-view'
-
 export const AppRouter = () => {
 	return (
 		<BrowserRouter>
@@ -19,9 +15,9 @@ export const AppRouter = () => {
 						<Route path='/modos' element={<v.ModosView />} />
 						<Route path='/guitarra' element={<v.GuitarraView />} />
 						<Route path='/biblioteca'>
-							<Route index element={<BibliotecaView />} />
-							<Route path='nueva' element={<SongFormView />} />
-							<Route path=':songId' element={<SongDetail />} />
+							<Route index element={<v.BibliotecaView />} />
+							<Route path='nueva' element={<v.SongFormView />} />
+							<Route path=':songId' element={<v.SongDetail />} />
 						</Route>
 					</Route>
 				</Routes>

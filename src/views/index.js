@@ -1,4 +1,6 @@
-export { BibliotecaLayout } from './biblioteca/biblioteca-layout'
 export { FuncionalView } from './funcional/funcional-view'
 export { ModosView } from './modos/modos-view'
 export { GuitarraView } from './guitarra/guitarra-view'
+export { BibliotecaView } from './biblioteca/biblioteca-view'
+export { SongDetail } from './biblioteca/song-detail'
+export { SongFormView } from './biblioteca/song-form-view'

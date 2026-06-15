@@ -1,0 +1,29 @@
+@use '../../../../theme/values' as *;
+
+.biblioteca-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	flex-wrap: wrap;
+	gap: $gap;
+
+	h2 {
+		margin: 0;
+	}
+}
+
+.btn-add {
+	padding: $pad-tb 1rem;
+	border: none;
+	border-radius: $smooth;
+	background: $primary;
+	color: $white;
+	font-weight: 600;
+	font-size: 0.9rem;
+	cursor: pointer;
+
+	&:hover {
+		filter: brightness(1.15);
+	}
+}

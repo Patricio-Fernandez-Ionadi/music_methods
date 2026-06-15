@@ -1,5 +1,3 @@
-import './style/_mode-header.scss'
-
 export const ModeHeader = ({ mode }) => {
 	return (
 		<div className='mode-header'>

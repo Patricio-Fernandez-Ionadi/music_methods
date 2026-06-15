@@ -1,0 +1,75 @@
+@use '../../../../../theme/values' as *;
+
+.form-section {
+	border: 1px solid $grey;
+	border-radius: $smooth;
+	padding: 1.25rem;
+	margin-bottom: 1.25rem;
+
+	legend {
+		color: $primary;
+		font-weight: 600;
+		font-size: 0.95rem;
+		padding: 0 0.5rem;
+	}
+}
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	margin-top: 0.75rem;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	input,
+	textarea {
+		padding: $pad;
+		border: 1px solid $grey;
+		border-radius: $smooth;
+		background: $black_light;
+		color: $white;
+		font-size: 0.95rem;
+		font-family: inherit;
+
+		&::placeholder {
+			color: $grey_light;
+		}
+
+		&:focus {
+			outline: none;
+			border-color: $primary;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+}
+
+.form-label {
+	font-size: 0.85rem;
+	color: $grey_light;
+	font-weight: 500;
+}
+
+.form-hint {
+	font-size: 0.82rem;
+	color: $grey_light;
+	background: $black_dark;
+	padding: $pad;
+	border-radius: $thin;
+	margin-top: 0.75rem;
+	line-height: 1.5;
+
+	code {
+		color: $primary_light;
+		background: $black_light;
+		padding: 1px 5px;
+		border-radius: 2px;
+		font-size: 0.82rem;
+	}
+}

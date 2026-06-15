@@ -1,0 +1,60 @@
+@use '../../../../../theme/values' as *;
+
+.menu-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.menu-trigger {
+	background: none;
+	border: none;
+	color: $grey_light;
+	font-size: 24px;
+	cursor: pointer;
+	border-radius: $thin;
+	width: 30px;
+	height: 30px;
+
+	&:hover {
+		background: $grey_dark;
+		color: $white;
+	}
+}
+
+.menu-dropdown {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	min-width: 130px;
+	background: $black;
+	border: 1px solid $grey;
+	border-radius: $smooth;
+	z-index: 10;
+	overflow: hidden;
+
+	button {
+		display: block;
+		width: 100%;
+		padding: $pad;
+		border: none;
+		background: none;
+		color: $white;
+		text-align: left;
+		cursor: pointer;
+		font-size: 0.85rem;
+
+		&:hover {
+			background: $grey_dark;
+		}
+	}
+}
+
+.menu-delete {
+	color: #e74c3c !important;
+
+	&:hover {
+		background: #e74c3c !important;
+		color: $white !important;
+	}
+}

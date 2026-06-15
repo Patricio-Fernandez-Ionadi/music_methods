@@ -1,0 +1,42 @@
+@use '../../../../theme/values' as *;
+
+.song-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: $pad;
+	border-bottom: 1px solid $grey_dark;
+	gap: $gap;
+	flex-wrap: wrap;
+
+	&:hover {
+		background: rgba($white, 0.03);
+	}
+}
+
+.song-info {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	flex-wrap: wrap;
+
+	strong {
+		color: $white;
+	}
+
+	span {
+		color: $grey_light;
+		font-size: 0.9rem;
+	}
+}
+
+.song-key {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: $thin;
+	background: $primary_darken;
+	color: $white;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+}

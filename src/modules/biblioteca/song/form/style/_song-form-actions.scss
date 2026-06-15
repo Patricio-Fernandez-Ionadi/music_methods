@@ -1,0 +1,34 @@
+@use '../../../../../theme/values' as *;
+
+.form-actions {
+	display: flex;
+	gap: $gap;
+	margin-top: 0.5rem;
+
+	button {
+		padding: $pad-tb 1.5rem;
+		border: none;
+		border-radius: $smooth;
+		cursor: pointer;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+}
+
+.btn-submit {
+	background: $primary;
+	color: $white;
+
+	&:hover {
+		filter: brightness(1.15);
+	}
+}
+
+.btn-cancel {
+	background: $grey;
+	color: $white;
+
+	&:hover {
+		filter: brightness(1.15);
+	}
+}
