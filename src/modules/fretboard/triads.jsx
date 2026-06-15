@@ -1,4 +1,4 @@
-import { useFretboard } from './context/FretboardContext'
+import { useFretboard } from './context/fretboard-context'
 import { useMemo } from 'react'
 import { ENHARMONICS } from '../../data'
 import { Field } from '../../app/components/field/field'

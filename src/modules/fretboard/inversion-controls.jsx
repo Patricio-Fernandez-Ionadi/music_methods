@@ -1,5 +1,5 @@
 import { Field } from '../../app/components/field/field'
-import { useFretboard } from './context/FretboardContext'
+import { useFretboard } from './context/fretboard-context'
 
 export const InversionControls = () => {
 	const { activeInversion, selectInversion, INVERSION_OPTIONS, showTriad } =

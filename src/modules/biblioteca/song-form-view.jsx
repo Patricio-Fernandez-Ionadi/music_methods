@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../app/context/app-context'
-import { useSongForm } from './hooks/useSongForm'
+import { useSongForm } from './hooks/use-song-form'
 import { stringToLyrics } from './utils/lyrics'
 import './style/_song-form.scss'
 

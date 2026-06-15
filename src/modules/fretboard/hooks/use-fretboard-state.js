@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { useApp } from '../../../app/context/app-context'
 import { ENHARMONICS } from '../../../data'
-import { useTriadState } from './useTriadState'
-import { usePositionState } from './usePositionState'
-import { useExtensionState } from './useExtensionState'
-import { useInversionState } from './useInversionState'
+import { useTriadState } from './use-triad-state'
+import { usePositionState } from './use-position-state'
+import { useExtensionState } from './use-extension-state'
+import { useInversionState } from './use-inversion-state'
 
 const CHROMATIC = [
 	'C',

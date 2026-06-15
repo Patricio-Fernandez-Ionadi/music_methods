@@ -1,4 +1,4 @@
-import { useFretboard } from './context/FretboardContext'
+import { useFretboard } from './context/fretboard-context'
 
 export const Positions = () => {
 	const { activePositions, togglePosition, toggleAllPositions } = useFretboard()

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 import { useApp } from '../../../app/context/app-context'
-import { useFretboardState } from '../hooks/useFretboardState'
+import { useFretboardState } from '../hooks/use-fretboard-state'
 import { NOTES } from '../../../data'
 
 const FretboardContext = createContext(null)

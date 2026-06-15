@@ -1,5 +1,5 @@
 import { STRING_INDEXES, STRING_NOTES } from '../../data'
-import { useFretboard } from './context/FretboardContext'
+import { useFretboard } from './context/fretboard-context'
 
 const STRING_ORDER = ['e', 'b', 'g', 'D', 'A', 'E']
 

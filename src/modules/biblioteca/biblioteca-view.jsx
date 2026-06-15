@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useSongFilters } from './hooks/useSongFilters'
+import { useSongFilters } from './hooks/use-song-filters'
 import { useApp } from '../../app/context/app-context'
 import './style/_biblioteca.scss'
 

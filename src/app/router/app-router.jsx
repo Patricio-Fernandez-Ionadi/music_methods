@@ -4,9 +4,9 @@ import { AppProvider } from '../context/app-context'
 import { MainLayout } from '../layout/main-layout'
 import * as v from '../../views'
 
-import { BibliotecaView } from '../../modules/biblioteca/BibliotecaView'
-import { SongDetail } from '../../modules/biblioteca/SongDetail'
-import { SongFormView } from '../../modules/biblioteca/SongFormView'
+import { BibliotecaView } from '../../modules/biblioteca/biblioteca-view'
+import { SongDetail } from '../../modules/biblioteca/song-detail'
+import { SongFormView } from '../../modules/biblioteca/song-form-view'
 
 export const AppRouter = () => {
 	return (

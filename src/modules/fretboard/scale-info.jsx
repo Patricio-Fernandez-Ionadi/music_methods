@@ -1,5 +1,5 @@
 import { Field } from '../../app/components/field/field'
-import { useFretboard } from './context/FretboardContext'
+import { useFretboard } from './context/fretboard-context'
 
 export const ScaleInfo = () => {
 	const { selectedTonic, selectedMode, currentScale, NOTE_CSS_VARS } =
