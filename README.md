@@ -1,6 +1,6 @@
 # Music Methods
 
-Aplicación educativa interactiva para explorar teoría musical en la guitarra. Enfocada en los **7 modos musicales**, el **diapasón interactivo** con tríadas, extensiones, inversiones y posiciones CAGED, y un **cancionero** con letras y tablaturas.
+Aplicación educativa interactiva para explorar teoría musical en la guitarra. Enfocada en los **7 modos musicales**, el **diapasón interactivo** con tríadas, extensiones y posiciones CAGED, y un **cancionero** con letras y tablaturas.
 
 ---
 
@@ -28,7 +28,6 @@ Diapasón interactivo de 6 cuerdas con múltiples herramientas:
 - **Selector de tríadas** — 7 botones (I a VII) con nomenclatura inteligente de acordes. Al pulsar una tríada se resaltan sus notas en el diapasón con colores por función (fundamental, tercera, quinta, extensiones)
 - **Controles de posición CAGED** — 5 posiciones, permite alternar entre posiciones individuales o ver todas
 - **Controles de extensión** — añade extensiones a los acordes: 7, b7, 6, 9, 11, sus4, sus2
-- **Controles de inversión** — selecciona inversiones: Fundamental, 1ra, 2da, 3ra
 - **Visualización de acordes** — muestra voicings predefinidos sobre el diapasón
 
 ### Biblioteca — `/biblioteca`
@@ -86,7 +85,7 @@ src/
 │   ├── fretboard/              # Componentes del diapasón
 │   │   ├── context/            # FretboardContext
 │   │   ├── hooks/              # useFretboardState, useTriadState, usePositionState,
-│   │   │                       # useExtensionState, useInversionState
+│   │   │                       # useExtensionState
 │   │   ├── data/               # chord-voicings.js (voicings predefinidos)
 │   │   ├── fretboard-view.jsx  # Layout de la página guitarra
 │   │   ├── fretboard.jsx       # Render del diapasón
@@ -94,8 +93,7 @@ src/
 │   │   ├── scale-info.jsx      # Información de escala
 │   │   ├── selectors.jsx       # Selectores de modo y tónica
 │   │   ├── position-controls.jsx
-│   │   ├── extension-controls.jsx
-│   │   └── inversion-controls.jsx
+│   │   └── extension-controls.jsx
 │   ├── biblioteca/             # Componentes del cancionero
 │   │   ├── BibliotecaView.jsx
 │   │   ├── SongDetail.jsx
@@ -120,13 +118,14 @@ AppProvider (tónica, modo, escala, tríadas, canciones)
        ├─ FuncionalPage / ModosPage → mode-component, mode-table, pentagram, armonic-table
        ├─ GuitarraPage
        │    └─ FretboardProvider
-       │         └─ FretboardView → selectors, scale-info, triads,
-       │              fretboard, position-controls, extension-controls, inversion-controls
+│    └─ FretboardProvider
+│         └─ FretboardView → selectors, scale-info, triads,
+│              fretboard, position-controls, extension-controls
        └─ BibliotecaPage → BibliotecaView, SongDetail, SongFormView
 ```
 
 - **Estado global**: `AppContext` gestiona tónica, modo, escala derivada, tríadas y canciones
-- **Estado del diapasón**: `FretboardContext` compone hooks especializados para tríadas, posiciones, extensiones e inversiones
+- **Estado del diapasón**: `FretboardContext` compone hooks especializados para tríadas, posiciones y extensiones
 - **Persistencia**: Las canciones se guardan en `localStorage` bajo la clave `biblioteca-songs`
 
 ---

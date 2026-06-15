@@ -4,7 +4,6 @@ import { Triads } from './triads'
 import { Fretboard } from './fretboard'
 import { Positions } from './position-controls'
 import { ExtensionControls } from './extension-controls'
-import { InversionControls } from './inversion-controls'
 
 export function FretboardView() {
 	return (
@@ -14,7 +13,6 @@ export function FretboardView() {
 				<ScaleInfo />
 				<Triads />
 				<ExtensionControls />
-				<InversionControls />
 			</div>
 
 			<Fretboard />

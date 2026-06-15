@@ -14,7 +14,6 @@ export function Fretboard() {
 		getPositionIndexes,
 		getChordVoicingIndexes,
 		activeTriadIndex,
-		activeInversion,
 		currentExtensions,
 		activePositions,
 		NOTE_CSS_VARS,
@@ -23,7 +22,7 @@ export function Fretboard() {
 	const positionIndexes = getPositionIndexes()
 	const chordVoicingIndexes =
 		showTriad && activePositions.length > 0
-			? getChordVoicingIndexes(activeTriadIndex, activeInversion)
+			? getChordVoicingIndexes(activeTriadIndex)
 			: new Set()
 	const { root, third, fifth } = currentTriadDegrees
 	const hasActivePositions = activePositions.length > 0

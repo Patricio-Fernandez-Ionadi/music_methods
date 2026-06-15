@@ -6,57 +6,36 @@ function chordSuffix(type) {
 	return ''
 }
 
-export function buildChordName(root, type, extensions, inversion) {
+export function buildChordName(root, type, extensions) {
 	const base = chordSuffix(type)
 	const extOrder = ['sus4', 'sus2', 'b7', '7', '6', '9', '11']
 	const active = extOrder.filter((e) => extensions.includes(e))
 
-	let name
-
 	if (active.length === 0) {
-		name = `${root}${base}`
-	} else {
-		const first = active[0]
+		return `${root}${base}`
+	}
 
-		if (first === 'sus4' || first === 'sus2') {
-			name = `${root}${first}`
-		} else {
-			let suffix = base
+	const first = active[0]
 
-			for (const ext of active) {
-				if (ext === 'b7') {
-					if (type === 'dim') {
-						suffix = 'm7b5'
-					} else {
-						suffix += '7'
-					}
-				} else if (ext === '7') {
-					suffix += 'maj7'
-				} else if (ext === '6') {
-					suffix += '6'
-				} else if (ext === '9') {
-					if (extensions.includes('b7') || extensions.includes('7')) {
-						suffix += '9'
-					} else {
-						suffix += 'add9'
-					}
-				} else if (ext === '11') {
-					if (extensions.includes('b7') || extensions.includes('7')) {
-						suffix += '11'
-					} else {
-						suffix += 'add11'
-					}
-				}
-			}
+	if (first === 'sus4' || first === 'sus2') {
+		return `${root}${first}`
+	}
 
-			name = `${root}${suffix}`
+	let suffix = base
+
+	for (const ext of active) {
+		if (ext === 'b7') {
+			suffix = type === 'dim' ? 'm7b5' : `${suffix}7`
+		} else if (ext === '7') {
+			suffix += 'maj7'
+		} else if (ext === '6') {
+			suffix += '6'
+		} else if (ext === '9') {
+			suffix += (extensions.includes('b7') || extensions.includes('7')) ? '9' : 'add9'
+		} else if (ext === '11') {
+			suffix += (extensions.includes('b7') || extensions.includes('7')) ? '11' : 'add11'
 		}
 	}
 
-	if (inversion > 0) {
-		const invLabels = ['', '1ra inv.', '2da inv.', '3ra inv.']
-		name += ` (${invLabels[inversion]})`
-	}
-
-	return name
+	return `${root}${suffix}`
 }

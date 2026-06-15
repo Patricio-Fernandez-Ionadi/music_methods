@@ -13,14 +13,13 @@ export const Triads = () => {
 		deselectTriad,
 		selectedMode,
 		activeExtensions,
-		activeInversion,
 		NOTE_CSS_VARS,
 	} = useFretboard()
 
 	const chordNames = useMemo(() => {
 		if (!rawTriads?.length) return []
 		return rawTriads.map((triad, i) =>
-			buildChordName(triad[0], selectedMode.chords[i], [], 0),
+			buildChordName(triad[0], selectedMode.chords[i], []),
 		)
 	}, [rawTriads, selectedMode])
 
@@ -31,14 +30,12 @@ export const Triads = () => {
 			triad[0],
 			selectedMode.chords[activeTriadIndex],
 			activeExtensions,
-			activeInversion,
 		)
 	}, [
 		rawTriads,
 		activeTriadIndex,
 		selectedMode,
 		activeExtensions,
-		activeInversion,
 	])
 
 	return (

@@ -3,7 +3,6 @@ import { useApp } from '../../../app/context/app-context'
 import { useTriadState } from './use-triad-state'
 import { usePositionState } from './use-position-state'
 import { useExtensionState } from './use-extension-state'
-import { useInversionState } from './use-inversion-state'
 import { normalizeNote, getExtensionNotesForDegree } from '../utils/scale-utils'
 
 export function useFretboardState() {
@@ -32,7 +31,6 @@ export function useFretboardState() {
 	}, [normalizedScale, triadState.activeTriadIndex])
 
 	const extensionState = useExtensionState(currentDegExtensions)
-	const inversionState = useInversionState()
 
 	return {
 		rawTriads,
@@ -41,6 +39,5 @@ export function useFretboardState() {
 		...triadState,
 		...positionState,
 		...extensionState,
-		...inversionState,
 	}
 }

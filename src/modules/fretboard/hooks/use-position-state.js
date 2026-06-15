@@ -6,7 +6,6 @@ import {
 	getNoteIndexes,
 	positionApplies,
 	noteToGlobalIndex,
-	findLowestChordNote,
 } from '../utils/position-utils'
 
 export function usePositionState(normalizedScale, modeId) {
@@ -33,16 +32,10 @@ export function usePositionState(normalizedScale, modeId) {
 		return activeIndexes
 	}, [normalizedScale, modeId, activePositions])
 
-	const getChordVoicingIndexes = useCallback((activeTriadIndex, activeInversion) => {
+	const getChordVoicingIndexes = useCallback((activeTriadIndex) => {
 		const tonicIndexes = getNoteIndexes(normalizedScale[0])
 		const modeVoicings = CHORD_VOICINGS[modeId]
 		if (!modeVoicings || !tonicIndexes.length) return new Set()
-
-		const rootDeg = activeTriadIndex + 1
-		const thirdDeg = ((activeTriadIndex + 1) + 2) % 7 || 7
-		const fifthDeg = ((activeTriadIndex + 1) + 4) % 7 || 7
-		const seventhDeg = ((activeTriadIndex + 1) + 6) % 7 || 7
-		const requiredDeg = [rootDeg, thirdDeg, fifthDeg, seventhDeg][activeInversion] ?? rootDeg
 
 		const activeIndexes = new Set()
 		tonicIndexes.forEach((tonicIndex) => {
@@ -58,11 +51,6 @@ export function usePositionState(normalizedScale, modeId) {
 				if (!positionApplies(pos, tonicIndex)) return
 				const posVoicing = modeVoicings[pos]
 				if (!posVoicing) return
-
-				if (activeInversion > 0) {
-					const lowestDeg = findLowestChordNote(posVoicing.notes, rootFret)
-					if (lowestDeg !== requiredDeg) return
-				}
 
 				posVoicing.notes.forEach(({ string, fretOffset }) => {
 					const globalIdx = noteToGlobalIndex(string, rootFret, fretOffset)

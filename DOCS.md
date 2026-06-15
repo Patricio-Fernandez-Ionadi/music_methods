@@ -92,18 +92,11 @@ _Generated on 2026-06-15_
 ### `modules/fretboard/hooks/use-fretboard-state.js`
   - `useFretboardState`
 
-### `modules/fretboard/hooks/use-inversion-state.js`
-  - `INVERSION_OPTIONS`
-  - `useInversionState`
-
 ### `modules/fretboard/hooks/use-position-state.js`
   - `usePositionState`
 
 ### `modules/fretboard/hooks/use-triad-state.js`
   - `useTriadState`
-
-### `modules/fretboard/inversion-controls.jsx`
-  - `InversionControls`
 
 ### `modules/fretboard/note/fret-note.jsx`
   - `FretNote`
@@ -137,8 +130,6 @@ _Generated on 2026-06-15_
   - `getNoteIndexes`
   - `positionApplies`
   - `noteToGlobalIndex`
-  - `normalizeDegree`
-  - `findLowestChordNote`
 
 ### `modules/fretboard/utils/scale-utils.js`
   - `CHROMATIC`
