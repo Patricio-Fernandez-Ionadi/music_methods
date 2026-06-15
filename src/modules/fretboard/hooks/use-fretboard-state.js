@@ -1,43 +1,10 @@
 import { useMemo } from 'react'
 import { useApp } from '../../../app/context/app-context'
-import { ENHARMONICS } from '../../../data'
 import { useTriadState } from './use-triad-state'
 import { usePositionState } from './use-position-state'
 import { useExtensionState } from './use-extension-state'
 import { useInversionState } from './use-inversion-state'
-
-const CHROMATIC = [
-	'C',
-	'C#',
-	'D',
-	'D#',
-	'E',
-	'F',
-	'F#',
-	'G',
-	'G#',
-	'A',
-	'Bb',
-	'B',
-]
-
-function normalizeNote(note) {
-	return ENHARMONICS[note] || note
-}
-
-function getExtensionNotesForDegree(scale, degreeIndex) {
-	const root = scale[degreeIndex]
-	const rootIdx = CHROMATIC.indexOf(root)
-	return {
-		7: rootIdx >= 0 ? CHROMATIC[(rootIdx + 11) % 12] : null,
-		b7: rootIdx >= 0 ? CHROMATIC[(rootIdx + 10) % 12] : null,
-		6: scale[(degreeIndex + 5) % 7],
-		9: scale[(degreeIndex + 1) % 7],
-		11: scale[(degreeIndex + 3) % 7],
-		sus4: scale[(degreeIndex + 3) % 7],
-		sus2: scale[(degreeIndex + 1) % 7],
-	}
-}
+import { normalizeNote, getExtensionNotesForDegree } from '../utils/scale-utils'
 
 export function useFretboardState() {
 	const { selectedMode, currentScale, rawTriads } = useApp()
