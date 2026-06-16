@@ -1,11 +1,13 @@
 import { STRING_INDEXES } from '../../../data'
 import { getChordNoteLabel } from '../utils/chord-labels'
+import { scaleNoteName } from '../utils/scale-utils'
 
 export function FretNote({
 	note,
 	fret,
 	stringName,
 	normalizedScale,
+	currentScale,
 	showScaleTonic,
 	positionIndexes,
 	chordVoicingIndexes,
@@ -93,6 +95,10 @@ export function FretNote({
 			: null
 	const noteColorVar = noteVar ? `var(${noteVar})` : null
 
+	const displayNote = isHighlighted
+		? scaleNoteName(note, currentScale)
+		: ''
+
 	return (
 		<div
 			key={fret}
@@ -100,7 +106,7 @@ export function FretNote({
 			className={classes.join(' ')}
 			style={noteColorVar ? { '--note-color': noteColorVar } : {}}
 		>
-			<span>{isHighlighted ? note : ''}</span>
+			<span>{displayNote}</span>
 		</div>
 	)
 }

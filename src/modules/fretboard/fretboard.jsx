@@ -11,6 +11,7 @@ export function Fretboard() {
 		showThird,
 		showFifth,
 		normalizedScale,
+		currentScale,
 		showScaleTonic,
 		currentTriadDegrees,
 		getPositionIndexes,
@@ -38,6 +39,7 @@ export function Fretboard() {
 
 	const stringProps = {
 		normalizedScale,
+		currentScale,
 		showScaleTonic,
 		positionIndexes,
 		chordVoicingIndexes,

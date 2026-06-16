@@ -4,6 +4,7 @@ import { FretNote } from '../note/fret-note'
 export function FretboardString({
 	stringName,
 	normalizedScale,
+	currentScale,
 	showScaleTonic,
 	positionIndexes,
 	chordVoicingIndexes,
@@ -28,6 +29,7 @@ export function FretboardString({
 					fret={fret}
 					stringName={stringName}
 					normalizedScale={normalizedScale}
+					currentScale={currentScale}
 					showScaleTonic={showScaleTonic}
 					positionIndexes={positionIndexes}
 					chordVoicingIndexes={chordVoicingIndexes}
