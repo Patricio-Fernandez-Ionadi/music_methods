@@ -1,6 +1,6 @@
 ---
 name: fretboard-architect
-description: Use when working with the fretboard module, guitarra view, fretboard rendering, trastes, diapasón, CAGED positions, chord voicings, chord dictionary, triads, extensions, scale visualization, or note rendering on the guitar neck.
+description: Use when working with the fretboard module, guitarra view, fretboard rendering, trastes, diapasón, CAGED positions, chord voicings, chord dictionary, triads, scale visualization, or note rendering on the guitar neck.
 ---
 
 # Fretboard Architect
@@ -15,39 +15,36 @@ src/modules/fretboard/
 │   ├── chord-voicings.js          ← CHORD_VOICINGS: 7 modos × 5 shapes CAGED (root position only)
 │   └── chord-dictionary.js        ← CHORD_TYPES: diccionario de acordes con digitaciones fijas
 ├── hooks/
-│   ├── use-fretboard-state.js     ← orchestrator — composes all sub-hooks (43 lines)
+│   ├── use-fretboard-state.js     ← orchestrator — composes all sub-hooks (20 lines)
 │   ├── use-triad-state.js         ← triad selection + display toggles (56 lines)
 │   ├── use-position-state.js      ← CAGED positions + chord voicing index computation (83 lines)
-│   ├── use-extension-state.js     ← extension toggle state (7, b7, 6, 9, 11, sus4, sus2) (38 lines)
 │   └── use-chord-dictionary.js    ← chord dictionary selection state (80 lines)
 ├── note/
-│   └── fret-note.jsx              ← individual fret render with class/color logic (94 lines)
+│   └── fret-note.jsx              ← individual fret render with class/color logic (100 lines)
 ├── string/
-│   └── fretboard-string.jsx       ← single string container (48 lines)
+│   └── fretboard-string.jsx       ← single string container (46 lines)
 ├── style/
-│   ├── _index.scss                ← barrel: forwards 8 partials
+│   ├── _index.scss                ← barrel: forwards 7 partials
 │   ├── _fretboard.scss            ← fretboard-container, .fret (notes), .visual-string
 │   ├── _fretboard-header.scss     ← .scale-header (layout top area)
 │   ├── _selectors.scss            ← .selector-group (mode + tonic dropdowns)
 │   ├── _scale-info.scss           ← .scale-notes (color-coded note display)
 │   ├── _triads.scss               ← .triad-btn, .triad-selector
 │   ├── _positions.scss            ← .position-btn, .position-toggle-group
-│   ├── _extensions.scss           ← .extension-btn, .extension-toggle-group
 │   └── _chord-dict.scss           ← .chord-dict, .chord-dict-select, .chord-dict-result
 ├── utils/
-│   ├── chord-labels.js            ← getChordNoteLabel() — returns 'root'|'third'|'fifth'|extKey|null
-│   ├── chord-names.js             ← buildChordName(root, type, extensions) — ej. 'Cmaj7', 'Dm'
+│   ├── chord-labels.js            ← getChordNoteLabel() — returns 'root'|'third'|'fifth'|null
+│   ├── chord-names.js             ← buildChordName(root, type) — ej. 'C', 'Dm', 'Gdim'
 │   ├── position-utils.js          ← getNoteIndexes(), positionApplies(), noteToGlobalIndex() + TOTAL_FRETS
-│   └── scale-utils.js             ← CHROMATIC, normalizeNote(), getExtensionNotesForDegree()
+│   └── scale-utils.js             ← CHROMATIC, normalizeNote()
 ├── chord-dict.jsx                 ← chord dictionary selector UI (80 lines)
-├── extension-controls.jsx         ← toggle buttons for extensions (24 lines)
-├── fretboard-view.jsx             ← thin orchestrator — composes all sub-components (30 lines)
-├── fretboard.jsx                  ← fretboard grid — maps STRING_ORDER → FretboardString (70 lines)
+├── fretboard-view.jsx             ← thin orchestrator — composes all sub-components (28 lines)
+├── fretboard.jsx                  ← fretboard grid — maps STRING_ORDER → FretboardString (66 lines)
 ├── position-controls.jsx          ← position toggle 1–5 + All (28 lines)
 ├── scale-info.jsx                 ← current scale notes display (18 lines)
 ├── selectors.jsx                  ← mode + tonic dropdowns (44 lines)
 ├── triad-button.jsx               ← single triad button (36 lines)
-└── triads.jsx                     ← triad degree selector (69 lines)
+└── triads.jsx                     ← triad degree selector (62 lines)
 ```
 
 ## Data flow
@@ -73,9 +70,6 @@ FretboardProvider (wraps guitarra route)
   │    │    ├─ CHORD_VOICINGS (chord shapes — modules/fretboard/data/chord-voicings.js)
   │    │    └─ returns { activePositions, getPositionIndexes,
   │    │                  getChordVoicingIndexes, togglePosition, toggleAllPositions }
-  │    ├─ useExtensionState(currentDegExtensions)
-  │    │    └─ returns { activeExtensions, setActiveExtensions, toggleExtension,
-  │    │                 currentExtensions, EXTENSION_OPTIONS }
   │    └─ useChordDictionary()
   │         ├─ CHORD_TYPES (from data/chord-dictionary.js — see below)
   │         └─ returns { activeChordRoot, activeChordType, activeVoicing,
@@ -84,8 +78,7 @@ FretboardProvider (wraps guitarra route)
   └─ NOTES (chromatic 12-note array)
        ↓
   Components → FretboardView → selectors, scale-info, triads,
-                                extension-controls, chord-dict,
-                                fretboard, position-controls
+                                chord-dict, fretboard, position-controls
 ```
 
 ## Key data models
@@ -182,20 +175,6 @@ rawTriads = [
 ```
 Normalized via `normalizeNote()` (resolves enharmonics) before use.
 
-### `currentExtensionNotes` (derived in useFretboardState)
-For the active triad degree, computes available extensions:
-```js
-{
-  7:    chromatic[root + 11],   // major 7th
-  b7:   chromatic[root + 10],   // minor 7th
-  6:    scale[degree + 5],
-  9:    scale[degree + 1],
-  11:   scale[degree + 3],
-  sus4: scale[degree + 3],
-  sus2: scale[degree + 1],
-}
-```
-
 ## Components inventory
 
 All components consume from `useFretboard()` context — NO props passed (except FretboardString and FretNote which receive props from Fretboard).
@@ -204,12 +183,11 @@ All components consume from `useFretboard()` context — NO props passed (except
 |---|---|
 | `Selectors` | `selectedTonic`, `setSelectedTonic`, `selectedMode`, `setSelectedMode`, `MODES`, `NOTES` |
 | `ScaleInfo` | `selectedTonic`, `selectedMode`, `currentScale`, `NOTE_CSS_VARS` |
-| `Triads` | `rawTriads`, `showTriad`, `activeTriadIndex`, `selectTriad`, `deselectTriad`, `selectedMode`, `activeExtensions`, `NOTE_CSS_VARS` |
+| `Triads` | `rawTriads`, `showTriad`, `activeTriadIndex`, `selectTriad`, `deselectTriad`, `selectedMode`, `NOTE_CSS_VARS` |
 | `TriadButton` | Receives props: `triad`, `name`, `isActive`, `activeChordName`, `NOTE_CSS_VARS`, `onClick` |
-| `ExtensionControls` | `activeExtensions`, `toggleExtension`, `EXTENSION_OPTIONS`, `showTriad` |
 | `Positions` | `activePositions`, `togglePosition`, `toggleAllPositions` |
 | `ChordDict` | Receives props from FretboardView: `activeChordRoot`, `activeChordType`, `activeVoicingIdx`, `selectChord`, `clearChord`, `setVoicing`, `nextVoicing`, `availableVoicings`, `activeVoicing`, `hasSelection`, `chordName`, `NOTES`, `chordTypeKeys` |
-| `Fretboard` | `showTriad`, `showThird`, `showFifth`, `normalizedScale`, `showScaleTonic`, `currentTriadDegrees`, `getPositionIndexes`, `getChordVoicingIndexes`, `activeTriadIndex`, `currentExtensions`, `activePositions`, `NOTE_CSS_VARS`, `hasSelection`, `activeVoicing` |
+| `Fretboard` | `showTriad`, `showThird`, `showFifth`, `normalizedScale`, `showScaleTonic`, `currentTriadDegrees`, `getPositionIndexes`, `getChordVoicingIndexes`, `activeTriadIndex`, `activePositions`, `NOTE_CSS_VARS`, `hasSelection`, `activeVoicing` |
 | `FretboardString` | Receives props: `stringName` + the same computed values passed from Fretboard |
 | `FretNote` | Receives props from FretboardString. Computes classes and colors internally |
 
@@ -231,15 +209,14 @@ The `Fretboard` component:
 4. `inPosition` → `globalIndex` in `positionIndexes` set?
 5. `inChordVoicing` → `globalIndex` in `chordVoicingIndexes` set?
 6. `isRoot` / `isThird` / `isFifth` → note matches currentTriadDegrees (if showTriad)
-7. `chordLabel` → `getChordNoteLabel(note, root, third, fifth, currentExtensions)` → `'root'`|`'third'`|`'fifth'`|extKey|null
-8. `isExtension` → chordLabel is not null and not root/third/fifth
-9. `isVoicingNote` → inChordVoicing + showTriad + hasChordVoicing
-10. `inChordDict` → globalIndex in `chordDictIndexes` set? (takes priority, supresses voicing notes)
-11. CSS classes built:
+7. `chordLabel` → `getChordNoteLabel(note, root, third, fifth)` → `'root'`|`'third'`|`'fifth'`|null
+8. `isVoicingNote` → inChordVoicing + showTriad + hasChordVoicing
+9. `inChordDict` → globalIndex in `chordDictIndexes` set? (takes priority, supresses voicing notes)
+10. CSS classes built:
     - `.fretActive` → inScale, no chord/voicing highlight
     - `.fretTonic` → isTonic, no triad/voicing highlight
     - `.positionNote` → inPosition + inScale, no chord/voicing highlight
-    - `.triadRoot` / `.triadThird` / `.triadFifth` / `.triadExtension` → voicing or chord highlight
+    - `.triadRoot` / `.triadThird` / `.triadFifth` → voicing or chord highlight
     - `.chordDictNote` → inChordDict (shows note name + note color)
 
 Color: `style={{ '--note-color': 'var(--note-X)' }}` — from `NOTE_CSS_VARS` map.
@@ -261,7 +238,7 @@ modules/fretboard/style/_index.scss → forwards:
   _selectors.scss         ← .selector-group, .selector-input
   _positions.scss         ← .controls, .position-btn, .position-toggle-group
   _scale-info.scss        ← .scale-notes
-  _extensions.scss        ← .extension-btn, .extension-toggle-group
+  _chord-dict.scss        ← .chord-dict, .chord-dict-select, .chord-dict-result
 ```
 
 Each partial imports theme values with:
@@ -271,18 +248,13 @@ Each partial imports theme values with:
 
 ## Chord labeling
 
-`buildChordName(root, type, extensions)` returns chord name like `'Cmaj7'`, `'Dm'`, `'G7'`, `'Amadd9'`, etc.
+`buildChordName(root, type)` returns chord name like `'C'`, `'Dm'`, `'Gdim'`, etc.
 
 - `type` comes from `MODES[modeId].chords[degree]` — `'M'`, `'m'`, or `'dim'`
 - `chordSuffix(type)`: `'M'` → `''`, `'m'` → `'m'`, `'dim'` → `'dim'`
-- Extension priority: `['sus4', 'sus2', 'b7', '7', '6', '9', '11']`
-- If `sus4` or `sus2` is first active extension, replaces the chord type entirely
-- `b7` + `dim` → `'m7b5'`
-- `9`/`11` without `b7`/`7` → `'add9'`/`'add11'`
 
-`getChordNoteLabel(note, root, third, fifth, extensions)` returns a label string:
-- Matches against root, third, fifth first
-- Then checks extensions keys (7, b7, 6, 9, 11, sus4, sus2)
+`getChordNoteLabel(note, root, third, fifth)` returns a label string:
+- Matches against root, third, fifth
 - Returns `null` if no match
 
 ## Rendering defaults
@@ -290,7 +262,6 @@ Each partial imports theme values with:
 - All positions off (activePositions starts as `[]`)
 - Scale tonic displayed (`showScaleTonic: true`)
 - Triads off (`showTriad: false`)
-- Extensions: none active
 - Default mode: Jónico, key: C
 
 ## Global index system

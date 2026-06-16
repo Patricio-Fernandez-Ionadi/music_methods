@@ -1,36 +1,16 @@
-import { useMemo } from 'react'
 import { useApp } from '../../../app/context/app-context'
 import { useTriadState } from './use-triad-state'
 import { usePositionState } from './use-position-state'
-import { useExtensionState } from './use-extension-state'
-import { normalizeNote, getExtensionNotesForDegree } from '../utils/scale-utils'
+import { normalizeNote } from '../utils/scale-utils'
 
 export function useFretboardState() {
 	const { selectedMode, currentScale, rawTriads } = useApp()
 
-	const normalizedScale = useMemo(
-		() => currentScale.map(normalizeNote),
-		[currentScale],
-	)
-
-	const normalizedTriads = useMemo(
-		() => rawTriads.map((triad) => triad.map(normalizeNote)),
-		[rawTriads],
-	)
+	const normalizedScale = currentScale.map(normalizeNote)
+	const normalizedTriads = rawTriads.map((triad) => triad.map(normalizeNote))
 
 	const triadState = useTriadState(normalizedTriads)
 	const positionState = usePositionState(normalizedScale, selectedMode.id)
-
-	const currentDegExtensions = useMemo(() => {
-		if (normalizedScale.length !== 7 || triadState.activeTriadIndex == null)
-			return {}
-		return getExtensionNotesForDegree(
-			normalizedScale,
-			triadState.activeTriadIndex,
-		)
-	}, [normalizedScale, triadState.activeTriadIndex])
-
-	const extensionState = useExtensionState(currentDegExtensions)
 
 	return {
 		rawTriads,
@@ -38,6 +18,5 @@ export function useFretboardState() {
 		normalizedTriads,
 		...triadState,
 		...positionState,
-		...extensionState,
 	}
 }

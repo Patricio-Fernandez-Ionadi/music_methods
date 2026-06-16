@@ -85,9 +85,6 @@ _Generated on 2026-06-15_
 ### `modules/fretboard/data/chord-voicings.js`
   - `CHORD_VOICINGS`
 
-### `modules/fretboard/extension-controls.jsx`
-  - `ExtensionControls`
-
 ### `modules/fretboard/fretboard-view.jsx`
   - `FretboardView`
 
@@ -96,9 +93,6 @@ _Generated on 2026-06-15_
 
 ### `modules/fretboard/hooks/use-chord-dictionary.js`
   - `useChordDictionary` — useChordDictionary  *  * Administra la selección de un acorde del diccionario.  *  * Estado:  *   activeChordRoot  → nota raíz seleccionada (null si ninguna)  *   activeChordType  → tipo de acorde seleccionado (null si ninguna)  *   activeVoicingIdx → índice de la digitación activa dentro del tipo+raíz  *  * Acciones:  *   selectChord(root, type)          → selecciona raíz + tipo, resetea digitación a 0  *   clearChord()                     → deselecciona todo  *   setVoicing(index)                → cambia la digitación activa  *   nextVoicing()                    → siguiente digitación disponible  *  * Derivados:  *   availableVoicings   → digitaciones disponibles para la selección actual  *   activeVoicing       → digitación activa (o null)  *   chordTypeKeys       → lista de claves de tipos de acorde  *   hasSelection        → true si hay raíz + tipo seleccionados  *   chordName           → nombre legible del acorde seleccionado (ej. "Do Mayor")  *  * @returns {Object}
-
-### `modules/fretboard/hooks/use-extension-state.js`
-  - `useExtensionState`
 
 ### `modules/fretboard/hooks/use-fretboard-state.js`
   - `useFretboardState`
@@ -145,7 +139,6 @@ _Generated on 2026-06-15_
 ### `modules/fretboard/utils/scale-utils.js`
   - `CHROMATIC`
   - `normalizeNote`
-  - `getExtensionNotesForDegree`
 
 ### `modules/modes/mode-component.jsx`
   - `ModeComponent`

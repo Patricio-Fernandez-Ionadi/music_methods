@@ -1,6 +1,6 @@
 # Music Methods
 
-Aplicación educativa interactiva para explorar teoría musical en la guitarra. Enfocada en los **7 modos musicales**, el **diapasón interactivo** con tríadas, extensiones y posiciones CAGED, y un **cancionero** con letras y tablaturas.
+Aplicación educativa interactiva para explorar teoría musical en la guitarra. Enfocada en los **7 modos musicales**, el **diapasón interactivo** con tríadas, diccionario de acordes y posiciones CAGED, y un **cancionero** con letras y tablaturas.
 
 ---
 
@@ -25,10 +25,10 @@ Diapasón interactivo de 6 cuerdas con múltiples herramientas:
 
 - **Selector de tónica y modo** — cambia la escala y resalta las notas en el diapasón
 - **Visualización de escala** — muestra las 7 notas coloreadas
-- **Selector de tríadas** — 7 botones (I a VII) con nomenclatura inteligente de acordes. Al pulsar una tríada se resaltan sus notas en el diapasón con colores por función (fundamental, tercera, quinta, extensiones)
+- **Selector de tríadas** — 7 botones (I a VII) con nomenclatura inteligente de acordes. Al pulsar una tríada se resaltan sus notas en el diapasón con colores por función (fundamental, tercera, quinta)
 - **Controles de posición CAGED** — 5 posiciones, permite alternar entre posiciones individuales o ver todas
-- **Controles de extensión** — añade extensiones a los acordes: 7, b7, 6, 9, 11, sus4, sus2
-- **Visualización de acordes** — muestra voicings predefinidos sobre el diapasón
+- **Diccionario de acordes** — selecciona raíz y tipo (M, m, 7, m7, maj7, dim, sus4, sus2) para ver digitaciones reales en el diapasón
+- **Visualización de voicings CAGED** — muestra voicings predefinidos sobre el diapasón
 
 ### Biblioteca — `/biblioteca`
 
@@ -85,7 +85,7 @@ src/
 │   ├── fretboard/              # Componentes del diapasón
 │   │   ├── context/            # FretboardContext
 │   │   ├── hooks/              # useFretboardState, useTriadState, usePositionState,
-│   │   │                       # useExtensionState
+│   │   │                       # useChordDictionary
 │   │   ├── data/               # chord-voicings.js (voicings predefinidos)
 │   │   ├── fretboard-view.jsx  # Layout de la página guitarra
 │   │   ├── fretboard.jsx       # Render del diapasón
@@ -93,7 +93,7 @@ src/
 │   │   ├── scale-info.jsx      # Información de escala
 │   │   ├── selectors.jsx       # Selectores de modo y tónica
 │   │   ├── position-controls.jsx
-│   │   └── extension-controls.jsx
+│   │   └── chord-dict.jsx
 │   ├── biblioteca/             # Componentes del cancionero
 │   │   ├── BibliotecaView.jsx
 │   │   ├── SongDetail.jsx
@@ -119,13 +119,13 @@ AppProvider (tónica, modo, escala, tríadas, canciones)
        ├─ GuitarraPage
        │    └─ FretboardProvider
 │    └─ FretboardProvider
-│         └─ FretboardView → selectors, scale-info, triads,
-│              fretboard, position-controls, extension-controls
+│    └─ FretboardView → selectors, scale-info, triads,
+│              fretboard, position-controls, chord-dict
        └─ BibliotecaPage → BibliotecaView, SongDetail, SongFormView
 ```
 
 - **Estado global**: `AppContext` gestiona tónica, modo, escala derivada, tríadas y canciones
-- **Estado del diapasón**: `FretboardContext` compone hooks especializados para tríadas, posiciones y extensiones
+- **Estado del diapasón**: `FretboardContext` compone hooks especializados para tríadas, posiciones y diccionario de acordes
 - **Persistencia**: Las canciones se guardan en `localStorage` bajo la clave `biblioteca-songs`
 
 ---

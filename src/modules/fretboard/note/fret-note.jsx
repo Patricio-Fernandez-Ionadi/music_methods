@@ -14,7 +14,6 @@ export function FretNote({
 	root,
 	third,
 	fifth,
-	currentExtensions,
 	showTriad,
 	showThird,
 	showFifth,
@@ -34,11 +33,8 @@ export function FretNote({
 	const isFifth = showFifth && note === fifth
 
 	const chordLabel = showTriad
-		? getChordNoteLabel(note, root, third, fifth, currentExtensions)
+		? getChordNoteLabel(note, root, third, fifth)
 		: null
-	const isExtension =
-		chordLabel !== null &&
-		!['root', 'third', 'fifth'].includes(chordLabel)
 	const inTriad = isRoot || isThird || isFifth || chordLabel !== null
 
 	const usingChordVoicing = hasChordVoicing && showTriad
@@ -48,7 +44,7 @@ export function FretNote({
 	const showChordNote =
 		!hasChordDict &&
 		((showTriad &&
-			(isRoot || isThird || isFifth || isExtension) &&
+			(chordLabel !== null) &&
 			showInThisPosition) ||
 		isVoicingNote)
 
@@ -78,22 +74,14 @@ export function FretNote({
 		classes.push('positionNote')
 
 	if (isVoicingNote) {
-		const vLabel = getChordNoteLabel(
-			note,
-			root,
-			third,
-			fifth,
-			currentExtensions,
-		)
+		const vLabel = getChordNoteLabel(note, root, third, fifth)
 		if (vLabel === 'root') classes.push('triadRoot')
 		else if (vLabel === 'third') classes.push('triadThird')
 		else if (vLabel === 'fifth') classes.push('triadFifth')
-		else classes.push('triadExtension')
 	} else if (showChordNote) {
 		if (isRoot) classes.push('triadRoot')
 		if (isThird) classes.push('triadThird')
 		if (isFifth) classes.push('triadFifth')
-		if (isExtension) classes.push('triadExtension')
 	}
 
 	if (inChordDict) classes.push('chordDictNote')

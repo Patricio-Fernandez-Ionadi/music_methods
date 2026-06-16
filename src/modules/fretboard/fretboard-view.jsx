@@ -3,7 +3,6 @@ import { ScaleInfo } from './scale-info'
 import { Triads } from './triads'
 import { Fretboard } from './fretboard'
 import { Positions } from './position-controls'
-import { ExtensionControls } from './extension-controls'
 import { ChordDict } from './chord-dict'
 import { useFretboard } from './context/fretboard-context'
 
@@ -16,7 +15,6 @@ export function FretboardView() {
 				<Selectors />
 				<ScaleInfo />
 				<Triads />
-				<ExtensionControls />
 			</div>
 
 			<Fretboard />

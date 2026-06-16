@@ -12,7 +12,6 @@ export function FretboardString({
 	root,
 	third,
 	fifth,
-	currentExtensions,
 	showTriad,
 	showThird,
 	showFifth,
@@ -37,7 +36,6 @@ export function FretboardString({
 					root={root}
 					third={third}
 					fifth={fifth}
-					currentExtensions={currentExtensions}
 					showTriad={showTriad}
 					showThird={showThird}
 					showFifth={showFifth}
