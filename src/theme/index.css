@@ -143,6 +143,11 @@ p {
   box-sizing: border-box;
 }
 
+@media (max-width: 769px) {
+  .main-content {
+    padding: 100px 16px 24px;
+  }
+}
 .header {
   display: flex;
   align-items: center;
@@ -216,6 +221,9 @@ p {
 }
 
 @media (max-width: 769px) {
+  .header {
+    padding: 12px 16px;
+  }
   .nav-toggle {
     display: block;
   }
@@ -306,7 +314,6 @@ p {
   color: #f5f5f5;
 }
 
-/* ===== Scale Header ===== */
 .scale-header {
   margin-bottom: 24px;
 }
@@ -316,11 +323,17 @@ p {
   line-height: 1.5;
 }
 
+@media (max-width: 769px) {
+  .scale-header {
+    margin-bottom: 12px;
+  }
+}
 .fretboard-container {
   width: 100%;
   position: relative;
-  height: 150px;
+  height: 210px;
   background-color: #302924;
+  border-radius: 8px;
 }
 .fretboard-container .fretboardDinamic {
   width: 100%;
@@ -328,81 +341,192 @@ p {
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 .fretboard-container .fretboardDinamic .string-container {
   height: 100%;
   display: flex;
   position: relative;
 }
-.fretboard-container .fretboardDinamic .string-container :nth-child(2) {
-  background-color: #25201c;
-  border-left: #363535 solid 3px;
-}
-.fretboard-container .fretboardDinamic .string-container :nth-child(5), .fretboard-container .fretboardDinamic .string-container :nth-child(7), .fretboard-container .fretboardDinamic .string-container :nth-child(9), .fretboard-container .fretboardDinamic .string-container :nth-child(11), .fretboard-container .fretboardDinamic .string-container :nth-child(17), .fretboard-container .fretboardDinamic .string-container :nth-child(19) {
-  background-color: #25201c;
-}
-.fretboard-container .fretboardDinamic .string-container :nth-child(14) {
-  background-color: #1f1c1a;
-}
-.fretboard-container .fretboardDinamic .string-container .visual-string {
+.fretboard-container .fretboardDinamic .string-container::before {
+  content: "";
   position: absolute;
-  border-bottom: #706e6e solid 2px;
-  opacity: 0.4;
   top: 50%;
-  width: 100%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, rgba(112, 110, 110, 0.5) 3%, rgba(112, 110, 110, 0.3) 97%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 .fretboard-container .fretboardDinamic .string-container .fret {
-  border-left: #a3a2a2 solid 2px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  border-left: 1px solid rgba(163, 162, 162, 0.35);
+  transition: background-color 0.2s;
+}
+.fretboard-container .fretboardDinamic .string-container .fret:first-child {
+  border-left: 2px solid rgba(163, 162, 162, 0.6);
+}
+.fretboard-container .fretboardDinamic .string-container .fret.fret-marker::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+.fretboard-container .fretboardDinamic .string-container .fret.fret-marker-double::before, .fretboard-container .fretboardDinamic .string-container .fret.fret-marker-double::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+.fretboard-container .fretboardDinamic .string-container .fret.fret-marker-double::before {
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fretboard-container .fretboardDinamic .string-container .fret.fret-marker-double::after {
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fretboard-container .fretboardDinamic .string-container .fret span {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 2;
+  position: relative;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.fretboard-container .fretboardDinamic .string-container .fret.highlighted span {
+  display: inline-flex;
 }
 .fretboard-container .fretboardDinamic .string-container .fret.fretActive span {
-  /* ---- Notas de la escala (visibilidad base) ---- */
-  display: inline-block;
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
-  background-color: rgb(5, 172, 144);
-  opacity: 0.08;
-  z-index: 1;
+  width: 18px;
+  height: 18px;
+  background: rgba(5, 172, 144, 0.25);
+  font-size: 0;
 }
 .fretboard-container .fretboardDinamic .string-container .fret.positionNote span {
-  /* ---- Posiciones (1-5) colores fijos por shape ---- */
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  opacity: 1;
-  background-color: #22c7bf;
+  width: 20px;
+  height: 20px;
+  background: #22c7bf;
+  box-shadow: 0 0 6px rgba(34, 199, 191, 0.5);
 }
-.fretboard-container .fretboardDinamic .string-container .fret.fret.fretTonic span {
-  /* ---- Tónica de escala ---- */
-  opacity: 1;
-  background-color: lightgreen;
+.fretboard-container .fretboardDinamic .string-container .fret.fretTonic span {
+  width: 22px;
+  height: 22px;
+  background: #69db7c;
+  box-shadow: 0 0 8px rgba(105, 219, 124, 0.5);
+  font-size: 10px;
 }
 .fretboard-container .fretboardDinamic .string-container .fret.triadRoot span, .fretboard-container .fretboardDinamic .string-container .fret.triadThird span, .fretboard-container .fretboardDinamic .string-container .fret.triadFifth span {
-  /* ---- Tríadas: usan --note-color definido inline ---- */
-  width: 16px;
-  height: 16px;
-  opacity: 1;
-  background-color: var(--note-color);
+  width: 24px;
+  height: 24px;
+  background: var(--note-color);
+  box-shadow: 0 0 10px var(--note-color);
+  font-size: 10px;
+}
+.fretboard-container .fretboardDinamic .string-container .fret.triadRoot span {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 12px var(--note-color), 0 0 0 3px color-mix(in srgb, var(--note-color) 40%, transparent);
 }
 .fretboard-container .fretboardDinamic .string-container .fret.triadExtension span {
-  /* ---- Extensiones (7, 6, 9, etc.) ---- */
-  width: 12px;
-  height: 12px;
-  opacity: 0.8;
-  background-color: var(--note-color);
+  width: 18px;
+  height: 18px;
+  background: transparent;
   border: 2px solid var(--note-color);
+  box-shadow: 0 0 6px var(--note-color);
+  font-size: 0;
+}
+.fretboard-container .fretboardDinamic .string-container .fret.chordDictNote span {
+  width: 24px;
+  height: 24px;
+  background: var(--note-color);
+  box-shadow: 0 0 10px var(--note-color), 0 0 0 3px color-mix(in srgb, var(--note-color) 40%, transparent);
+  font-size: 10px;
 }
 
-/* ===== Triads ===== */
+/* ===== Mobile & portrait overrides ===== */
+@media (max-width: 769px) and (orientation: landscape) {
+  .fretboard-container {
+    height: 170px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.fretActive span {
+    width: 14px;
+    height: 14px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.positionNote span {
+    width: 16px;
+    height: 16px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.fretTonic span {
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.triadRoot span, .fretboard-container .fretboardDinamic .string-container .fret.triadThird span, .fretboard-container .fretboardDinamic .string-container .fret.triadFifth span {
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.triadRoot span {
+    width: 20px;
+    height: 20px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.triadExtension span {
+    width: 14px;
+    height: 14px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.chordDictNote span {
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+  }
+}
+@media (max-width: 769px) and (orientation: portrait) {
+  .fretboard-container {
+    height: 180px;
+  }
+  .fretboard-container .fretboardDinamic {
+    display: none;
+  }
+  .fretboard-container::after {
+    content: "Gira el dispositivo para ver el diapasón";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8e8e8e;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+  }
+}
 .triad-selector {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 10px;
 }
 
 .triad-btn {
@@ -438,7 +562,36 @@ p {
   color: #5cdfe7;
 }
 
-/* ===== Selectors ===== */
+@media (max-width: 769px) {
+  .triad-btn {
+    padding: 6px 8px;
+    flex: 1 1 1;
+    min-width: 40px;
+  }
+  .triad-btn:nth-child(1) {
+    width: 100%;
+  }
+  .triad-btn strong {
+    font-size: 13px;
+  }
+  .triad-btn span {
+    font-size: 10px;
+  }
+}
+@media (max-width: 769px) and (orientation: landscape) {
+  .triad-btn {
+    padding: 4px 6px;
+  }
+  .triad-btn:nth-child(1) {
+    width: auto;
+  }
+  .triad-btn strong {
+    font-size: 12px;
+  }
+  .triad-btn span {
+    display: none;
+  }
+}
 .selector-group {
   display: flex;
   justify-content: space-around;
@@ -450,6 +603,7 @@ p {
   margin-right: 20px;
 }
 .selector-group .selector-input label {
+  width: 80px;
   color: #8e8e8e;
   font-size: 13px;
   font-weight: 600;
@@ -476,7 +630,20 @@ p {
   border-color: #00adb5;
 }
 
-/* ===== Position Controls ===== */
+@media (max-width: 769px) {
+  .selector-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .selector-group .selector-input {
+    margin-right: 0;
+    justify-content: space-between;
+  }
+  .selector-group .selector-input select {
+    flex: 1;
+  }
+}
 .controls {
   padding: 20px;
 }
@@ -515,6 +682,21 @@ p {
   letter-spacing: 0.3px;
 }
 
+@media (max-width: 769px) {
+  .controls {
+    padding: 12px 0;
+  }
+  .controls .position-toggle-group {
+    gap: 6px;
+  }
+  .controls .position-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  .controls .all-btn {
+    width: 100%;
+  }
+}
 .scale-notes {
   display: flex;
   justify-content: space-between;
@@ -530,68 +712,157 @@ p {
   background: rgba(255, 255, 255, 0.04);
 }
 
-.extension-toggle-group {
+@media (max-width: 769px) {
+  .scale-notes span {
+    font-size: 0.9rem;
+    padding: 6px 0;
+  }
+}
+@media (max-width: 769px) and (orientation: landscape) {
+  .scale-notes span {
+    font-size: 0.75rem;
+    padding: 4px 0;
+  }
+}
+.chord-dict {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 8px;
 }
 
-.extension-btn {
-  background: #212121;
-  border: 1px solid #484848;
-  border-radius: 6px;
-  padding: 5px 12px;
-  cursor: pointer;
-  font-size: 12px;
-  color: #8e8e8e;
-  font-family: inherit;
-  transition: all 0.15s;
-}
-.extension-btn:hover:not(:disabled) {
-  border-color: #373737;
-  color: #f5f5f5;
-}
-.extension-btn.active {
-  border-color: #00adb5;
-  background: rgba(0, 173, 181, 0.12);
-  color: #5cdfe7;
-}
-.extension-btn.disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-.inversion-toggle-group {
+.chord-dict-selectors {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
 }
 
-.inversion-btn {
+.chord-dict-select {
   background: #212121;
   border: 1px solid #484848;
   border-radius: 6px;
-  padding: 5px 12px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #f5f5f5;
   cursor: pointer;
+  font-family: inherit;
+  min-width: 100px;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+.chord-dict-select:hover {
+  border-color: #373737;
+}
+.chord-dict-select:focus {
+  outline: none;
+  border-color: #00adb5;
+}
+
+.chord-dict-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid #00adb5;
+  border-radius: 6px;
+  background: rgba(0, 173, 181, 0.08);
+}
+
+.chord-dict-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #5cdfe7;
+}
+
+.chord-dict-clear {
+  background: none;
+  border: none;
+  color: #8e8e8e;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.chord-dict-clear:hover {
+  color: #f5f5f5;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.chord-dict-voicings {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.chord-dict-voicing-btn {
+  background: #212121;
+  border: 1px solid #484848;
+  border-radius: 6px;
+  padding: 4px 10px;
   font-size: 12px;
   color: #8e8e8e;
+  cursor: pointer;
   font-family: inherit;
   transition: all 0.15s;
 }
-.inversion-btn:hover:not(:disabled) {
+.chord-dict-voicing-btn:hover {
   border-color: #373737;
   color: #f5f5f5;
 }
-.inversion-btn.active {
-  border-color: #00adb5;
-  background: rgba(0, 173, 181, 0.12);
-  color: #5cdfe7;
-}
-.inversion-btn.disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
+
+.chord-dict-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
+.chord-dict-quick-btn {
+  background: #212121;
+  border: 1px solid #484848;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #8e8e8e;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.chord-dict-quick-btn:hover {
+  border-color: #373737;
+  color: #f5f5f5;
+}
+
+@media (max-width: 769px) {
+  .chord-dict-selectors {
+    flex-wrap: wrap;
+  }
+  .chord-dict-select {
+    flex: 1;
+    min-width: 80px;
+    font-size: 13px;
+  }
+  .chord-dict-result {
+    flex-wrap: wrap;
+  }
+  .chord-dict-voicings {
+    margin-left: 0;
+  }
+  .chord-dict-quick-btn {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+@media (max-width: 769px) and (orientation: landscape) {
+  .chord-dict-selectors {
+    flex-direction: row;
+  }
+  .chord-dict-quick {
+    gap: 4px;
+  }
+  .chord-dict-quick-btn {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
 .mode-card {
   background: #212121;
   border: 1px solid #484848;
@@ -946,36 +1217,6 @@ summary h3 {
   max-width: 640px;
 }
 
-.form-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 0.5rem;
-}
-.form-actions button {
-  padding: 5px 1.5rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.btn-submit {
-  background: #00adb5;
-  color: #f5f5f5;
-}
-.btn-submit:hover {
-  filter: brightness(1.15);
-}
-
-.btn-cancel {
-  background: #616161;
-  color: #f5f5f5;
-}
-.btn-cancel:hover {
-  filter: brightness(1.15);
-}
-
 .form-section {
   border: 1px solid #616161;
   border-radius: 6px;
@@ -1133,6 +1374,36 @@ summary h3 {
   border-color: #00adb5;
   color: #5cdfe7;
   background: rgba(0, 173, 181, 0.06);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+.form-actions button {
+  padding: 5px 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-submit {
+  background: #00adb5;
+  color: #f5f5f5;
+}
+.btn-submit:hover {
+  filter: brightness(1.15);
+}
+
+.btn-cancel {
+  background: #616161;
+  color: #f5f5f5;
+}
+.btn-cancel:hover {
+  filter: brightness(1.15);
 }
 
 .biblioteca-header {

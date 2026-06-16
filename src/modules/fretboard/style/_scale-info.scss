@@ -1,3 +1,5 @@
+@use '../../../theme/values/mediaqueries' as *;
+
 .scale-notes {
 	display: flex;
 	justify-content: space-between;
@@ -11,5 +13,19 @@
 		padding: 8px 0;
 		border-radius: 6px;
 		background: rgba(255, 255, 255, 0.04);
+	}
+}
+
+@media (max-width: $medium) {
+	.scale-notes span {
+		font-size: 0.9rem;
+		padding: 6px 0;
+	}
+}
+
+@media (max-width: $medium) and (orientation: landscape) {
+	.scale-notes span {
+		font-size: 0.75rem;
+		padding: 4px 0;
 	}
 }

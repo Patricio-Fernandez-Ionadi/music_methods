@@ -1,10 +1,10 @@
-@use '../../../theme/values/colors' as *;
+@use '../../../theme/values' as *;
 
-/* ===== Triads ===== */
 .triad-selector {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	gap: $gap;
 }
 
 .triad-btn {
@@ -41,6 +41,43 @@
 
 		strong {
 			color: $primary_light;
+		}
+	}
+}
+
+@media (max-width: $medium) {
+	.triad-btn {
+		padding: 6px 8px;
+		flex: 1 1 1;
+		min-width: 40px;
+		// flex-grow: 1;
+		&:nth-child(1) {
+			width: 100%;
+		}
+
+		strong {
+			font-size: 13px;
+		}
+
+		span {
+			font-size: 10px;
+		}
+	}
+}
+
+@media (max-width: $medium) and (orientation: landscape) {
+	.triad-btn {
+		padding: 4px 6px;
+		&:nth-child(1) {
+			width: auto;
+		}
+
+		strong {
+			font-size: 12px;
+		}
+
+		span {
+			display: none;
 		}
 	}
 }

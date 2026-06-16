@@ -1,6 +1,6 @@
 @use '../../../theme/values/colors' as *;
+@use '../../../theme/values/mediaqueries' as *;
 
-/* ===== Scale Header ===== */
 .scale-header {
 	margin-bottom: 24px;
 
@@ -8,5 +8,11 @@
 		color: $grey_light;
 		font-size: 14px;
 		line-height: 1.5;
+	}
+}
+
+@media (max-width: $medium) {
+	.scale-header {
+		margin-bottom: 12px;
 	}
 }

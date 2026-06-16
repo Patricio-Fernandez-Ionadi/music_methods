@@ -1,0 +1,9 @@
+@use './mediaqueries' as bp;
+
+@mixin mobile { @media (max-width: bp.$smallL) { @content; } }
+@mixin tablet { @media (max-width: bp.$medium) { @content; } }
+@mixin landscape { @media (orientation: landscape) { @content; } }
+
+@mixin portrait-only {
+	@media (orientation: portrait) { @content; }
+}

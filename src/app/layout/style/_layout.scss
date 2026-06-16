@@ -1,7 +1,15 @@
+@use '../../../theme/values/mediaqueries' as *;
+
 .main-content {
 	width: 100%;
 	max-width: 1126px;
 	margin: 0 auto;
 	padding: 120px 60px 40px;
 	box-sizing: border-box;
+}
+
+@media (max-width: $medium) {
+	.main-content {
+		padding: 100px 16px 24px;
+	}
 }
