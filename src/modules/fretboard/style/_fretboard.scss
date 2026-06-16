@@ -157,6 +157,15 @@
 					box-shadow: 0 0 6px var(--note-color);
 					font-size: 0;
 				}
+
+				/* Chord dictionary notes */
+				&.chordDictNote span {
+					width: 24px;
+					height: 24px;
+					background: var(--note-color);
+					box-shadow: 0 0 10px var(--note-color), 0 0 0 3px color-mix(in srgb, var(--note-color) 40%, transparent);
+					font-size: 10px;
+				}
 			}
 		}
 	}

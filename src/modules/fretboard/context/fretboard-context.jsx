@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react'
 import { useApp } from '../../../app/context/app-context'
 import { useFretboardState } from '../hooks/use-fretboard-state'
+import { useChordDictionary } from '../hooks/use-chord-dictionary'
 import { NOTES } from '../../../data'
 
 const FretboardContext = createContext(null)
@@ -25,10 +26,12 @@ const NOTE_CSS_VARS = {
 export function FretboardProvider({ children }) {
 	const app = useApp()
 	const fretboard = useFretboardState()
+	const chordDict = useChordDictionary()
 
 	const value = {
 		...app,
 		...fretboard,
+		...chordDict,
 		NOTE_CSS_VARS,
 		NOTES,
 	}

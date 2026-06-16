@@ -1,6 +1,6 @@
 ---
 name: fretboard-architect
-description: Use when working with the fretboard module, guitarra view, fretboard rendering, trastes, diapasón, CAGED positions, chord voicings, triads, extensions, scale visualization, or note rendering on the guitar neck.
+description: Use when working with the fretboard module, guitarra view, fretboard rendering, trastes, diapasón, CAGED positions, chord voicings, chord dictionary, triads, extensions, scale visualization, or note rendering on the guitar neck.
 ---
 
 # Fretboard Architect
@@ -12,33 +12,37 @@ src/modules/fretboard/
 ├── context/
 │   └── fretboard-context.jsx      ← FretboardProvider + useFretboard() hook (30 lines)
 ├── data/
-│   └── chord-voicings.js          ← CHORD_VOICINGS: 7 modos × 5 shapes CAGED (root position only)
+│   ├── chord-voicings.js          ← CHORD_VOICINGS: 7 modos × 5 shapes CAGED (root position only)
+│   └── chord-dictionary.js        ← CHORD_TYPES: diccionario de acordes con digitaciones fijas
 ├── hooks/
 │   ├── use-fretboard-state.js     ← orchestrator — composes all sub-hooks (43 lines)
 │   ├── use-triad-state.js         ← triad selection + display toggles (56 lines)
 │   ├── use-position-state.js      ← CAGED positions + chord voicing index computation (83 lines)
-│   └── use-extension-state.js     ← extension toggle state (7, b7, 6, 9, 11, sus4, sus2) (38 lines)
+│   ├── use-extension-state.js     ← extension toggle state (7, b7, 6, 9, 11, sus4, sus2) (38 lines)
+│   └── use-chord-dictionary.js    ← chord dictionary selection state (80 lines)
 ├── note/
 │   └── fret-note.jsx              ← individual fret render with class/color logic (94 lines)
 ├── string/
 │   └── fretboard-string.jsx       ← single string container (48 lines)
 ├── style/
-│   ├── _index.scss                ← barrel: forwards 7 partials
+│   ├── _index.scss                ← barrel: forwards 8 partials
 │   ├── _fretboard.scss            ← fretboard-container, .fret (notes), .visual-string
 │   ├── _fretboard-header.scss     ← .scale-header (layout top area)
 │   ├── _selectors.scss            ← .selector-group (mode + tonic dropdowns)
 │   ├── _scale-info.scss           ← .scale-notes (color-coded note display)
 │   ├── _triads.scss               ← .triad-btn, .triad-selector
 │   ├── _positions.scss            ← .position-btn, .position-toggle-group
-│   └── _extensions.scss           ← .extension-btn, .extension-toggle-group
+│   ├── _extensions.scss           ← .extension-btn, .extension-toggle-group
+│   └── _chord-dict.scss           ← .chord-dict, .chord-dict-select, .chord-dict-result
 ├── utils/
 │   ├── chord-labels.js            ← getChordNoteLabel() — returns 'root'|'third'|'fifth'|extKey|null
 │   ├── chord-names.js             ← buildChordName(root, type, extensions) — ej. 'Cmaj7', 'Dm'
 │   ├── position-utils.js          ← getNoteIndexes(), positionApplies(), noteToGlobalIndex() + TOTAL_FRETS
 │   └── scale-utils.js             ← CHROMATIC, normalizeNote(), getExtensionNotesForDegree()
+├── chord-dict.jsx                 ← chord dictionary selector UI (80 lines)
 ├── extension-controls.jsx         ← toggle buttons for extensions (24 lines)
-├── fretboard-view.jsx             ← thin orchestrator — composes all sub-components (22 lines)
-├── fretboard.jsx                  ← fretboard grid — maps STRING_ORDER → FretboardString (61 lines)
+├── fretboard-view.jsx             ← thin orchestrator — composes all sub-components (30 lines)
+├── fretboard.jsx                  ← fretboard grid — maps STRING_ORDER → FretboardString (70 lines)
 ├── position-controls.jsx          ← position toggle 1–5 + All (28 lines)
 ├── scale-info.jsx                 ← current scale notes display (18 lines)
 ├── selectors.jsx                  ← mode + tonic dropdowns (44 lines)
@@ -69,14 +73,19 @@ FretboardProvider (wraps guitarra route)
   │    │    ├─ CHORD_VOICINGS (chord shapes — modules/fretboard/data/chord-voicings.js)
   │    │    └─ returns { activePositions, getPositionIndexes,
   │    │                  getChordVoicingIndexes, togglePosition, toggleAllPositions }
-  │    └─ useExtensionState(currentDegExtensions)
-  │         └─ returns { activeExtensions, setActiveExtensions, toggleExtension,
-  │                      currentExtensions, EXTENSION_OPTIONS }
+  │    ├─ useExtensionState(currentDegExtensions)
+  │    │    └─ returns { activeExtensions, setActiveExtensions, toggleExtension,
+  │    │                 currentExtensions, EXTENSION_OPTIONS }
+  │    └─ useChordDictionary()
+  │         ├─ CHORD_TYPES (from data/chord-dictionary.js — see below)
+  │         └─ returns { activeChordRoot, activeChordType, activeVoicing,
+  │                      selectChord, clearChord, nextVoicing, hasSelection, ... }
   ├─ NOTE_CSS_VARS (note name → CSS variable, e.g. C → --note-C)
   └─ NOTES (chromatic 12-note array)
        ↓
   Components → FretboardView → selectors, scale-info, triads,
-                                extension-controls, fretboard, position-controls
+                                extension-controls, chord-dict,
+                                fretboard, position-controls
 ```
 
 ## Key data models
@@ -127,6 +136,41 @@ Chord shapes (root position only — all 5 CAGED shapes). Each:
 - Currently only `jonico` and `eolico` modes are populated (2 modas × 5 positions each).
 - Degree can be number (1, 3, 5) or string ('b3').
 
+### `CHORD_TYPES` (from modules/fretboard/data/chord-dictionary.js)
+Chord dictionary with fixed fret positions (like tablature). Indexed by chord type (`'M'`, `'m'`, `'7'`, etc.) then root note.
+
+```js
+CHORD_TYPES = {
+  M: {
+    label: 'Mayor',
+    short: '',
+    roots: {
+      C: [
+        { name: 'Abierta', frets: [-1, 3, 2, 0, 1, 0] },
+        { name: 'Cejilla E', frets: [8, 10, 10, 9, 8, 8] },
+      ],
+      // ... other roots
+    },
+  },
+  // ... other chord types
+}
+```
+
+Each voicing:
+- `name` — display name (e.g. 'Abierta', 'Cejilla E')
+- `frets` — `[lowE, A, D, G, B, highE]` where `-1` = mute, `0` = open, `>0` = fret
+
+**Helpers exported:**
+- `getChordVoicings(root, type)` → `Voicing[]` — lookup by root + type
+- `voicingToIndexes(voicing, STRING_INDEXES)` → `Set<number>` — global indexes for fretboard
+
+**Integration:**
+- `useChordDictionary()` hook manages selection state
+- When a chord is selected, `fretboard.jsx` computes `chordDictIndexes` via `voicingToIndexes()`
+- `FretNote` receives these as `chordDictIndexes` prop
+- When `hasChordDict` is true, chord dict notes take visual priority over triad/voicing notes
+- The chord dict UI (`ChordDict` component) renders in `FretboardView` below the fretboard
+
 ### `rawTriads` (derived in AppProvider)
 7 triads from `currentScale`, each is `[root, third, fifth]`:
 ```js
@@ -164,7 +208,8 @@ All components consume from `useFretboard()` context — NO props passed (except
 | `TriadButton` | Receives props: `triad`, `name`, `isActive`, `activeChordName`, `NOTE_CSS_VARS`, `onClick` |
 | `ExtensionControls` | `activeExtensions`, `toggleExtension`, `EXTENSION_OPTIONS`, `showTriad` |
 | `Positions` | `activePositions`, `togglePosition`, `toggleAllPositions` |
-| `Fretboard` | `showTriad`, `showThird`, `showFifth`, `normalizedScale`, `showScaleTonic`, `currentTriadDegrees`, `getPositionIndexes`, `getChordVoicingIndexes`, `activeTriadIndex`, `currentExtensions`, `activePositions`, `NOTE_CSS_VARS` |
+| `ChordDict` | Receives props from FretboardView: `activeChordRoot`, `activeChordType`, `activeVoicingIdx`, `selectChord`, `clearChord`, `setVoicing`, `nextVoicing`, `availableVoicings`, `activeVoicing`, `hasSelection`, `chordName`, `NOTES`, `chordTypeKeys` |
+| `Fretboard` | `showTriad`, `showThird`, `showFifth`, `normalizedScale`, `showScaleTonic`, `currentTriadDegrees`, `getPositionIndexes`, `getChordVoicingIndexes`, `activeTriadIndex`, `currentExtensions`, `activePositions`, `NOTE_CSS_VARS`, `hasSelection`, `activeVoicing` |
 | `FretboardString` | Receives props: `stringName` + the same computed values passed from Fretboard |
 | `FretNote` | Receives props from FretboardString. Computes classes and colors internally |
 
@@ -173,8 +218,9 @@ All components consume from `useFretboard()` context — NO props passed (except
 The `Fretboard` component:
 1. Computes `positionIndexes` (Set of global indexes for active CAGED positions)
 2. Computes `chordVoicingIndexes` (Set of global indexes for chord shapes, if showTriad + positions active)
-3. Destructures `{ root, third, fifth }` from `currentTriadDegrees`
-4. Maps `STRING_ORDER` → `<FretboardString>` passing all computed data as props
+3. Computes `chordDictIndexes` (Set of global indexes for chord dictionary voicing, if chord selected)
+4. Destructures `{ root, third, fifth }` from `currentTriadDegrees`
+5. Maps `STRING_ORDER` → `<FretboardString>` passing all computed data as props
 
 `FretboardString` maps `STRING_NOTES[stringName]` → `<FretNote>` for each fret.
 
@@ -188,11 +234,13 @@ The `Fretboard` component:
 7. `chordLabel` → `getChordNoteLabel(note, root, third, fifth, currentExtensions)` → `'root'`|`'third'`|`'fifth'`|extKey|null
 8. `isExtension` → chordLabel is not null and not root/third/fifth
 9. `isVoicingNote` → inChordVoicing + showTriad + hasChordVoicing
-10. CSS classes built:
+10. `inChordDict` → globalIndex in `chordDictIndexes` set? (takes priority, supresses voicing notes)
+11. CSS classes built:
     - `.fretActive` → inScale, no chord/voicing highlight
     - `.fretTonic` → isTonic, no triad/voicing highlight
     - `.positionNote` → inPosition + inScale, no chord/voicing highlight
     - `.triadRoot` / `.triadThird` / `.triadFifth` / `.triadExtension` → voicing or chord highlight
+    - `.chordDictNote` → inChordDict (shows note name + note color)
 
 Color: `style={{ '--note-color': 'var(--note-X)' }}` — from `NOTE_CSS_VARS` map.
 
@@ -255,8 +303,8 @@ The fretboard uses a **flat global index** system for efficient Set lookups:
 
 ## Known issues & priorities
 
-- **Estética del diapasón**: las notas son círculos de 14–16px que se renderizan dentro del traste pero visualmente aparecen sobre la línea de la cuerda. El CSS tiene anidación profunda y mezcla lógica visual con de estado.
-- **Chord voicings**: solo jónico y eólico tienen shapes. Faltan los otros 5 modos. Idealmente sería un diccionario de acordes con posiciones reales por tipo e inversión.
+- **Diccionario de acordes**: el diccionario actual tiene digitaciones para M, m, 7, m7, maj7, dim, sus4, sus2 — pero faltan más tipos (aug, m7b5, etc.) y más voicings por raíz. El data format es simple de extender: solo agregar entries en `chord-dictionary.js`.
+- **Chord voicings CAGED**: solo jónico y eólico tienen shapes. Los otros 5 modos están vacíos en `chord-voicings.js`.
 - **Información pedagógica**: los datos de modos (grados, función emocional, intervalos) ya existen en `src/data/modes.js` pero no se muestran en la vista guitarra.
 - **Interactividad**: no hay click en notas del diapasón. Podría permitir seleccionar notas para construir acordes.
 - **use-position-state.js**: `getChordVoicingIndexes` tiene lógica inline para mapear tonicIndex a rootStringIdx — podría moverse a utils.

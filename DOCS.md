@@ -70,9 +70,17 @@ _Generated on 2026-06-15_
   - `lyricsToString` — Convierte el array de versos con acordes a string plano.  * Formato de salida: `[Acorde]texto [Otro]más texto` (una línea por verso).  *  * @param {LyricLine[]} lyrics - Letra formateada como objetos con segmentos  * @returns {string} Texto plano listo para editar en un textarea  *  * @example  * lyricsToString([  *   { segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }  * ])  * // => "[Am]Hello [C]world"
   - `stringToLyrics` — Parsea un string con formato `[Acorde]texto [Otro]más texto`  * al array de objetos que usa internamente la app.  *  * @param {string} str - Texto ingresado por el usuario  * @returns {LyricLine[]} Letra formateada como segmentos  *  * @example  * stringToLyrics("[Am]Hello [C]world")  * // => [{ segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }]
 
+### `modules/fretboard/chord-dict.jsx`
+  - `ChordDict` — ChordDict — Selector de acordes del diccionario.  *  * Props (inyectadas desde el hook useChordDictionary):  *   activeChordRoot  → raíz actual (o null)  *   activeChordType  → tipo actual (o null)  *   activeVoicingIdx → índice de digitación activa  *   selectChord(root, type)  → seleccionar acorde  *   clearChord()             → limpiar selección  *   setVoicing(idx)           → cambiar digitación  *   nextVoicing()             → siguiente digitación  *   availableVoicings         → digitaciones disponibles  *   activeVoicing             → digitación activa  *   hasSelection              → booleano  *   chordName                 → nombre del acorde activo  *   NOTES                     → array de 12 notas  *   chordTypeKeys             → claves de CHORD_TYPES
+
 ### `modules/fretboard/context/fretboard-context.jsx`
   - `FretboardProvider`
   - `useFretboard`
+
+### `modules/fretboard/data/chord-dictionary.js`
+  - `voicingToIndexes` — Convierte una digitación a Set de índices globales del diapasón.  * Los índices se usan en FretNote para resaltar las notas del acorde.  *  * @param {Voicing} voicing  - { name, frets }  * @param {Object}  STRING_INDEXES  - { e:0, b:20, g:40, D:60, A:80, E:100 }  * @returns {Set<number>}
+  - `getChordVoicings` — Retorna las digitaciones disponibles para una raíz + tipo de acorde.  *  * @param {string} root  - Nota raíz ('C', 'C#', 'D', …, 'B')  * @param {string} type  - Clave en CHORD_TYPES ('M', 'm', '7', etc.)  * @returns {Voicing[]}   Array de digitaciones (vacío si no hay)
+  - `CHORD_TYPES`
 
 ### `modules/fretboard/data/chord-voicings.js`
   - `CHORD_VOICINGS`
@@ -85,6 +93,9 @@ _Generated on 2026-06-15_
 
 ### `modules/fretboard/fretboard.jsx`
   - `Fretboard`
+
+### `modules/fretboard/hooks/use-chord-dictionary.js`
+  - `useChordDictionary` — useChordDictionary  *  * Administra la selección de un acorde del diccionario.  *  * Estado:  *   activeChordRoot  → nota raíz seleccionada (null si ninguna)  *   activeChordType  → tipo de acorde seleccionado (null si ninguna)  *   activeVoicingIdx → índice de la digitación activa dentro del tipo+raíz  *  * Acciones:  *   selectChord(root, type)          → selecciona raíz + tipo, resetea digitación a 0  *   clearChord()                     → deselecciona todo  *   setVoicing(index)                → cambia la digitación activa  *   nextVoicing()                    → siguiente digitación disponible  *  * Derivados:  *   availableVoicings   → digitaciones disponibles para la selección actual  *   activeVoicing       → digitación activa (o null)  *   chordTypeKeys       → lista de claves de tipos de acorde  *   hasSelection        → true si hay raíz + tipo seleccionados  *   chordName           → nombre legible del acorde seleccionado (ej. "Do Mayor")  *  * @returns {Object}
 
 ### `modules/fretboard/hooks/use-extension-state.js`
   - `useExtensionState`

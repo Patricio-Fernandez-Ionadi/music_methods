@@ -7,6 +7,8 @@ export function FretboardString({
 	showScaleTonic,
 	positionIndexes,
 	chordVoicingIndexes,
+	chordDictIndexes,
+	hasChordDict,
 	root,
 	third,
 	fifth,
@@ -30,6 +32,8 @@ export function FretboardString({
 					showScaleTonic={showScaleTonic}
 					positionIndexes={positionIndexes}
 					chordVoicingIndexes={chordVoicingIndexes}
+					chordDictIndexes={chordDictIndexes}
+					hasChordDict={hasChordDict}
 					root={root}
 					third={third}
 					fifth={fifth}

@@ -9,6 +9,8 @@ export function FretNote({
 	showScaleTonic,
 	positionIndexes,
 	chordVoicingIndexes,
+	chordDictIndexes,
+	hasChordDict,
 	root,
 	third,
 	fifth,
@@ -25,6 +27,7 @@ export function FretNote({
 	const isTonic = showScaleTonic && note === normalizedScale[0]
 	const inPosition = positionIndexes.has(globalIndex)
 	const inChordVoicing = chordVoicingIndexes.has(globalIndex)
+	const inChordDict = hasChordDict && chordDictIndexes.has(globalIndex)
 
 	const isRoot = showTriad && note === root
 	const isThird = showThird && note === third
@@ -39,21 +42,23 @@ export function FretNote({
 	const inTriad = isRoot || isThird || isFifth || chordLabel !== null
 
 	const usingChordVoicing = hasChordVoicing && showTriad
-	const isVoicingNote = usingChordVoicing && inChordVoicing
+	const isVoicingNote = (usingChordVoicing && inChordVoicing) && !hasChordDict
 	const showInThisPosition =
 		!hasActivePositions || (hasActivePositions && inPosition)
 	const showChordNote =
-		(showTriad &&
+		!hasChordDict &&
+		((showTriad &&
 			(isRoot || isThird || isFifth || isExtension) &&
 			showInThisPosition) ||
-		isVoicingNote
+		isVoicingNote)
 
 	const isHighlighted =
 		(isTonic && !inTriad && !isVoicingNote) ||
 		(inScale && !showChordNote && !isVoicingNote) ||
 		(inPosition && inScale && !showChordNote && !isVoicingNote) ||
 		showChordNote ||
-		isVoicingNote
+		isVoicingNote ||
+		inChordDict
 
 	const SINGLE_MARKERS = [3, 5, 7, 9, 15, 17, 19]
 	const DOUBLE_MARKERS = [12]
@@ -91,10 +96,11 @@ export function FretNote({
 		if (isExtension) classes.push('triadExtension')
 	}
 
+	if (inChordDict) classes.push('chordDictNote')
 	if (isHighlighted) classes.push('highlighted')
 
 	const noteVar =
-		showChordNote || isVoicingNote
+		showChordNote || isVoicingNote || (hasChordDict && inChordDict)
 			? NOTE_CSS_VARS[note] || null
 			: null
 	const noteColorVar = noteVar ? `var(${noteVar})` : null
