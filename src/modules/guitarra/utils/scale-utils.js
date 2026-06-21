@@ -19,7 +19,7 @@ export function normalizeNote(note) {
 	return ENHARMONICS[note] || note
 }
 
-const SHARP_TO_FLAT = {}
+export const SHARP_TO_FLAT = {}
 for (const [flat, sharp] of Object.entries(ENHARMONICS)) {
 	SHARP_TO_FLAT[sharp] = flat
 }

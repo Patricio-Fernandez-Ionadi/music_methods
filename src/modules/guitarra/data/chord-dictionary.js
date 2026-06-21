@@ -50,6 +50,7 @@ import {
 	buildBarreVoicings,
 	buildTriadSetVoicings,
 } from '../utils/voicing-generators'
+import { normalizeNote, SHARP_TO_FLAT } from '../utils/scale-utils'
 
 /* ------------------------------------------------------------------ */
 /*  STRING_ORDER de referencia (high‑e → low‑E)                       */
@@ -87,7 +88,12 @@ export function voicingToIndexes(voicing, STRING_INDEXES) {
  * @returns {Voicing[]}   Array de digitaciones (vacío si no hay)
  */
 export function getChordVoicings(root, type) {
-	return CHORD_TYPES[type]?.roots[root] ?? []
+	const typeRoots = CHORD_TYPES[type]?.roots
+	if (!typeRoots) return []
+	return typeRoots[root]
+		?? typeRoots[normalizeNote(root)]
+		?? typeRoots[SHARP_TO_FLAT[root]]
+		?? []
 }
 
 /* ── Helper: combinar voicings manuales + generados ────────── */
