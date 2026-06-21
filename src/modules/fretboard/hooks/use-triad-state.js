@@ -6,6 +6,7 @@ export function useTriadState(normalizedTriads) {
 	const [showFifth, setShowFifth] = useState(false)
 	const [activeTriadIndex, setActiveTriadIndex] = useState(0)
 	const [showScaleTonic, setShowScaleTonic] = useState(true)
+	const [activeTriadVoicing, setActiveTriadVoicing] = useState(null)
 
 	const currentTriadDegrees = useMemo(() => {
 		if (!normalizedTriads || !normalizedTriads[activeTriadIndex]) {
@@ -19,6 +20,7 @@ export function useTriadState(normalizedTriads) {
 		setShowTriad(checked)
 		setShowThird(checked)
 		setShowFifth(checked)
+		setActiveTriadVoicing(null)
 		if (!checked) setActiveTriadIndex(0)
 	}, [])
 
@@ -31,6 +33,7 @@ export function useTriadState(normalizedTriads) {
 		setShowThird(true)
 		setShowFifth(true)
 		setShowScaleTonic(false)
+		setActiveTriadVoicing(null)
 	}, [])
 
 	const deselectTriad = useCallback(() => {
@@ -38,6 +41,11 @@ export function useTriadState(normalizedTriads) {
 		setShowThird(false)
 		setShowFifth(false)
 		setShowScaleTonic(true)
+		setActiveTriadVoicing(null)
+	}, [])
+
+	const selectTriadVoicing = useCallback((voicing) => {
+		setActiveTriadVoicing(voicing)
 	}, [])
 
 	return {
@@ -47,10 +55,12 @@ export function useTriadState(normalizedTriads) {
 		activeTriadIndex,
 		showScaleTonic,
 		currentTriadDegrees,
+		activeTriadVoicing,
 		toggleTriad,
 		toggleThird,
 		toggleFifth,
 		selectTriad,
 		deselectTriad,
+		selectTriadVoicing,
 	}
 }

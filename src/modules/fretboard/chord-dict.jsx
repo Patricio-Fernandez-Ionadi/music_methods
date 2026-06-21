@@ -1,5 +1,6 @@
 import { CHORD_TYPES } from './data/chord-dictionary'
 import { Field } from '../../app/components/field/field'
+import { ChordDictFretboard } from './chord-dict/chord-dict-fretboard'
 
 /**
  * ChordDict — Selector de acordes del diccionario.
@@ -109,6 +110,8 @@ export function ChordDict({
 						))}
 					</div>
 				)}
+
+				<ChordDictFretboard activeVoicing={activeVoicing} />
 			</div>
 		</Field>
 	)

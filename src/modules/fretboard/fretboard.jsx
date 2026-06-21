@@ -4,8 +4,16 @@ import { STRING_INDEXES } from '../../data'
 import { voicingToIndexes } from './data/chord-dictionary'
 
 const STRING_ORDER = ['e', 'b', 'g', 'D', 'A', 'E']
+const FRET_LABEL_MARKERS = [0, 3, 5, 7, 9, 12]
 
-export function Fretboard() {
+export function Fretboard({
+	fretRange,
+	showFretLabels,
+	highlightedOnlyIndexes,
+	containerClass = 'fretboard-container',
+}) {
+	const ctx = useFretboard()
+
 	const {
 		showTriad,
 		showThird,
@@ -18,24 +26,27 @@ export function Fretboard() {
 		getChordVoicingIndexes,
 		activeTriadIndex,
 		activePositions,
+		activeTriadVoicing,
 		NOTE_CSS_VARS,
-		hasSelection,
-		activeVoicing,
-	} = useFretboard()
+	} = ctx
 
 	const positionIndexes = getPositionIndexes()
 	const chordVoicingIndexes =
 		showTriad && activePositions.length > 0
 			? getChordVoicingIndexes(activeTriadIndex)
 			: new Set()
-	const chordDictIndexes =
-		hasSelection && activeVoicing
-			? voicingToIndexes(activeVoicing, STRING_INDEXES)
-			: new Set()
+	const triadVoicingIndexes = activeTriadVoicing
+		? voicingToIndexes(activeTriadVoicing, STRING_INDEXES)
+		: new Set()
 	const { root, third, fifth } = currentTriadDegrees
 	const hasActivePositions = activePositions.length > 0
 	const hasChordVoicing = chordVoicingIndexes.size > 0
-	const hasChordDict = chordDictIndexes.size > 0
+
+	const effectiveHighlighted =
+		highlightedOnlyIndexes ??
+		(triadVoicingIndexes.size > 0 ? triadVoicingIndexes : null)
+
+	const range = fretRange ?? { start: 0, end: 19 }
 
 	const stringProps = {
 		normalizedScale,
@@ -43,8 +54,8 @@ export function Fretboard() {
 		showScaleTonic,
 		positionIndexes,
 		chordVoicingIndexes,
-		chordDictIndexes,
-		hasChordDict,
+		triadVoicingIndexes,
+		highlightedOnlyIndexes: effectiveHighlighted,
 		root,
 		third,
 		fifth,
@@ -54,10 +65,11 @@ export function Fretboard() {
 		hasActivePositions,
 		hasChordVoicing,
 		NOTE_CSS_VARS,
+		fretRange: range,
 	}
 
 	return (
-		<div className='fretboard-container'>
+		<div className={containerClass}>
 			<div className='fretboardDinamic'>
 				{STRING_ORDER.map((stringName) => (
 					<FretboardString
@@ -66,7 +78,24 @@ export function Fretboard() {
 						{...stringProps}
 					/>
 				))}
+				{showFretLabels && (
+					<FretLabelsRow range={range} />
+				)}
 			</div>
+		</div>
+	)
+}
+
+function FretLabelsRow({ range }) {
+	const { start, end } = range
+	const labels = Array.from({ length: end - start + 1 }, (_, i) => start + i)
+	return (
+		<div className='fret-labels-row'>
+			{labels.map((fret) => (
+				<span key={fret} className='fret-label'>
+					{FRET_LABEL_MARKERS.includes(fret) ? fret : ''}
+				</span>
+			))}
 		</div>
 	)
 }

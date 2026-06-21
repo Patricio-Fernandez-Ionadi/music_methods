@@ -1,0 +1,18 @@
+@use './colors' as *;
+
+// Fretboard colors
+$fretboard-bg: #302924;
+$fretboard-string-line: rgba(112, 110, 110, 0.5);
+$fretboard-fret-border: rgba(163, 162, 162, 0.35);
+$fretboard-first-fret-border: rgba(163, 162, 162, 0.6);
+$fretboard-marker-dot: rgba(255, 255, 255, 0.08);
+$fretboard-active-bg: rgba(5, 172, 144, 0.25);
+$fretboard-position-bg: #22c7bf;
+$fretboard-tonic-bg: #69db7c;
+$fretboard-label-color: rgba($white, 0.4);
+$fretboard-border: $black_light;
+
+// Sizes
+$fretboard-height: 210px;
+$fretboard-chord-dict-height: 150px;
+$fretboard-chord-dict-max-width: 350px;

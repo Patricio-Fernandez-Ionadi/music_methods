@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import { Field } from '../../app/components/field/field'
 import { buildChordName } from './utils/chord-names'
 import { TriadButton } from './triad-button'
+import { getChordVoicings } from './data/chord-dictionary'
 
 export const Triads = () => {
 	const {
@@ -12,6 +13,8 @@ export const Triads = () => {
 		selectTriad,
 		deselectTriad,
 		selectedMode,
+		activeTriadVoicing,
+		selectTriadVoicing,
 		NOTE_CSS_VARS,
 	} = useFretboard()
 
@@ -35,6 +38,14 @@ export const Triads = () => {
 		selectedMode,
 	])
 
+	const triadVoicings = useMemo(() => {
+		if (activeTriadIndex == null || !rawTriads?.length) return []
+		const root = rawTriads[activeTriadIndex][0]
+		const type = selectedMode.chords[activeTriadIndex]
+		const chordTypeMap = { M: 'M', m: 'm', dim: 'dim' }
+		return getChordVoicings(root, chordTypeMap[type] || 'M')
+	}, [rawTriads, activeTriadIndex, selectedMode])
+
 	return (
 		<>
 			<Field id='triad-viewer' label={'Tríadas'}>
@@ -57,6 +68,25 @@ export const Triads = () => {
 								/>
 							)
 						})}
+
+						{/* Voicings de la tríada activa */}
+						{showTriad && triadVoicings.length > 0 && (
+							<div className='triad-voicings'>
+								{triadVoicings.map((voicing, vi) => (
+									<button
+										key={vi}
+										className={`triad-voicing-btn${activeTriadVoicing === voicing ? ' active' : ''}`}
+										onClick={() =>
+											selectTriadVoicing(
+												activeTriadVoicing === voicing ? null : voicing,
+											)
+										}
+									>
+										{voicing.name}
+									</button>
+								))}
+							</div>
+						)}
 					</div>
 				)}
 			</Field>

@@ -1,0 +1,17 @@
+@use '../../../../theme/values' as *;
+
+.chord-dict-fretboard {
+	margin-top: $gap;
+	border: 1px solid $fretboard-border;
+	border-radius: $smooth;
+	max-width: $fretboard-chord-dict-max-width;
+
+	.fretboard-container {
+		height: $fretboard-chord-dict-height;
+		border-radius: 0;
+	}
+
+	.fret-labels-row .fret-label {
+		font-size: 8px;
+	}
+}

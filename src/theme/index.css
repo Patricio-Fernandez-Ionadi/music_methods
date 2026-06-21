@@ -449,6 +449,21 @@ p {
   height: 28px;
   box-shadow: 0 0 12px var(--note-color), 0 0 0 3px color-mix(in srgb, var(--note-color) 40%, transparent);
 }
+.fretboard-container .fretboardDinamic .string-container .fret.chordDictNote span {
+  width: 22px;
+  height: 22px;
+  background: var(--note-color);
+  box-shadow: 0 0 8px var(--note-color);
+  font-size: 9px;
+}
+.fretboard-container .fretboardDinamic .string-container .fret.triadVoicingNote span {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 2px solid var(--note-color);
+  box-shadow: 0 0 8px var(--note-color);
+  font-size: 8px;
+}
 .fretboard-container .fretboardDinamic .string-container .fret.triadExtension span {
   width: 18px;
   height: 18px;
@@ -457,12 +472,20 @@ p {
   box-shadow: 0 0 6px var(--note-color);
   font-size: 0;
 }
-.fretboard-container .fretboardDinamic .string-container .fret.chordDictNote span {
-  width: 24px;
-  height: 24px;
-  background: var(--note-color);
-  box-shadow: 0 0 10px var(--note-color), 0 0 0 3px color-mix(in srgb, var(--note-color) 40%, transparent);
-  font-size: 10px;
+
+/* ---- Fret labels row (for mini fretboards) ---- */
+.fret-labels-row {
+  display: flex;
+  width: 100%;
+  padding: 0 2px;
+}
+
+.fret-label {
+  flex: 1;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  min-width: 0;
 }
 
 /* ===== Mobile & portrait overrides ===== */
@@ -492,14 +515,19 @@ p {
     width: 20px;
     height: 20px;
   }
+  .fretboard-container .fretboardDinamic .string-container .fret.chordDictNote span {
+    width: 16px;
+    height: 16px;
+    font-size: 7px;
+  }
+  .fretboard-container .fretboardDinamic .string-container .fret.triadVoicingNote span {
+    width: 14px;
+    height: 14px;
+    font-size: 7px;
+  }
   .fretboard-container .fretboardDinamic .string-container .fret.triadExtension span {
     width: 14px;
     height: 14px;
-  }
-  .fretboard-container .fretboardDinamic .string-container .fret.chordDictNote span {
-    width: 18px;
-    height: 18px;
-    font-size: 8px;
   }
 }
 @media (max-width: 769px) and (orientation: portrait) {
@@ -590,6 +618,42 @@ p {
   }
   .triad-btn span {
     display: none;
+  }
+}
+/* Triad voicings */
+.triad-voicings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+.triad-voicing-btn {
+  background: #212121;
+  border: 1px solid #484848;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11px;
+  color: #8e8e8e;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.triad-voicing-btn:hover {
+  border-color: #373737;
+  color: #f5f5f5;
+}
+.triad-voicing-btn.active {
+  border-color: #00adb5;
+  background: rgba(0, 173, 181, 0.1);
+  color: #5cdfe7;
+}
+
+@media (max-width: 769px) {
+  .triad-voicing-btn {
+    font-size: 10px;
+    padding: 2px 6px;
   }
 }
 .selector-group {
@@ -863,6 +927,25 @@ p {
     padding: 2px 6px;
   }
 }
+.chord-dict-fretboard {
+  margin-top: 8px;
+  border: 1px solid #484848;
+  border-radius: 8px;
+  width: 500px;
+  height: 210px;
+}
+.chord-dict-fretboard .fretboard-container {
+  height: 120px;
+  border-radius: 0;
+}
+.chord-dict-fretboard .fret {
+  min-width: 40px;
+}
+.chord-dict-fretboard .fret-labels-row .fret-label {
+  min-width: 40px;
+  font-size: 8px;
+}
+
 .mode-card {
   background: #212121;
   border: 1px solid #484848;
