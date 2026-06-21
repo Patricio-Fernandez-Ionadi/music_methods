@@ -211,3 +211,170 @@ When extracting inline JSX into atomic components:
 8. **Strip view SCSS**: if the view had a `.scss` with styles that now live in the component, remove them. Views should only keep minimal container styles.
 9. **Verify**: `npm run build`
 10. **Update docs**: `npm run docs` (regenera `DOCS.md` con el listado actualizado de componentes)
+
+---
+
+## Project Summary (contexto completo para el agente)
+
+### guitarra — módulo principal
+
+#### Archivos clave
+
+| Archivo | Rol |
+|---|---|
+| `modules/guitarra/context/fretboard-context.jsx` | FretboardProvider + useFretboard hook. Compone useFretboardState (triads + positions + chord-dict). |
+| `modules/guitarra/hooks/use-fretboard-state.js` | Orquestador que llama useTriadState, usePositionState, useChordDictionary |
+| `modules/guitarra/hooks/use-triad-state.js` | Selección de tríada: toggle, showThird, showFifth, activeTriadIndex |
+| `modules/guitarra/hooks/use-position-state.js` | 5 posiciones CAGED: toggle, chord voicing indexes |
+| `modules/guitarra/hooks/use-chord-dictionary.js` | Selección de acorde: defaults C/M, availableVoicings via getChordVoicings |
+| `modules/guitarra/data/chord-dictionary.js` | CHORD_TYPES (8 tipos), getChordVoicings (3 fallbacks enharmónicos), voicingToIndexes, withBarreAndTriads |
+| `modules/guitarra/data/chord-voicings.js` | CHORD_VOICINGS — 5 shapes CAGED root position (solo jónico/eólico poblados) |
+| `modules/guitarra/utils/voicing-generators.js` | NOTE_IDX, CHORD_INTERVALS, buildAllVoicings, buildBarreVoicings, CAGED barre forms (E/A/D) |
+| `modules/guitarra/utils/scale-utils.js` | CHROMATIC, normalizeNote, SHARP_TO_FLAT, scaleNoteName |
+| `modules/guitarra/utils/chord-labels.js` | getChordNoteLabel — 'root', 'third', 'fifth', null |
+| `modules/guitarra/utils/chord-names.js` | buildChordName — 'C', 'Dm', 'Gdim' |
+| `modules/guitarra/utils/position-utils.js` | TOTAL_FRETS, getNoteIndexes, positionApplies, noteToGlobalIndex |
+| `modules/guitarra/chord-dict.jsx` | UI: root select + type buttons + voicing buttons + ChordDictFretboard |
+| `modules/guitarra/chord-dict/chord-dict-fretboard.jsx` | Fretboard con currentScale contextual para nombres enharmónicos correctos |
+| `modules/guitarra/fretboard-view.jsx` | Orquestador delgado: compone Selectors + ScaleInfo + Triads + Fretboard + Positions + ChordDict |
+| `modules/guitarra/fretboard.jsx` | Grid del diapasón: 6 strings × frets, con positionIndexes, chordVoicingIndexes, chordDictIndexes |
+| `modules/guitarra/note/fret-note.jsx` | Nota individual: clases CSS según contexto + scaleNoteName para enharmónicos |
+| `modules/guitarra/triad-button.jsx` | Botón de tríada individual |
+| `modules/guitarra/triads.jsx` | Selector de 7 tríadas (I–VII) |
+| `modules/guitarra/selectors.jsx` | Selectores de tónica + modo |
+| `modules/guitarra/scale-info.jsx` | Display de notas de la escala actual |
+| `modules/guitarra/position-controls.jsx` | 5 botones CAGED + All |
+
+#### Sistema de índices globales
+
+```
+globalIndex = STRING_INDEXES[stringName] + fret
+STRING_INDEXES = { e: 0, b: 20, g: 40, D: 60, A: 80, E: 100 }
+TOTAL_FRETS = 120
+```
+
+Todas las búsquedas (positionIndexes, chordVoicingIndexes, chordDictIndexes) usan `Set<globalIndex>` para O(1).
+
+#### Enharmónicos
+
+- `normalizeNote(note)` → resuelve bemol→sostenido (Bb→A#, Db→C#) usando ENHARMONICS
+- `SHARP_TO_FLAT` → reverse map (C#→Db, D#→Eb, F#→Gb, G#→Ab)
+- `scaleNoteName(note, currentScale)` → si la nota no está en la escala, busca su equivalente bemol y lo usa si está en la escala
+- `getChordVoicings(root, type)` → 3 intentos: directo → normalizeNote → SHARP_TO_FLAT → []
+
+#### Generación de voicings (voicing-generators.js)
+
+```
+CHORD_INTERVALS = {
+  M: [0, 4, 7], m: [0, 3, 7], dim: [0, 3, 6],
+  7: [0, 4, 7, 10], m7: [0, 3, 7, 10], maj7: [0, 4, 7, 11],
+  sus4: [0, 5, 7], sus2: [0, 2, 7],
+}
+
+buildAllVoicings(root, quality):
+  ├─ Si es tríada (3 notas): buildCloseVoicings en GBE (3 inversiones, span ≤ 5)
+  └─ Si es 7ª (4 notas): buildDrop2Voicings en DGBE + ADGB (4 inversiones c/u, span ≤ 5)
+
+buildBarreVoicings(root, quality):
+  └─ Cejilla E, A, D — cada una con offsets propios por calidad (M/m/7/m7/maj7/dim/sus4/sus2)
+```
+
+Nombres de voicings generados:
+- Triadas GBE: "Agudas", "Agudas 1ª inv.", "Agudas 2ª inv."
+- Drop-2: "DGBE", "DGBE 1ª inv.", …, "ADGB", "ADGB 1ª inv.", …
+- Cejillas: "Cejilla E", "Cejilla A", "Cejilla D"
+
+#### ChordDictFretboard (chord-dict/chord-dict-fretboard.jsx)
+
+Recibe `activeVoicing`, `root`, `type` como props.
+- Computa `currentScale` desde `CHORD_INTERVALS[type]` + `NOTE_IDX[root]`
+- Aplica `SHARP_TO_FLAT` para intervalos 3 y 10 (3ª menor, 7ª menor) para nombrar correctamente (Eb no D#)
+- Pasa `currentScale` al `FretboardContext.Provider` para que `scaleNoteName` en FretNote funcione correctamente
+
+#### FretNote — lógica de renderizado
+
+1. `inScale` → nota en normalizedScale?
+2. `isTonic` → nota === scale[0] (si showScaleTonic)
+3. `inPosition` → globalIndex en positionIndexes
+4. `inChordVoicing` → globalIndex en chordVoicingIndexes
+5. `isRoot/isThird/isFifth` → nota === currentTriadDegrees (si showTriad)
+6. `inChordDict` → globalIndex en chordDictIndexes (prioridad sobre voicing)
+7. Clases CSS resultantes: `.fretActive`, `.fretTonic`, `.positionNote`, `.triadRoot/Third/Fifth`, `.chordDictNote`
+
+### biblioteca — módulo
+
+| Archivo | Rol |
+|---|---|
+| `hooks/use-song-filters.js` | Filtros por name, artist, key (AND, case-insensitive) |
+| `hooks/use-song-form.js` | Crear/editar canciones, parsing de letras [Acorde]texto, plantilla de tablatura |
+| `library/song-filters.jsx` | 3 inputs de filtro |
+| `library/song-list-header.jsx` | Header + botón "Nueva canción" |
+| `library/song-list-item.jsx` | Fila de canción individual |
+| `library/song-list.jsx` | Lista completa o "Sin resultados" |
+| `song/details/song-header.jsx` | Nombre, artista, tonalidad + menú editar/eliminar |
+| `song/details/song-lyrics.jsx` | Letras con acordes inline |
+| `song/details/song-tablatures.jsx` | Secciones de tablatura |
+| `song/form/song-form.jsx` | Orquestador del formulario |
+| `song/form/song-form-basic-info.jsx` | Inputs: nombre, artista, tonalidad |
+| `song/form/song-form-lyrics.jsx` | Textarea de letras con preview |
+| `song/form/song-form-tablature.jsx` | Textarea de tab + botón insertar plantilla |
+| `song/form/song-form-actions.jsx` | Botones guardar/cancelar |
+| `utils/lyrics.js` | lyricsToString / stringToLyrics |
+
+Modelo de canción:
+```js
+{ id: Number, name: String, artist: String, key: String,
+  lyrics: [{ segments: [{ chord, text }] }],
+  tabs: [{ label: String, content: String }] }
+```
+
+Persistencia: localStorage clave `biblioteca-songs`, inicializado desde `src/data/biblioteca.js`.
+
+### modes — módulo
+
+| Archivo | Rol |
+|---|---|
+| `mode-component.jsx` | Tarjeta de modo (header + armónica + tabla + pentagrama) |
+| `mode-header.jsx` | Nombre, intervalos T/S, alteraciones |
+| `mode-table.jsx` | Tabla de 12 tonalidades |
+| `mode-table-row.jsx` | Fila de tonalidad |
+| `pentagram.jsx` | Pentagrama visual |
+| `pentagram-note.jsx` | Nota en pentagrama |
+| `utils/pentagram-notes.js` | pentagramNoteHeight |
+
+### views — orquestadores delgados
+
+| View | Ruta | Compone |
+|---|---|---|
+| `views/biblioteca/biblioteca-view.jsx` | `/biblioteca` | SongListHeader, SongFilters, SongList |
+| `views/biblioteca/song-detail.jsx` | `/biblioteca/:songId` | BackButton, SongHeader, SongTablatures, SongLyrics |
+| `views/biblioteca/song-form-view.jsx` | `/biblioteca/nueva` | BackButton, SongForm |
+| `views/funcional/funcional-view.jsx` | `/funcional` | ModeComponent (jónico + eólico) |
+| `views/modos/modos-view.jsx` | `/modos` | ModeComponent (5 modos) |
+| `views/guitarra/guitarra-view.jsx` | `/guitarra` | FretboardProvider → FretboardView |
+
+### app shell
+
+| Archivo | Rol |
+|---|---|
+| `app/context/app-context.jsx` | AppProvider: tónica, modo, escala, tríadas, canciones |
+| `app/layout/main-layout.jsx` | Header + Outlet |
+| `app/router/app-router.jsx` | Definiciones de rutas (import * as v from '../../views') |
+| `app/components/header/header.jsx` | Navegación principal |
+| `app/components/field/field.jsx` | Field wrapper con label |
+| `app/components/button/back-button.jsx` | Botón volver |
+| `app/components/armonicTable/armonic-table.jsx` | Tabla armónica de grados |
+
+### SCSS barrel chain
+
+```
+theme/index.scss
+ ├── values/_index.scss  ← colores, tamaños, mixins, notas, media queries
+ ├── app/style/_index.scss  ← layout + componentes compartidos
+ └── modules/style/_index.scss
+       ├── biblioteca/style/  ← details + form + library
+       ├── guitarra/style/  ← _fretboard, _triads, _selectors, _positions,
+       │                        _scale-info, _chord-dict, _chord-dict-fretboard,
+       │                        _fretboard-header
+       └── modes/style/  ← _mode-header, _mode-table, _pentagram
+```

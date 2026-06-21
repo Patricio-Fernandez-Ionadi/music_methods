@@ -32,21 +32,18 @@ export function ChordDict({
 							<option key={n} value={n}>{n}</option>
 						))}
 					</select>
+				</div>
 
-					<select
-						className='chord-dict-select'
-						value={activeChordType ?? ''}
-						onChange={(e) => {
-							const type = e.target.value
-							if (type && activeChordRoot) selectChord(activeChordRoot, type)
-							else if (type) selectChord('C', type)
-						}}
-					>
-						<option value='' disabled>Tipo</option>
-						{chordTypeKeys.map((key) => (
-							<option key={key} value={key}>{CHORD_TYPES[key].label}</option>
-						))}
-					</select>
+				<div className='chord-dict-type-buttons'>
+					{chordTypeKeys.map((key) => (
+						<button
+							key={key}
+							className={`chord-dict-type-btn${activeChordType === key ? ' active' : ''}`}
+							onClick={() => selectChord(activeChordRoot, key)}
+						>
+							{CHORD_TYPES[key].label}
+						</button>
+					))}
 				</div>
 
 				{availableVoicings.length > 1 && (
@@ -63,7 +60,11 @@ export function ChordDict({
 					</div>
 				)}
 
-				<ChordDictFretboard activeVoicing={activeVoicing} />
+				<ChordDictFretboard
+				activeVoicing={activeVoicing}
+				root={activeChordRoot}
+				type={activeChordType}
+			/>
 			</div>
 		</Field>
 	)

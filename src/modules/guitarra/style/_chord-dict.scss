@@ -35,6 +35,36 @@
 	}
 }
 
+.chord-dict-type-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.chord-dict-type-btn {
+	background: $black;
+	border: 1px solid $black_light;
+	border-radius: 8px;
+	padding: 6px 12px;
+	cursor: pointer;
+	transition: all 0.15s;
+	color: $grey_light;
+	font-size: 13px;
+	font-family: inherit;
+
+	&:hover {
+		border-color: $grey_dark;
+		background: #2a2a2a;
+		color: $white;
+	}
+
+	&.active {
+		border-color: $primary;
+		background: rgba($primary, 0.1);
+		color: $primary_light;
+	}
+}
+
 .chord-dict-voicings {
 	display: flex;
 	flex-wrap: wrap;

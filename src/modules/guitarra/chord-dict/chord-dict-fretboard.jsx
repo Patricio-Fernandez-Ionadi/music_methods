@@ -1,5 +1,7 @@
 import { STRING_INDEXES } from '../../../data'
 import { voicingToIndexes } from '../data/chord-dictionary'
+import { CHORD_INTERVALS, NOTE_IDX } from '../utils/voicing-generators'
+import { CHROMATIC, SHARP_TO_FLAT } from '../utils/scale-utils'
 import { FretboardContext, NOTE_CSS_VARS } from '../context/fretboard-context'
 import { Fretboard } from '../fretboard'
 
@@ -21,6 +23,20 @@ const QUIET_CONTEXT = {
 	NOTE_CSS_VARS,
 }
 
+const FLAT_INTERVALS = new Set([3, 10])
+
+function computeCurrentScale(root, type) {
+	const intervals = CHORD_INTERVALS[type]
+	if (!intervals || !root) return []
+	const rootIdx = NOTE_IDX[root]
+	if (rootIdx == null) return []
+	return intervals.map((i) => {
+		const note = CHROMATIC[(rootIdx + i + 12) % 12]
+		if (FLAT_INTERVALS.has(i) && note.includes('#') && SHARP_TO_FLAT[note]) return SHARP_TO_FLAT[note]
+		return note
+	})
+}
+
 function computeFretRange(frets) {
 	const played = frets.filter((f) => f >= 0)
 	if (played.length === 0) return DEFAULT_RANGE
@@ -32,7 +48,8 @@ function computeFretRange(frets) {
 	return { start, end: start + 4 }
 }
 
-export function ChordDictFretboard({ activeVoicing }) {
+export function ChordDictFretboard({ activeVoicing, root, type }) {
+	const currentScale = computeCurrentScale(root, type)
 	const fretRange = activeVoicing
 		? computeFretRange(activeVoicing.frets)
 		: DEFAULT_RANGE
@@ -40,9 +57,11 @@ export function ChordDictFretboard({ activeVoicing }) {
 		? voicingToIndexes(activeVoicing, STRING_INDEXES)
 		: null
 
+	const contextValue = { ...QUIET_CONTEXT, currentScale }
+
 	return (
 		<div className='chord-dict-fretboard'>
-			<FretboardContext.Provider value={QUIET_CONTEXT}>
+			<FretboardContext.Provider value={contextValue}>
 				<Fretboard
 					fretRange={fretRange}
 					showFretLabels

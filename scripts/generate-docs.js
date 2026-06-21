@@ -89,10 +89,10 @@ function extractDocs(filePath) {
 
 function groupedDocs() {
 	const groups = {
-		Views: jsFiles(join(SRC, 'views')),
-		Modules: jsFiles(join(SRC, 'modules')),
-		'Shared Components': jsFiles(join(SRC, 'app', 'components')),
-		Data: jsFiles(join(SRC, 'data')),
+		Vistas: jsFiles(join(SRC, 'views')),
+		Módulos: jsFiles(join(SRC, 'modules')),
+		'Componentes Compartidos': jsFiles(join(SRC, 'app', 'components')),
+		Datos: jsFiles(join(SRC, 'data')),
 		'App Shell': [
 			...jsFiles(join(SRC, 'app', 'context')),
 			...jsFiles(join(SRC, 'app', 'router')),
@@ -100,7 +100,7 @@ function groupedDocs() {
 		],
 	}
 
-	let md = `# Project Documentation\n\n_Generated on ${new Date().toISOString().split('T')[0]}_\n\n`
+	let md = `# Documentación del Proyecto\n\n_Generada el ${new Date().toISOString().split('T')[0]}_\n\n`
 
 	for (const [group, files] of Object.entries(groups)) {
 		const entries = []

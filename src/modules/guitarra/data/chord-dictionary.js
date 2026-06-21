@@ -48,7 +48,7 @@
 
 import {
 	buildBarreVoicings,
-	buildTriadSetVoicings,
+	buildAllVoicings,
 } from '../utils/voicing-generators'
 import { normalizeNote, SHARP_TO_FLAT } from '../utils/scale-utils'
 
@@ -100,8 +100,8 @@ export function getChordVoicings(root, type) {
 
 function withBarreAndTriads(root, quality, manual = []) {
 	const barre = buildBarreVoicings(root, quality)
-	const triads = buildTriadSetVoicings(root, quality)
-	return [...manual, ...barre, ...triads]
+	const others = buildAllVoicings(root, quality)
+	return [...manual, ...barre, ...others]
 }
 
 function allRoots(fn) {

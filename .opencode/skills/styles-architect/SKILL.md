@@ -33,18 +33,21 @@ theme/index.scss
  │         ├── armonicTable/_armonic-table.scss
  │         ├── field/_field.scss
  │         └── button/_back-button.scss
- └── modules/style/_index.scss   (forwards each module)
-       ├── fretboard/style/_index.scss
-        │    ├── _fretboard, _triads, _selectors, _positions, _scale-info, _chord-dict, _fretboard-header
-      ├── modes/style/_index.scss
-      │    ├── _mode-header, _mode-table, _pentagram
-      └── biblioteca/style/_index.scss
-           ├── song/details/style/_index.scss
-           │    ├── _dotted-menu, _song-header, _song-tablatures, _song-lyrics
-           ├── song/form/style/_index.scss
-           │    ├── _song-form, _song-form-basic-info, _song-form-lyrics, _song-form-tablature, _song-form-actions
-           └── library/style/_index.scss
-                ├── _song-list-header, _song-filters, _song-list, _song-list-item
+  └── modules/style/_index.scss   (forwards each module)
+        ├── guitarra/style/_index.scss
+        │    ├── _fretboard-header, _fretboard, _triads, _selectors
+        │    ├── _positions, _scale-info, _chord-dict
+        │    └── ../chord-dict/style/   ← sub-barrel
+        │         └── _chord-dict-fretboard   ← .chord-dict-fretboard (210px, same height as main)
+        ├── modes/style/_index.scss
+        │    ├── _mode-header, _mode-table, _pentagram
+        └── biblioteca/style/_index.scss
+               ├── song/details/style/_index.scss
+               │    ├── _dotted-menu, _song-header, _song-tablatures, _song-lyrics
+               ├── song/form/style/_index.scss
+               │    ├── _song-form, _song-form-basic-info, _song-form-lyrics, _song-form-tablature, _song-form-actions
+               └── library/style/_index.scss
+                    ├── _song-list-header, _song-filters, _song-list, _song-list-item
 ```
 
 ## SCSS conventions
@@ -56,6 +59,11 @@ theme/index.scss
 - **Component SCSS** lives in `style/` alongside the JSX file
 - **`@use` path depth** varies: from `modules/biblioteca/song/form/style/` → `@use '../../../../../../theme/values' as *;` (6 levels up)
 - **No inline `<style>` or JS style objects** — prefer CSS classes via `className`
+
+## Notas
+
+- `$fretboard-chord-dict-height` fue eliminado de `theme/values/_fretboard.scss` — el chord-dict fretboard ahora usa `$fretboard-height` (210px) para consistencia con el diapasón principal.
+- Los botones de tipo de acorde (`.chord-dict-type-btn`) y voicing (`.chord-dict-voicing-btn`) comparten estilos unificados (igual que `.triad-btn`): `border-radius: 8px`, `hover: #2a2a2a`, `active: rgba(var(--primary-rgb), 0.1)`.
 
 ## When refactoring styles
 

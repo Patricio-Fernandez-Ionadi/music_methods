@@ -1,8 +1,8 @@
-# Project Documentation
+# Documentación del Proyecto
 
-_Generated on 2026-06-15_
+_Generada el 2026-06-21_
 
-## Views
+## Vistas
 
 ### `views/biblioteca/biblioteca-view.jsx`
   - `BibliotecaView`
@@ -22,7 +22,7 @@ _Generated on 2026-06-15_
 ### `views/modos/modos-view.jsx`
   - `ModosView`
 
-## Modules
+## Módulos
 
 ### `modules/biblioteca/hooks/use-song-filters.js`
   - `useSongFilters` — Hook que maneja los filtros independientes de búsqueda.  *  * Expone:  * - `filters`     → valores actuales de cada filtro  * - `setFilter`   → actualiza un filtro por su nombre  * - `filtered`    → lista de canciones que pasan todos los filtros activos  *  * @param {Array} songs - Lista completa de canciones  * @returns {{ filters: { name: string, artist: string, key: string }, setFilter: (name: string, value: string) => void, filtered: Array }}
@@ -70,75 +70,93 @@ _Generated on 2026-06-15_
   - `lyricsToString` — Convierte el array de versos con acordes a string plano.  * Formato de salida: `[Acorde]texto [Otro]más texto` (una línea por verso).  *  * @param {LyricLine[]} lyrics - Letra formateada como objetos con segmentos  * @returns {string} Texto plano listo para editar en un textarea  *  * @example  * lyricsToString([  *   { segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }  * ])  * // => "[Am]Hello [C]world"
   - `stringToLyrics` — Parsea un string con formato `[Acorde]texto [Otro]más texto`  * al array de objetos que usa internamente la app.  *  * @param {string} str - Texto ingresado por el usuario  * @returns {LyricLine[]} Letra formateada como segmentos  *  * @example  * stringToLyrics("[Am]Hello [C]world")  * // => [{ segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }]
 
-### `modules/fretboard/chord-dict.jsx`
-  - `ChordDict` — ChordDict — Selector de acordes del diccionario.  *  * Props (inyectadas desde el hook useChordDictionary):  *   activeChordRoot  → raíz actual (o null)  *   activeChordType  → tipo actual (o null)  *   activeVoicingIdx → índice de digitación activa  *   selectChord(root, type)  → seleccionar acorde  *   clearChord()             → limpiar selección  *   setVoicing(idx)           → cambiar digitación  *   nextVoicing()             → siguiente digitación  *   availableVoicings         → digitaciones disponibles  *   activeVoicing             → digitación activa  *   hasSelection              → booleano  *   chordName                 → nombre del acorde activo  *   NOTES                     → array de 12 notas  *   chordTypeKeys             → claves de CHORD_TYPES
+### `modules/guitarra/chord-dict.jsx`
+  - `ChordDict` — ChordDict — Selector de acordes del diccionario.
 
-### `modules/fretboard/context/fretboard-context.jsx`
+### `modules/guitarra/chord-dict/chord-dict-fretboard.jsx`
+  - `ChordDictFretboard`
+
+### `modules/guitarra/context/fretboard-context.jsx`
+  - `FretboardContext`
+  - `NOTE_CSS_VARS` — Mapea nombre de nota → nombre de CSS custom property definida en theme/values/_notes.scss.  *  Usa 's' para sostenido (#) y 'b' para bemol.
   - `FretboardProvider`
   - `useFretboard`
 
-### `modules/fretboard/data/chord-dictionary.js`
+### `modules/guitarra/data/chord-dictionary.js`
   - `voicingToIndexes` — Convierte una digitación a Set de índices globales del diapasón.  * Los índices se usan en FretNote para resaltar las notas del acorde.  *  * @param {Voicing} voicing  - { name, frets }  * @param {Object}  STRING_INDEXES  - { e:0, b:20, g:40, D:60, A:80, E:100 }  * @returns {Set<number>}
   - `getChordVoicings` — Retorna las digitaciones disponibles para una raíz + tipo de acorde.  *  * @param {string} root  - Nota raíz ('C', 'C#', 'D', …, 'B')  * @param {string} type  - Clave en CHORD_TYPES ('M', 'm', '7', etc.)  * @returns {Voicing[]}   Array de digitaciones (vacío si no hay)
   - `CHORD_TYPES`
 
-### `modules/fretboard/data/chord-voicings.js`
+### `modules/guitarra/data/chord-voicings.js`
   - `CHORD_VOICINGS`
 
-### `modules/fretboard/fretboard-view.jsx`
+### `modules/guitarra/fretboard-view.jsx`
   - `FretboardView`
 
-### `modules/fretboard/fretboard.jsx`
+### `modules/guitarra/fretboard.jsx`
   - `Fretboard`
 
-### `modules/fretboard/hooks/use-chord-dictionary.js`
-  - `useChordDictionary` — useChordDictionary  *  * Administra la selección de un acorde del diccionario.  *  * Estado:  *   activeChordRoot  → nota raíz seleccionada (null si ninguna)  *   activeChordType  → tipo de acorde seleccionado (null si ninguna)  *   activeVoicingIdx → índice de la digitación activa dentro del tipo+raíz  *  * Acciones:  *   selectChord(root, type)          → selecciona raíz + tipo, resetea digitación a 0  *   clearChord()                     → deselecciona todo  *   setVoicing(index)                → cambia la digitación activa  *   nextVoicing()                    → siguiente digitación disponible  *  * Derivados:  *   availableVoicings   → digitaciones disponibles para la selección actual  *   activeVoicing       → digitación activa (o null)  *   chordTypeKeys       → lista de claves de tipos de acorde  *   hasSelection        → true si hay raíz + tipo seleccionados  *   chordName           → nombre legible del acorde seleccionado (ej. "Do Mayor")  *  * @returns {Object}
+### `modules/guitarra/hooks/use-chord-dictionary.js`
+  - `useChordDictionary` — useChordDictionary  *  * Administra la selección de un acorde del diccionario.  *  * Estado:  *   activeChordRoot  → nota raíz seleccionada (null si ninguna)  *   activeChordType  → tipo de acorde seleccionado (null si ninguna)  *   activeVoicingIdx → índice de la digitación activa dentro del tipo+raíz  *  * Acciones:  *   selectChord(root, type)          → selecciona raíz + tipo, resetea digitación a 0  *   clearChord()                     → deselecciona todo  *   setVoicing(index)                → cambia la digitación activa  *   nextVoicing()                    → siguiente digitación disponible  *  * Derivados:  *   availableVoicings   → digitaciones disponibles para la selección actual  *   activeVoicing       → digitación activa (o null)  *   chordTypeKeys       → lista de claves de tipos de acorde  *   hasSelection        → true si hay raíz + tipo seleccionados  *   chordName           → nombre legible del acorde seleccionado (ej. "Do Mayor")  *  * @returns {Object}
 
-### `modules/fretboard/hooks/use-fretboard-state.js`
+### `modules/guitarra/hooks/use-fretboard-state.js`
   - `useFretboardState`
 
-### `modules/fretboard/hooks/use-position-state.js`
+### `modules/guitarra/hooks/use-position-state.js`
   - `usePositionState`
 
-### `modules/fretboard/hooks/use-triad-state.js`
+### `modules/guitarra/hooks/use-triad-state.js`
   - `useTriadState`
 
-### `modules/fretboard/note/fret-note.jsx`
+### `modules/guitarra/note/fret-note.jsx`
   - `FretNote`
 
-### `modules/fretboard/position-controls.jsx`
+### `modules/guitarra/position-controls.jsx`
   - `Positions`
 
-### `modules/fretboard/scale-info.jsx`
+### `modules/guitarra/scale-info.jsx`
   - `ScaleInfo`
 
-### `modules/fretboard/selectors.jsx`
+### `modules/guitarra/selectors.jsx`
   - `Selectors`
 
-### `modules/fretboard/string/fretboard-string.jsx`
+### `modules/guitarra/string/fretboard-string.jsx`
   - `FretboardString`
 
-### `modules/fretboard/triad-button.jsx`
+### `modules/guitarra/triad-button.jsx`
   - `TriadButton`
 
-### `modules/fretboard/triads.jsx`
+### `modules/guitarra/triads.jsx`
   - `Triads`
 
-### `modules/fretboard/utils/chord-labels.js`
+### `modules/guitarra/utils/chord-labels.js`
   - `getChordNoteLabel`
 
-### `modules/fretboard/utils/chord-names.js`
+### `modules/guitarra/utils/chord-names.js`
   - `buildChordName`
 
-### `modules/fretboard/utils/position-utils.js`
+### `modules/guitarra/utils/position-utils.js`
   - `TOTAL_FRETS`
   - `getNoteIndexes`
   - `positionApplies`
   - `noteToGlobalIndex`
 
-### `modules/fretboard/utils/scale-utils.js`
+### `modules/guitarra/utils/scale-utils.js`
   - `CHROMATIC`
   - `normalizeNote`
+  - `SHARP_TO_FLAT`
+  - `scaleNoteName`
+
+### `modules/guitarra/utils/voicing-generators.js`
+  - `NOTE_IDX`
+  - `getNoteChromaticIndex`
+  - `getFretOnString`
+  - `CHORD_INTERVALS`
+  - `eFormBarre`
+  - `aFormBarre`
+  - `dFormBarre`
+  - `buildBarreVoicings`
+  - `buildAllVoicings`
 
 ### `modules/modes/mode-component.jsx`
   - `ModeComponent`
@@ -161,7 +179,7 @@ _Generated on 2026-06-15_
 ### `modules/modes/utils/pentagram-notes.js`
   - `pentagramNoteHeight`
 
-## Shared Components
+## Componentes Compartidos
 
 ### `app/components/armonicTable/armonic-table.jsx`
   - `ArmonicTable`
@@ -175,7 +193,7 @@ _Generated on 2026-06-15_
 ### `app/components/header/header.jsx`
   - `Header`
 
-## Data
+## Datos
 
 ### `data/biblioteca.js`
   - `INITIAL_SONGS`
