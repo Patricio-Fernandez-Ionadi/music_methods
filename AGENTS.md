@@ -12,7 +12,7 @@ src/
 │   └── guitarra/       ← /guitarra route
 ├── modules/            ← Feature modules (logic + components)
 │   ├── biblioteca/     ← Song library feature
-│   ├── fretboard/      ← Guitar fretboard feature
+│   ├── guitarra/      ← Guitar fretboard feature
 │   ├── modes/          ← Music modes feature
 │   └── style/_index.scss
 ├── app/                ← App shell

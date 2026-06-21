@@ -1,5 +1,5 @@
-import { FretboardView } from '../../modules/fretboard/fretboard-view'
-import { FretboardProvider } from '../../modules/fretboard/context/fretboard-context'
+import { FretboardView } from '../../modules/guitarra/fretboard-view'
+import { FretboardProvider } from '../../modules/guitarra/context/fretboard-context'
 
 export const GuitarraView = () => {
 	return (

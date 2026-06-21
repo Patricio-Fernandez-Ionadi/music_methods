@@ -1,14 +1,14 @@
 ---
-name: fretboard-architect
+name: guitarra-architect
 description: Use when working with the fretboard module, guitarra view, fretboard rendering, trastes, diapasón, CAGED positions, chord voicings, chord dictionary, triads, scale visualization, or note rendering on the guitar neck.
 ---
 
-# Fretboard Architect
+# Guitarra Architect
 
 ## Module structure
 
 ```
-src/modules/fretboard/
+src/modules/guitarra/
 ├── context/
 │   └── fretboard-context.jsx      ← FretboardProvider + useFretboard() hook (30 lines)
 ├── data/
@@ -67,7 +67,7 @@ FretboardProvider (wraps guitarra route)
   │    │                  selectTriad, deselectTriad }
   │    ├─ usePositionState(normalizedScale, modeId)
   │    │    ├─ POSITIONS (CAGED scale offsets — src/data/fretboard.js)
-  │    │    ├─ CHORD_VOICINGS (chord shapes — modules/fretboard/data/chord-voicings.js)
+  │    │    ├─ CHORD_VOICINGS (chord shapes — modules/guitarra/data/chord-voicings.js)
   │    │    └─ returns { activePositions, getPositionIndexes,
   │    │                  getChordVoicingIndexes, togglePosition, toggleAllPositions }
   │    └─ useChordDictionary()
@@ -113,7 +113,7 @@ CAGED pattern offsets relative to tonic global index. Each position is `Array<{ 
 - 5 positions per mode (1–5)
 - `positionApplies(pos, tonicIndex)` filters: pos 1-2 on low E, pos 3-4 on A, pos 5 on D.
 
-### `CHORD_VOICINGS[modeId][pos]` (from modules/fretboard/data/chord-voicings.js)
+### `CHORD_VOICINGS[modeId][pos]` (from modules/guitarra/data/chord-voicings.js)
 Chord shapes (root position only — all 5 CAGED shapes). Each:
 ```js
 {
@@ -129,7 +129,7 @@ Chord shapes (root position only — all 5 CAGED shapes). Each:
 - Currently only `jonico` and `eolico` modes are populated (2 modas × 5 positions each).
 - Degree can be number (1, 3, 5) or string ('b3').
 
-### `CHORD_TYPES` (from modules/fretboard/data/chord-dictionary.js)
+### `CHORD_TYPES` (from modules/guitarra/data/chord-dictionary.js)
 Chord dictionary with fixed fret positions (like tablature). Indexed by chord type (`'M'`, `'m'`, `'7'`, etc.) then root note.
 
 ```js
@@ -231,7 +231,7 @@ Color: `style={{ '--note-color': 'var(--note-X)' }}` — from `NOTE_CSS_VARS` ma
 
 ### Barrel chain
 ```
-modules/fretboard/style/_index.scss → forwards:
+modules/guitarra/style/_index.scss → forwards:
   _fretboard-header.scss  ← .scale-header
   _fretboard.scss         ← .fretboard-container, .string-container, .fret, .visual-string
   _triads.scss            ← .triad-selector, .triad-btn
