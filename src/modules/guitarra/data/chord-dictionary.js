@@ -35,18 +35,21 @@
  *   // → Set { 61, 42, 20, 82, 103, 83, … }
  *
  * ============================================================
- *  CÓMO AGREGAR NUEVOS ACORDES
+ *  GENERACIÓN AUTOMÁTICA
  * ============================================================
  *
- *   1. Agregar el tipo en CHORD_TYPES si no existe.
- *   2. Agregar la raíz y sus digitaciones en roots.
- *   3. Las digitaciones pueden ser fijas (como open chords)
- *      o calculadas (ej. cejilla = forma E desplazada).
+ * Los voicings de barre (Cejilla E, A, D) y las triadas en
+ * sets de cuerdas se generan mediante los helpers en
+ * src/modules/guitarra/utils/voicing-generators.js
  *
- *   helpers para generar digitaciones por fórmula:
- *     generateEForm(rootFret)  → cejilla con forma de Mi
- *     generateAForm(rootFret)  → cejilla con forma de La
+ * Los open chords (Abierta) se mantienen como datos manuales
+ * porque son únicos en cada raíz.
  */
+
+import {
+	buildBarreVoicings,
+	buildTriadSetVoicings,
+} from '../utils/voicing-generators'
 
 /* ------------------------------------------------------------------ */
 /*  STRING_ORDER de referencia (high‑e → low‑E)                       */
@@ -87,224 +90,156 @@ export function getChordVoicings(root, type) {
 	return CHORD_TYPES[type]?.roots[root] ?? []
 }
 
+/* ── Helper: combinar voicings manuales + generados ────────── */
+
+function withBarreAndTriads(root, quality, manual = []) {
+	const barre = buildBarreVoicings(root, quality)
+	const triads = buildTriadSetVoicings(root, quality)
+	return [...manual, ...barre, ...triads]
+}
+
+function allRoots(fn) {
+	return ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B'].reduce(
+		(acc, root) => { acc[root] = fn(root); return acc }, {},
+	)
+}
 
 /* ================================================================== */
 /*  CHORD TYPES — catálogo de acordes                                 */
 /* ================================================================== */
 
 export const CHORD_TYPES = {
-	/**
-	 * ACORDE MAYOR (triada: 1, 3, 5)
-	 *
-	 * Ejemplos:
-	 *   getChordVoicings('C', 'M')  → digitaciones de Do mayor
-	 *   getChordVoicings('G', 'M')  → digitaciones de Sol mayor
-	 */
+
+	/* ─── ACORDE MAYOR ─── */
 	M: {
 		label: 'Mayor',
 		short: '',
 		roots: {
-			C: [
+			C: withBarreAndTriads('C', 'M', [
 				{ name: 'Abierta', frets: [-1, 3, 2, 0, 1, 0] },
-				{ name: 'Cejilla E', frets: [8, 10, 10, 9, 8, 8] },
-				{ name: 'Cejilla A', frets: [-1, 3, 5, 5, 5, 3] },
-			],
-			D: [
+			]),
+			D: withBarreAndTriads('D', 'M', [
 				{ name: 'Abierta', frets: [-1, -1, 0, 2, 3, 2] },
-				{ name: 'Cejilla E', frets: [10, 12, 12, 11, 10, 10] },
-				{ name: 'Cejilla A', frets: [-1, 5, 7, 7, 7, 5] },
-			],
-			E: [
+			]),
+			E: withBarreAndTriads('E', 'M', [
 				{ name: 'Abierta', frets: [0, 2, 2, 1, 0, 0] },
-				{ name: 'Cejilla A', frets: [-1, 7, 9, 9, 9, 7] },
-				{ name: 'Cejilla D', frets: [-1, -1, 7, 9, 10, 9] },
-			],
-			F: [
-				{ name: 'Cejilla E', frets: [1, 3, 3, 2, 1, 1] },
-				{ name: 'Cejilla A', frets: [-1, 8, 10, 10, 10, 8] },
-			],
-			G: [
+			]),
+			F: withBarreAndTriads('F', 'M'),
+			G: withBarreAndTriads('G', 'M', [
 				{ name: 'Abierta', frets: [3, 2, 0, 0, 0, 3] },
-				{ name: 'Cejilla E', frets: [3, 5, 5, 4, 3, 3] },
-				{ name: 'Cejilla A', frets: [-1, 10, 12, 12, 12, 10] },
-			],
-			A: [
+			]),
+			A: withBarreAndTriads('A', 'M', [
 				{ name: 'Abierta', frets: [-1, 0, 2, 2, 2, 0] },
-				{ name: 'Cejilla E', frets: [5, 7, 7, 6, 5, 5] },
-				{ name: 'Cejilla A', frets: [-1, 0, 2, 2, 2, 0] },
-			],
-			B: [
-				{ name: 'Cejilla A', frets: [-1, 2, 4, 4, 4, 2] },
-				{ name: 'Cejilla E', frets: [7, 9, 9, 8, 7, 7] },
-			],
-			Bb: [
-				{ name: 'Cejilla A', frets: [-1, 1, 3, 3, 3, 1] },
-				{ name: 'Cejilla E', frets: [6, 8, 8, 7, 6, 6] },
-			],
-			Db: [
-				{ name: 'Cejilla A', frets: [-1, 4, 6, 6, 6, 4] },
-				{ name: 'Cejilla E', frets: [9, 11, 11, 10, 9, 9] },
-			],
-			Eb: [
-				{ name: 'Cejilla A', frets: [-1, 6, 8, 8, 8, 6] },
-				{ name: 'Cejilla E', frets: [11, 13, 13, 12, 11, 11] },
-			],
-			Fsharp: [
-				{ name: 'Cejilla E', frets: [2, 4, 4, 3, 2, 2] },
-				{ name: 'Cejilla A', frets: [-1, 9, 11, 11, 11, 9] },
-			],
-			Gsharp: [
-				{ name: 'Cejilla E', frets: [4, 6, 6, 5, 4, 4] },
-				{ name: 'Cejilla A', frets: [-1, 11, 13, 13, 13, 11] },
-			],
+			]),
+			B: withBarreAndTriads('B', 'M'),
+			Bb: withBarreAndTriads('Bb', 'M'),
+			Db: withBarreAndTriads('Db', 'M'),
+			Eb: withBarreAndTriads('Eb', 'M'),
+			'F#': withBarreAndTriads('F#', 'M'),
+			'G#': withBarreAndTriads('G#', 'M'),
 		},
 	},
 
-	/**
-	 * ACORDE MENOR (triada: 1, b3, 5)
-	 */
+	/* ─── ACORDE MENOR ─── */
 	m: {
 		label: 'Menor',
 		short: 'm',
 		roots: {
-			C: [
-				{ name: 'Cejilla E', frets: [8, 10, 10, 8, 8, 8] },
-				{ name: 'Cejilla A', frets: [-1, 3, 5, 5, 4, 3] },
-			],
-			D: [
+			C: withBarreAndTriads('C', 'm'),
+			D: withBarreAndTriads('D', 'm', [
 				{ name: 'Abierta', frets: [-1, -1, 0, 2, 3, 1] },
-				{ name: 'Cejilla E', frets: [10, 12, 12, 10, 10, 10] },
-				{ name: 'Cejilla A', frets: [-1, 5, 7, 7, 6, 5] },
-			],
-			E: [
+			]),
+			E: withBarreAndTriads('E', 'm', [
 				{ name: 'Abierta', frets: [0, 2, 2, 0, 0, 0] },
-				{ name: 'Cejilla A', frets: [-1, 7, 9, 9, 8, 7] },
-			],
-			F: [
-				{ name: 'Cejilla E (barre)', frets: [1, 3, 3, 1, 1, 1] },
-				{ name: 'Cejilla A', frets: [-1, 8, 10, 10, 9, 8] },
-			],
-			G: [
-				{ name: 'Cejilla E', frets: [3, 5, 5, 3, 3, 3] },
-				{ name: 'Cejilla A', frets: [-1, 10, 12, 12, 11, 10] },
-			],
-			A: [
+			]),
+			F: withBarreAndTriads('F', 'm'),
+			G: withBarreAndTriads('G', 'm'),
+			A: withBarreAndTriads('A', 'm', [
 				{ name: 'Abierta', frets: [-1, 0, 2, 2, 1, 0] },
-				{ name: 'Cejilla E', frets: [5, 7, 7, 5, 5, 5] },
-			],
-			B: [
-				{ name: 'Cejilla A', frets: [-1, 2, 4, 4, 3, 2] },
-				{ name: 'Cejilla E', frets: [7, 9, 9, 7, 7, 7] },
-			],
-			Bb: [
-				{ name: 'Cejilla A', frets: [-1, 1, 3, 3, 2, 1] },
-				{ name: 'Cejilla E', frets: [6, 8, 8, 6, 6, 6] },
-			],
-			Db: [
-				{ name: 'Cejilla A', frets: [-1, 4, 6, 6, 5, 4] },
-				{ name: 'Cejilla E', frets: [9, 11, 11, 9, 9, 9] },
-			],
-			Eb: [
-				{ name: 'Cejilla A', frets: [-1, 6, 8, 8, 7, 6] },
-				{ name: 'Cejilla E', frets: [11, 13, 13, 11, 11, 11] },
-			],
-			Fsharp: [
-				{ name: 'Cejilla E', frets: [2, 4, 4, 2, 2, 2] },
-				{ name: 'Cejilla A', frets: [-1, 9, 11, 11, 10, 9] },
-			],
-			Gsharp: [
-				{ name: 'Cejilla E', frets: [4, 6, 6, 4, 4, 4] },
-				{ name: 'Cejilla A', frets: [-1, 11, 13, 13, 12, 11] },
-			],
+			]),
+			B: withBarreAndTriads('B', 'm'),
+			Bb: withBarreAndTriads('Bb', 'm'),
+			Db: withBarreAndTriads('Db', 'm'),
+			Eb: withBarreAndTriads('Eb', 'm'),
+			'F#': withBarreAndTriads('F#', 'm'),
+			'G#': withBarreAndTriads('G#', 'm'),
 		},
 	},
 
-	/**
-	 * ACORDE DE SÉPTIMA DOMINANTE (1, 3, 5, b7)
-	 */
+	/* ─── SÉPTIMA DOMINANTE ─── */
 	7: {
 		label: 'Dominante 7ª',
 		short: '7',
-		roots: {
-			A: [{ name: 'Abierta', frets: [-1, 0, 2, 0, 2, 0] }],
-			E: [{ name: 'Abierta', frets: [0, 2, 0, 1, 0, 0] }],
-			D: [{ name: 'Abierta', frets: [-1, -1, 0, 2, 1, 2] }],
-			G: [{ name: 'Abierta', frets: [3, 2, 0, 0, 0, 1] }],
-			C: [
-				{ name: 'Cejilla E', frets: [8, 10, 8, 9, 8, 8] },
-				{ name: 'Cejilla A', frets: [-1, 3, 5, 3, 5, 3] },
-			],
-		},
+		roots: allRoots((root) => {
+			const manual = []
+			if (root === 'A') manual.push({ name: 'Abierta', frets: [-1, 0, 2, 0, 2, 0] })
+			if (root === 'E') manual.push({ name: 'Abierta', frets: [0, 2, 0, 1, 0, 0] })
+			if (root === 'D') manual.push({ name: 'Abierta', frets: [-1, -1, 0, 2, 1, 2] })
+			if (root === 'G') manual.push({ name: 'Abierta', frets: [3, 2, 0, 0, 0, 1] })
+			return withBarreAndTriads(root, '7', manual)
+		}),
 	},
 
-	/**
-	 * ACORDE MENOR SÉPTIMA (1, b3, 5, b7)
-	 */
+	/* ─── MENOR SÉPTIMA ─── */
 	m7: {
 		label: 'Menor 7ª',
 		short: 'm7',
-		roots: {
-			E: [{ name: 'Abierta', frets: [0, 2, 0, 0, 0, 0] }],
-			A: [{ name: 'Abierta', frets: [-1, 0, 2, 0, 1, 0] }],
-			D: [{ name: 'Abierta', frets: [-1, -1, 0, 2, 1, 1] }],
-			B: [{ name: 'Cejilla A', frets: [-1, 2, 4, 2, 3, 2] }],
-		},
+		roots: allRoots((root) => {
+			const manual = []
+			if (root === 'E') manual.push({ name: 'Abierta', frets: [0, 2, 0, 0, 0, 0] })
+			if (root === 'A') manual.push({ name: 'Abierta', frets: [-1, 0, 2, 0, 1, 0] })
+			if (root === 'D') manual.push({ name: 'Abierta', frets: [-1, -1, 0, 2, 1, 1] })
+			return withBarreAndTriads(root, 'm7', manual)
+		}),
 	},
 
-	/**
-	 * ACORDE MAYOR SÉPTIMA (1, 3, 5, 7)
-	 */
+	/* ─── MAYOR SÉPTIMA ─── */
 	maj7: {
 		label: 'Mayor 7ª',
 		short: 'maj7',
-		roots: {
-			C: [
-				{ name: 'Abierta', frets: [-1, 3, 2, 0, 0, 0] },
-				{ name: 'Cejilla E', frets: [8, 12, 10, 9, 8, 8] },
-			],
-			F: [{ name: 'Cejilla E', frets: [1, 3, 1, 2, 1, 1] }],
-			G: [{ name: 'Abierta', frets: [3, 2, 0, 0, 0, 2] }],
-			A: [{ name: 'Cejilla E', frets: [5, 7, 5, 6, 5, 5] }],
-		},
+		roots: allRoots((root) => {
+			const manual = []
+			if (root === 'C') manual.push({ name: 'Abierta', frets: [-1, 3, 2, 0, 0, 0] })
+			if (root === 'G') manual.push({ name: 'Abierta', frets: [3, 2, 0, 0, 0, 2] })
+			return withBarreAndTriads(root, 'maj7', manual)
+		}),
 	},
 
-	/**
-	 * ACORDE DISMINUIDO (1, b3, b5)
-	 */
+	/* ─── DISMINUIDO ─── */
 	dim: {
 		label: 'Disminuido',
 		short: 'dim',
-		roots: {
-			B: [{ name: 'Abierta', frets: [-1, 1, 2, 0, 1, 0] }],
-			C: [{ name: 'Cejilla A', frets: [-1, 3, 4, 5, 4, -1] }],
-			D: [{ name: 'Cejilla A', frets: [-1, 5, 6, 7, 6, -1] }],
-		},
+		roots: allRoots((root) => {
+			const manual = []
+			if (root === 'B') manual.push({ name: 'Abierta', frets: [-1, 1, 2, 0, 1, 0] })
+			return withBarreAndTriads(root, 'dim', manual)
+		}),
 	},
 
-	/**
-	 * ACORDE SUSPENDIDO CUARTA (1, 4, 5)
-	 */
+	/* ─── SUSPENDIDO CUARTA ─── */
 	sus4: {
 		label: 'Suspendida 4ª',
 		short: 'sus4',
-		roots: {
-			A: [{ name: 'Abierta', frets: [-1, 0, 2, 2, 3, 0] }],
-			D: [{ name: 'Abierta', frets: [-1, -1, 0, 2, 3, 3] }],
-			E: [{ name: 'Abierta', frets: [0, 2, 2, 2, 0, 0] }],
-			G: [{ name: 'Abierta', frets: [3, 2, 0, 0, 0, 3] }],
-		},
+		roots: allRoots((root) => {
+			const manual = []
+			if (root === 'A') manual.push({ name: 'Abierta', frets: [-1, 0, 2, 2, 3, 0] })
+			if (root === 'D') manual.push({ name: 'Abierta', frets: [-1, -1, 0, 2, 3, 3] })
+			if (root === 'E') manual.push({ name: 'Abierta', frets: [0, 2, 2, 2, 0, 0] })
+			if (root === 'G') manual.push({ name: 'Abierta', frets: [3, 2, 0, 0, 0, 3] })
+			return withBarreAndTriads(root, 'sus4', manual)
+		}),
 	},
 
-	/**
-	 * ACORDE SUSPENDIDO SEGUNDA (1, 2, 5)
-	 */
+	/* ─── SUSPENDIDO SEGUNDA ─── */
 	sus2: {
 		label: 'Suspendida 2ª',
 		short: 'sus2',
-		roots: {
-			D: [{ name: 'Abierta', frets: [-1, -1, 0, 2, 3, 0] }],
-			A: [{ name: 'Abierta', frets: [-1, 0, 2, 2, 0, 0] }],
-			E: [{ name: 'Abierta', frets: [0, 2, 4, 4, 0, 0] }],
-		},
+		roots: allRoots((root) => {
+			const manual = []
+			if (root === 'D') manual.push({ name: 'Abierta', frets: [-1, -1, 0, 2, 3, 0] })
+			if (root === 'A') manual.push({ name: 'Abierta', frets: [-1, 0, 2, 2, 0, 0] })
+			if (root === 'E') manual.push({ name: 'Abierta', frets: [0, 2, 4, 4, 0, 0] })
+			return withBarreAndTriads(root, 'sus2', manual)
+		}),
 	},
 }
