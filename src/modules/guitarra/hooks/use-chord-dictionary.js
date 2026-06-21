@@ -29,8 +29,8 @@ const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B']
  * @returns {Object}
  */
 export function useChordDictionary() {
-	const [activeChordRoot, setActiveChordRoot] = useState(null)
-	const [activeChordType, setActiveChordType] = useState(null)
+	const [activeChordRoot, setActiveChordRoot] = useState('C')
+	const [activeChordType, setActiveChordType] = useState('M')
 	const [activeVoicingIdx, setActiveVoicingIdx] = useState(0)
 
 	const chordTypeKeys = useMemo(() => Object.keys(CHORD_TYPES), [])

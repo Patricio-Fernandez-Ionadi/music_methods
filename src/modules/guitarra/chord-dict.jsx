@@ -4,41 +4,20 @@ import { ChordDictFretboard } from './chord-dict/chord-dict-fretboard'
 
 /**
  * ChordDict — Selector de acordes del diccionario.
- *
- * Props (inyectadas desde el hook useChordDictionary):
- *   activeChordRoot  → raíz actual (o null)
- *   activeChordType  → tipo actual (o null)
- *   activeVoicingIdx → índice de digitación activa
- *   selectChord(root, type)  → seleccionar acorde
- *   clearChord()             → limpiar selección
- *   setVoicing(idx)           → cambiar digitación
- *   nextVoicing()             → siguiente digitación
- *   availableVoicings         → digitaciones disponibles
- *   activeVoicing             → digitación activa
- *   hasSelection              → booleano
- *   chordName                 → nombre del acorde activo
- *   NOTES                     → array de 12 notas
- *   chordTypeKeys             → claves de CHORD_TYPES
  */
 export function ChordDict({
 	activeChordRoot,
 	activeChordType,
-	activeVoicingIdx,
 	selectChord,
-	clearChord,
 	setVoicing,
-	nextVoicing,
 	availableVoicings,
 	activeVoicing,
-	hasSelection,
-	chordName,
 	NOTES,
 	chordTypeKeys,
 }) {
 	return (
 		<Field label='Diccionario de acordes'>
 			<div className='chord-dict'>
-				{/* Selector de raíz + tipo */}
 				<div className='chord-dict-selectors'>
 					<select
 						className='chord-dict-select'
@@ -70,42 +49,15 @@ export function ChordDict({
 					</select>
 				</div>
 
-				{/* Resultado: nombre del acorde + selector de digitación */}
-				{hasSelection && (
-					<div className='chord-dict-result'>
-						<button
-							className='chord-dict-clear'
-							onClick={clearChord}
-							title='Limpiar selección'
-						>
-							✕
-						</button>
-						<span className='chord-dict-name'>{chordName}</span>
-
-						{availableVoicings.length > 1 && (
-							<div className='chord-dict-voicings'>
-								<button
-									className='chord-dict-voicing-btn'
-									onClick={nextVoicing}
-									title='Siguiente digitación'
-								>
-									{activeVoicing?.name ?? ''} ({activeVoicingIdx + 1}/{availableVoicings.length})
-								</button>
-							</div>
-						)}
-					</div>
-				)}
-
-				{/* Botón rápido para seleccionar desde el tipo */}
-				{!hasSelection && (
-					<div className='chord-dict-quick'>
-						{chordTypeKeys.slice(0, 6).map((key) => (
+				{availableVoicings.length > 1 && (
+					<div className='chord-dict-voicings'>
+						{availableVoicings.map((voicing, vi) => (
 							<button
-								key={key}
-								className='chord-dict-quick-btn'
-								onClick={() => selectChord('C', key)}
+								key={vi}
+								className={`chord-dict-voicing-btn${activeVoicing === voicing ? ' active' : ''}`}
+								onClick={() => setVoicing(vi)}
 							>
-								{CHORD_TYPES[key].label}
+								{voicing.name}
 							</button>
 						))}
 					</div>

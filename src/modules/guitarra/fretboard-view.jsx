@@ -22,15 +22,10 @@ export function FretboardView() {
 			<ChordDict
 				activeChordRoot={chordDict.activeChordRoot}
 				activeChordType={chordDict.activeChordType}
-				activeVoicingIdx={chordDict.activeVoicingIdx}
 				selectChord={chordDict.selectChord}
-				clearChord={chordDict.clearChord}
 				setVoicing={chordDict.setVoicing}
-				nextVoicing={chordDict.nextVoicing}
 				availableVoicings={chordDict.availableVoicings}
 				activeVoicing={chordDict.activeVoicing}
-				hasSelection={chordDict.hasSelection}
-				chordName={chordDict.chordName}
 				NOTES={chordDict.NOTES}
 				chordTypeKeys={chordDict.chordTypeKeys}
 			/>
