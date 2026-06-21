@@ -10,6 +10,7 @@ export function FretboardString({
 	chordVoicingIndexes,
 	triadVoicingIndexes,
 	highlightedOnlyIndexes,
+	highlightMode,
 	root,
 	third,
 	fifth,
@@ -42,6 +43,7 @@ export function FretboardString({
 						chordVoicingIndexes={chordVoicingIndexes}
 						triadVoicingIndexes={triadVoicingIndexes}
 						highlightedOnlyIndexes={highlightedOnlyIndexes}
+						highlightMode={highlightMode}
 						root={root}
 						third={third}
 						fifth={fifth}

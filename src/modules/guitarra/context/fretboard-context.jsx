@@ -4,11 +4,11 @@ import { useFretboardState } from '../hooks/use-fretboard-state'
 import { useChordDictionary } from '../hooks/use-chord-dictionary'
 import { NOTES } from '../../../data'
 
-const FretboardContext = createContext(null)
+export const FretboardContext = createContext(null)
 
 /** Mapea nombre de nota → nombre de CSS custom property definida en theme/values/_notes.scss.
  *  Usa 's' para sostenido (#) y 'b' para bemol. */
-const NOTE_CSS_VARS = {
+export const NOTE_CSS_VARS = {
 	C: '--note-C',
 	'C#': '--note-Cs',
 	D: '--note-D',

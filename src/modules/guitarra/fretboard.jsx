@@ -42,9 +42,16 @@ export function Fretboard({
 	const hasActivePositions = activePositions.length > 0
 	const hasChordVoicing = chordVoicingIndexes.size > 0
 
-	const effectiveHighlighted =
-		highlightedOnlyIndexes ??
-		(triadVoicingIndexes.size > 0 ? triadVoicingIndexes : null)
+	const isExplicit = highlightedOnlyIndexes !== undefined
+	const hasTriadVoicing = triadVoicingIndexes.size > 0
+
+	const highlightMode = isExplicit
+		? (highlightedOnlyIndexes ? 'chord-dict' : null)
+		: (hasTriadVoicing ? 'triad-voicing' : null)
+
+	const effectiveHighlighted = isExplicit
+		? (highlightedOnlyIndexes || null)
+		: (hasTriadVoicing ? triadVoicingIndexes : null)
 
 	const range = fretRange ?? { start: 0, end: 19 }
 
@@ -56,6 +63,7 @@ export function Fretboard({
 		chordVoicingIndexes,
 		triadVoicingIndexes,
 		highlightedOnlyIndexes: effectiveHighlighted,
+		highlightMode,
 		root,
 		third,
 		fifth,

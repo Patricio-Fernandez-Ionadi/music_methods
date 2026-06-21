@@ -16,6 +16,7 @@ export function FretNote({
 	chordVoicingIndexes,
 	triadVoicingIndexes,
 	highlightedOnlyIndexes,
+	highlightMode,
 	root,
 	third,
 	fifth,
@@ -60,15 +61,42 @@ export function FretNote({
 	const classes = ['fret']
 	if (markerClass) classes.push(markerClass)
 
-	/* ---------- highlightedOnlyIndexes active ---------- */
-	if (highlightedOnlyIndexes) {
+	/* ---------- chord-dict mode (pure, no triad/position interference) ---------- */
+	if (highlightMode === 'chord-dict') {
+		if (inVoicingHighlight) {
+			classes.push('chordDictNote', 'highlighted')
+		}
+
+		const noteVar = inVoicingHighlight ? NOTE_CSS_VARS[note] || null : null
+		const noteColorVar = noteVar ? `var(${noteVar})` : null
+		const displayNote = inVoicingHighlight
+			? scaleNoteName(note, currentScale)
+			: ''
+
+		return (
+			<div
+				data-note={note}
+				className={classes.join(' ')}
+				style={noteColorVar ? { '--note-color': noteColorVar } : {}}
+			>
+				<span>{displayNote}</span>
+			</div>
+		)
+	}
+
+	/* ---------- triad-voicing mode (voicing + position filtering) ---------- */
+	if (highlightMode === 'triad-voicing') {
+		if (hasActivePositions && !inPosition) {
+			return <div data-note={note} className={classes.join(' ')} />
+		}
+
 		if (inVoicingHighlight) {
 			if (inTriad) {
 				if (isRoot) classes.push('triadRoot')
 				if (isThird) classes.push('triadThird')
 				if (isFifth) classes.push('triadFifth')
 			} else {
-				classes.push(showTriad ? 'triadVoicingNote' : 'chordDictNote')
+				classes.push('triadVoicingNote')
 			}
 		}
 
@@ -79,9 +107,10 @@ export function FretNote({
 		const isAnyHighlighted = inVoicingHighlight || (showTriad && inScale)
 		if (isAnyHighlighted) classes.push('highlighted')
 
-		const noteVar = inVoicingHighlight ? NOTE_CSS_VARS[note] || null : null
+		const noteVar =
+			inVoicingHighlight ? NOTE_CSS_VARS[note] || null : null
 		const noteColorVar = noteVar ? `var(${noteVar})` : null
-		const displayNote = inVoicingHighlight
+		const displayNote = isAnyHighlighted
 			? scaleNoteName(note, currentScale)
 			: ''
 
