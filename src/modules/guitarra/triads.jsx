@@ -28,15 +28,8 @@ export const Triads = () => {
 	const activeChordName = useMemo(() => {
 		if (activeTriadIndex == null || !rawTriads?.length) return ''
 		const triad = rawTriads[activeTriadIndex]
-		return buildChordName(
-			triad[0],
-			selectedMode.chords[activeTriadIndex],
-		)
-	}, [
-		rawTriads,
-		activeTriadIndex,
-		selectedMode,
-	])
+		return buildChordName(triad[0], selectedMode.chords[activeTriadIndex])
+	}, [rawTriads, activeTriadIndex, selectedMode])
 
 	const triadVoicings = useMemo(() => {
 		if (activeTriadIndex == null || !rawTriads?.length) return []
@@ -69,24 +62,21 @@ export const Triads = () => {
 							)
 						})}
 
-						{/* Voicings de la tríada activa */}
-						{showTriad && triadVoicings.length > 0 && (
-							<div className='triad-voicings'>
-								{triadVoicings.map((voicing, vi) => (
-									<button
-										key={vi}
-										className={`triad-voicing-btn${activeTriadVoicing === voicing ? ' active' : ''}`}
-										onClick={() =>
-											selectTriadVoicing(
-												activeTriadVoicing === voicing ? null : voicing,
-											)
-										}
-									>
-										{voicing.name}
-									</button>
-								))}
-							</div>
-						)}
+						<div className='triad-voicings'>
+							{showTriad && triadVoicings.map((voicing, vi) => (
+								<button
+									key={vi}
+									className={`triad-voicing-btn${activeTriadVoicing === voicing ? ' active' : ''}`}
+									onClick={() =>
+										selectTriadVoicing(
+											activeTriadVoicing === voicing ? null : voicing,
+										)
+									}
+								>
+									{voicing.name}
+								</button>
+							))}
+						</div>
 					</div>
 				)}
 			</Field>

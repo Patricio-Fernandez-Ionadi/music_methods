@@ -90,6 +90,7 @@
 	gap: 4px;
 	margin-top: 6px;
 	width: 100%;
+	min-height: 27px;
 }
 
 .triad-voicing-btn {
@@ -116,6 +117,10 @@
 }
 
 @media (max-width: $medium) {
+	.triad-voicings {
+		min-height: 23px;
+	}
+
 	.triad-voicing-btn {
 		font-size: 10px;
 		padding: 2px 6px;
