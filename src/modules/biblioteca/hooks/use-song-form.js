@@ -9,7 +9,6 @@ const EMPTY_SONG = {
 	artist: '',
 	key: '',
 	lyrics: '',
-	tabsLabel: '',
 	tabsContent: '',
 }
 
@@ -41,13 +40,15 @@ export function useSongForm({
 	/** Cuando se selecciona una canción para editar, llena el formulario. */
 	useEffect(() => {
 		if (editingSong) {
+			const tabs = editingSong.tabs || []
 			setForm({
 				name: editingSong.name,
 				artist: editingSong.artist,
 				key: editingSong.key,
 				lyrics: lyricsToString(editingSong.lyrics),
-				tabsLabel: editingSong.tabs?.[0]?.label || '',
-				tabsContent: editingSong.tabs?.[0]?.content || '',
+				tabsContent: tabs
+					.map(t => `== ${t.label}\n${t.content}`)
+					.join('\n\n---\n\n'),
 			})
 		} else {
 			setForm(EMPTY_SONG)
@@ -79,6 +80,25 @@ export function useSongForm({
 	}
 
 	/**
+	 * Parsea el contenido del textarea de tabs de vuelta a un array de { label, content }.
+	 * Formato: bloques separados por "\n\n---\n\n", cada bloque empieza con "== Label".
+	 */
+	function parseTabs(str) {
+		if (!str.trim()) return editingSong?.tabs || []
+		return str.split(/\n\n---\n\n/).filter(Boolean).map((block, i) => {
+			const lines = block.split('\n')
+			const match = lines[0]?.match(/^==\s*(.*)/)
+			const label = match
+				? match[1].trim() || editingSong?.tabs?.[i]?.label || `Tab ${i + 1}`
+				: editingSong?.tabs?.[i]?.label || `Tab ${i + 1}`
+			const content = match
+				? lines.slice(1).join('\n')
+				: block
+			return { label, content }
+		})
+	}
+
+	/**
 	 * Crea o actualiza una canción.
 	 * - Si `editingSong` existe → actualiza esa canción en la lista.
 	 * - Si no → agrega una nueva con un id generado por Date.now().
@@ -87,14 +107,7 @@ export function useSongForm({
 		e.preventDefault()
 		if (!form.name.trim() || !form.key.trim()) return
 
-		const tabs = form.tabsContent.trim()
-			? [
-					{
-						label: form.tabsLabel.trim() || 'Tablatura',
-						content: form.tabsContent,
-					},
-				]
-			: editingSong?.tabs || []
+		const tabs = parseTabs(form.tabsContent)
 
 		const songData = {
 			name: form.name.trim(),
@@ -105,10 +118,8 @@ export function useSongForm({
 		}
 
 		if (editingSong) {
-			console.log('[useSongForm] handleSubmit editingSong.id:', editingSong.id, 'songData:', songData)
 			setSongs((prev) => {
 				const updated = prev.map((s) => (s.id === editingSong.id ? { ...s, ...songData } : s))
-				console.log('[useSongForm] songs after update:', updated.length, 'items, match found:', updated.some(s => s.id === editingSong.id))
 				return updated
 			})
 			setEditingSong(null)

@@ -17,18 +17,27 @@ export function AppProvider({ children }) {
 	const [selectedTonic, setSelectedTonic] = useState('C')
 	const [selectedMode, setSelectedMode] = useState(MODES.jonico)
 
-	/** Canciones persistentes: mergea localStorage con INITIAL_SONGS sin duplicar. */
+	/** Canciones persistentes: mergea localStorage con INITIAL_SONGS sin duplicar y sincroniza cambios. */
 	const [songs, setSongs] = useState(() => {
 		try {
 			const saved = localStorage.getItem(STORAGE_KEY)
 			const existing = saved ? JSON.parse(saved) : []
-			const known = new Set(existing.map(s => s.name + '|' + s.artist))
+			const known = new Map(existing.map(s => [s.name + '|' + s.artist, s]))
 			const merged = [...existing]
+			let maxId = existing.reduce((max, s) => Math.max(max, s.id || 0), 0)
 			for (const song of INITIAL_SONGS) {
 				const key = song.name + '|' + song.artist
-				if (!known.has(key)) {
-					known.add(key)
-					merged.push({ ...song, id: merged.length + 1 })
+				if (known.has(key)) {
+					const old = known.get(key)
+					const oldContent = JSON.stringify({ lyrics: old.lyrics, tabs: old.tabs, key: old.key })
+					const newContent = JSON.stringify({ lyrics: song.lyrics, tabs: song.tabs, key: song.key })
+					if (oldContent !== newContent) {
+						const idx = merged.findIndex(s => s.name + '|' + s.artist === key)
+						if (idx !== -1) merged[idx] = { ...song, id: old.id }
+					}
+				} else {
+					maxId++
+					merged.push({ ...song, id: maxId })
 				}
 			}
 			return merged.length ? merged : INITIAL_SONGS

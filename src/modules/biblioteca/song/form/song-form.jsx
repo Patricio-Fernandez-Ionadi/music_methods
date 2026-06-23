@@ -30,7 +30,16 @@ export const SongForm = ({ onSuccess, onCancel }) => {
 			artist: form.artist.trim(),
 			key: form.key.trim(),
 			lyrics: stringToLyrics(form.lyrics),
-			tabs: form.tabsContent.trim() ? [{ label: form.tabsLabel.trim() || 'Tablatura', content: form.tabsContent }] : [],
+			tabs: form.tabsContent.trim()
+				? form.tabsContent.split(/\n\n---\n\n/).filter(Boolean).map((block, i) => {
+						const lines = block.split('\n')
+						const match = lines[0]?.match(/^==\s*(.*)/)
+						return {
+							label: match ? match[1].trim() || `Tab ${i + 1}` : `Tab ${i + 1}`,
+							content: match ? lines.slice(1).join('\n') : block,
+						}
+					})
+				: [],
 		}
 		const result = await saveSongToFile(song)
 		if (result.ok) {

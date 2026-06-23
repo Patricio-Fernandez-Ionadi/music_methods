@@ -37,6 +37,11 @@ function isTabHeader(line) {
 	return /^==\s+\*+/.test(line.trim())
 }
 
+function getTabRef(line) {
+	const m = line.trim().match(/^==\s+(\*{1,2}\d+)/)
+	return m ? m[1] : null
+}
+
 function isLabelLine(line) {
 	return /^label:/i.test(line.trim())
 }
@@ -68,6 +73,7 @@ function mergeChordsIntoLyric(chordLine, lyricLine) {
 function groupTabs(lines) {
 	const tabs = []
 	let current = null
+	let currentRef = null
 	let tabLines = []
 	let pendingLabel = false
 
@@ -78,13 +84,17 @@ function groupTabs(lines) {
 		tabs.push({
 			label: current || `Tab ${tabs.length + 1}`,
 			content: trimmed,
+			ref: currentRef,
 		})
 		tabLines = []
+		current = null
+		currentRef = null
 	}
 
 	for (const line of lines) {
 		if (isTabHeader(line)) {
 			flush()
+			currentRef = getTabRef(line)
 			pendingLabel = true
 			continue
 		}
@@ -101,8 +111,6 @@ function groupTabs(lines) {
 			tabLines.push(line)
 		} else {
 			flush()
-			current = null
-			pendingLabel = false
 		}
 	}
 	flush()
@@ -128,11 +136,11 @@ function parseSongFile(filePath) {
 			if (m) {
 				const key = m[1].toUpperCase()
 				const val = m[2].trim()
-				if (key === 'KEY') headerKey = val
-				else if (key === 'TITLE') headerOverrides.title = val
-				else if (key === 'ARTIST') headerOverrides.artist = val
-				else if (key === 'CAPO') headerOverrides.capo = parseInt(val, 10)
-				continue
+				if (key === 'KEY') { headerKey = val; continue }
+				if (key === 'TITLE') { headerOverrides.title = val; continue }
+				if (key === 'ARTIST') { headerOverrides.artist = val; continue }
+				if (key === 'CAPO') { headerOverrides.capo = parseInt(val, 10); continue }
+				/* unknown header — don't consume, fall through to bodyLines */
 			}
 		}
 		if (line.trim().startsWith('==') || isTabLine(line) || isSection(line) || line.trim()) {

@@ -18,7 +18,8 @@
 	}
 }
 
-.tab-content {
+.tab-content,
+.tab-content-inline {
 	background: $black_dark;
 	padding: $pad;
 	border-radius: $smooth;
@@ -29,4 +30,19 @@
 	overflow-x: auto;
 	max-width: 100%;
 	white-space: pre;
+}
+
+.tab-block-inline {
+	margin: 0.75rem 0;
+}
+
+.tab-content-inline {
+	margin: 0;
+}
+
+.tab-inline-label {
+	color: $grey_light;
+	font-size: 0.85rem;
+	margin-bottom: 0.25rem;
+	font-weight: 400;
 }

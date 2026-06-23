@@ -9,15 +9,23 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
+            "text": "VERSO:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
             "text": "Todo "
           },
           {
             "chord": "G",
-            "text": "empezó"
+            "text": "empez"
           },
           {
             "chord": "",
-            "text": " cuando aquella serpiente"
+            "text": "ó cuando aquella serpiente"
           }
         ]
       },
@@ -1167,7 +1175,7 @@ export const IMPORTED_SONGS = [
       }
     ],
     "tabs": [],
-    "lyricText": "Todo empezó[G] cuando aquella serpiente\nme trajo un[Am]a manzana y dijo prueba[C]\nyo me llama[D]ba Adán, seguram[C]ente tu te llamabas [G]Eva.\n\nVivíam[G]os de scuoters en un piso\nabandon[Am]ado de Moratalaz[C]\nsi no has est[D]ado allí no has visto el [C]paraíso terrenal.[G]\n\nPUENTE\nCogimos u[C]n colchón de una basura\ndos sillas y u[G]na mesa con tres patas\nmientras yo embo[D]rronaba partituras[C]\ntu freías las pat[G]atas.\n\nPlantamos [C]cañamones de ketama\ny un tiesto n[G]os creció ante el ventanal\ncon una r[D]ama de árbol de la ci[C]encia\ndel bien y del mal.[G]\n\nESTRIBILLO x1 vacio \n\nVERSO:\nA Eva le[G] gustaba estar morena\ny se tumb[Am]aba cada tarde al sol[C]\nnadie vio n[D]unca una sirena t[C]an desnuda en un balcó[G]n\n\nPronto en cad[G]a ventana hubo un marido\nA la hora en qu[Am]e montaba el show mi chica[C]\naunque la t[D]ele diera en diferi[C]do Real Madrid - Benf[G]ica\n\nPUENTE\nUn día la v[C]íbora del entresuelo\nen trance a s[G]u consorte sorprendió\nformo un revue[D]lo y telefoneo[D]\nal cero noventa y d[G]os\n\nY como n[C]o teníamos apellidos\nni hojas de p[G]arra, ni un tío concejal\nni mas di[D]os que Cupido no sirvi[C]ó de nada\nprotestar[G]\n\nESTRIBILLO:\n[Am]uh\n[C]Eva tomando el so[G]l\n[D]uh\n[C]bendito descontro[G]l\n\n[Am]uh\n[C]besos, cebolla y p[G]an\n[D]uh\n[C]¿Qué más quieres Ad[G]an?\n\nMODULACION +1 tono\n\nVERSO:\nUn juez que s[A]e creía Dios dispuso\nque precint[Bb]ara un guardia nuestro piso[D]\nno quedan pl[E]azas para dos intr[D]usos en el paraí[A]so\n\nEstábam[A]os sobre el colchón desnudos\njugando a nue[Bm]stro juego favorito[D]\nal ver entr[A]ar la pasma Eva no p[D]udo sofocar un grito[A]\n\nPUENTE:\nA golpes l[D]a bajo por la escalera\nun ángel d[A]isfrazado de alguacil\nsin import[E]arle un pijo que estuvi[D]era\nen cinta de Ca[A]ín\n\nHoy Eva v[D]nde en un supermercado\nmanzanas d[A]el pecado original\nyo canto en l[E]a calle Preciados\nt[D]odos me llaman Adán[A].\n\nESTRIBILLO (fade out):\n[Bm]uh\n[D]Eva tomando el so[A]l\n[E]uh\n[D]bendito descontro[A]l\n\n[Bm]uh\n[D]besos, cebolla y p[A]an\n[E]uh\n[D]¿Qué más quieres Ad[A]an?\n",
+    "lyricText": "VERSO:\nTodo empez[G]ó cuando aquella serpiente\nme trajo un[Am]a manzana y dijo prueba[C]\nyo me llama[D]ba Adán, seguram[C]ente tu te llamabas [G]Eva.\n\nVivíam[G]os de scuoters en un piso\nabandon[Am]ado de Moratalaz[C]\nsi no has est[D]ado allí no has visto el [C]paraíso terrenal.[G]\n\nPUENTE\nCogimos u[C]n colchón de una basura\ndos sillas y u[G]na mesa con tres patas\nmientras yo embo[D]rronaba partituras[C]\ntu freías las pat[G]atas.\n\nPlantamos [C]cañamones de ketama\ny un tiesto n[G]os creció ante el ventanal\ncon una r[D]ama de árbol de la ci[C]encia\ndel bien y del mal.[G]\n\nESTRIBILLO x1 vacio \n\nVERSO:\nA Eva le[G] gustaba estar morena\ny se tumb[Am]aba cada tarde al sol[C]\nnadie vio n[D]unca una sirena t[C]an desnuda en un balcó[G]n\n\nPronto en cad[G]a ventana hubo un marido\nA la hora en qu[Am]e montaba el show mi chica[C]\naunque la t[D]ele diera en diferi[C]do Real Madrid - Benf[G]ica\n\nPUENTE\nUn día la v[C]íbora del entresuelo\nen trance a s[G]u consorte sorprendió\nformo un revue[D]lo y telefoneo[D]\nal cero noventa y d[G]os\n\nY como n[C]o teníamos apellidos\nni hojas de p[G]arra, ni un tío concejal\nni mas di[D]os que Cupido no sirvi[C]ó de nada\nprotestar[G]\n\nESTRIBILLO:\n[Am]uh\n[C]Eva tomando el so[G]l\n[D]uh\n[C]bendito descontro[G]l\n\n[Am]uh\n[C]besos, cebolla y p[G]an\n[D]uh\n[C]¿Qué más quieres Ad[G]an?\n\nMODULACION +1 tono\n\nVERSO:\nUn juez que s[A]e creía Dios dispuso\nque precint[Bb]ara un guardia nuestro piso[D]\nno quedan pl[E]azas para dos intr[D]usos en el paraí[A]so\n\nEstábam[A]os sobre el colchón desnudos\njugando a nue[Bm]stro juego favorito[D]\nal ver entr[A]ar la pasma Eva no p[D]udo sofocar un grito[A]\n\nPUENTE:\nA golpes l[D]a bajo por la escalera\nun ángel d[A]isfrazado de alguacil\nsin import[E]arle un pijo que estuvi[D]era\nen cinta de Ca[A]ín\n\nHoy Eva v[D]nde en un supermercado\nmanzanas d[A]el pecado original\nyo canto en l[E]a calle Preciados\nt[D]odos me llaman Adán[A].\n\nESTRIBILLO (fade out):\n[Bm]uh\n[D]Eva tomando el so[A]l\n[E]uh\n[D]bendito descontro[A]l\n\n[Bm]uh\n[D]besos, cebolla y p[A]an\n[E]uh\n[D]¿Qué más quieres Ad[A]an?\n",
     "id": 1
   },
   {
@@ -1753,6 +1761,14 @@ export const IMPORTED_SONGS = [
     "artist": "Joaquin Sabina",
     "key": "G",
     "lyrics": [
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "VERSO:"
+          }
+        ]
+      },
       {
         "segments": [
           {
@@ -3135,7 +3151,7 @@ export const IMPORTED_SONGS = [
       }
     ],
     "tabs": [],
-    "lyricText": "¿Que adel[G]antas sabi[D]endo mi n[G]ombre?\nCada n[G]oche tengo [D]uno dist[Em]into\ny sigui[G]endo la v[D]oz del inst[G]into \nme l[C]anzo a busc[G]ar\n\nImag[A]ino, preci[C]osa que un [D]hombre,\nalgo m[C]ás, un am[D]ante disc[Em]reto\nque se atr[Am]eva a perd[E7]erme el respe[A]to\n¿Mo quieres pro[D]bar?\n\nVivo ju[B7]sto detras de la esqu[Em]ina, \nno me acu[G7]erdo si tengo mar[C]ido.\nSi me q[G]uitas con [C]arte el vest[G]ido\nte invito un champ[D]agne.\n\nLe solt[C]é al barman mil propinas, \napur[D]é la cerveza de un s[Em]orbo.\n(acert[E7]ó quien \"El templo del m[Am]orbo\"\nle p[D]uso a este b[G]ar)\n\nESTRIBILLO:\nPeor para el s[G]ol\nque se m[F]ete a las siete en la c[C]una\ndel m[F]ar a ronc[G]ar,\nmientras un s[D]ervidor\nle lev[Am]anta la f[C]alda a la L[D]una.\n\nVERSO:\nAl lleg[G]ar al por[D]tal nos busc[G]amos\ncomo d[G]os estudi[D]antes en c[Em]elo.\nUn piso [G]antes del [D]septimo ci[G]elo\nse abri[C]ó el ascens[G]or.\n\nNos sirvi[Am]ó para el [C]último gr[D]amo \nel crist[C]ál de tu [D]foto de b[Em]oda.\nNo falt[Am]ó ni el desf[E7]ile de m[Am]oda\nde ropa int[D]erior.\n\nEn mi c[B7]ása ni hay nada prohib[Em]ido\npero n[G7]o vayas a enamor[C]arte,\ncon el [G]alba tendr[C]ás que march[G]arte\npara no vov[D]er,\nolvid[C]ando que me has conocido,\nque una vez estuviste en mi c[Em]ama,\nhay capri[E7]chos de amor que una d[Am]ama\nno d[D]ebe ten[G]er.\n\nESTRIBILLO.\n\nVERSO:\nEs mej[G]or ,le ped[D]í que te c[G]alles,\nno me g[G]usta invet[D]ir en quim[Em]eras,\nme han tra[G]ido hasta aqu[D]í tus cad[G]eras \n[C]no tu coraz[D]ón.\nY despu[Am]és, ¿Para qué[C] mas det[D]alles?\nya sab[C]eis, copas r[D]isas,exc[Em]esos.\n¿Cómo v[Am]an a cab[E7]er tantos b[Em]esos\nen una ca[D]nción?\n\nVolví al b[B7]ar a la noche sigui[Em]ente\na brind[G7]ar con su silla vac[C]ía\nme ped[G]í una cerv[C]eza bien [G]fría \ny entonces no [D]sé\nsi soñe[C] o era tuya la ardiente\nvoz que m[D]e iba diciendo al o[Em]ído\n\"me morí[E7]a de ganas queri[Am]do\nde ve[D]rte otra ve[G]z\".\n\nESTRIBILLO.",
+    "lyricText": "VERSO:\n¿Que adel[G]antas sabi[D]endo mi n[G]ombre?\nCada n[G]oche tengo [D]uno dist[Em]into\ny sigui[G]endo la v[D]oz del inst[G]into \nme l[C]anzo a busc[G]ar\n\nImag[A]ino, preci[C]osa que un [D]hombre,\nalgo m[C]ás, un am[D]ante disc[Em]reto\nque se atr[Am]eva a perd[E7]erme el respe[A]to\n¿Mo quieres pro[D]bar?\n\nVivo ju[B7]sto detras de la esqu[Em]ina, \nno me acu[G7]erdo si tengo mar[C]ido.\nSi me q[G]uitas con [C]arte el vest[G]ido\nte invito un champ[D]agne.\n\nLe solt[C]é al barman mil propinas, \napur[D]é la cerveza de un s[Em]orbo.\n(acert[E7]ó quien \"El templo del m[Am]orbo\"\nle p[D]uso a este b[G]ar)\n\nESTRIBILLO:\nPeor para el s[G]ol\nque se m[F]ete a las siete en la c[C]una\ndel m[F]ar a ronc[G]ar,\nmientras un s[D]ervidor\nle lev[Am]anta la f[C]alda a la L[D]una.\n\nVERSO:\nAl lleg[G]ar al por[D]tal nos busc[G]amos\ncomo d[G]os estudi[D]antes en c[Em]elo.\nUn piso [G]antes del [D]septimo ci[G]elo\nse abri[C]ó el ascens[G]or.\n\nNos sirvi[Am]ó para el [C]último gr[D]amo \nel crist[C]ál de tu [D]foto de b[Em]oda.\nNo falt[Am]ó ni el desf[E7]ile de m[Am]oda\nde ropa int[D]erior.\n\nEn mi c[B7]ása ni hay nada prohib[Em]ido\npero n[G7]o vayas a enamor[C]arte,\ncon el [G]alba tendr[C]ás que march[G]arte\npara no vov[D]er,\nolvid[C]ando que me has conocido,\nque una vez estuviste en mi c[Em]ama,\nhay capri[E7]chos de amor que una d[Am]ama\nno d[D]ebe ten[G]er.\n\nESTRIBILLO.\n\nVERSO:\nEs mej[G]or ,le ped[D]í que te c[G]alles,\nno me g[G]usta invet[D]ir en quim[Em]eras,\nme han tra[G]ido hasta aqu[D]í tus cad[G]eras \n[C]no tu coraz[D]ón.\nY despu[Am]és, ¿Para qué[C] mas det[D]alles?\nya sab[C]eis, copas r[D]isas,exc[Em]esos.\n¿Cómo v[Am]an a cab[E7]er tantos b[Em]esos\nen una ca[D]nción?\n\nVolví al b[B7]ar a la noche sigui[Em]ente\na brind[G7]ar con su silla vac[C]ía\nme ped[G]í una cerv[C]eza bien [G]fría \ny entonces no [D]sé\nsi soñe[C] o era tuya la ardiente\nvoz que m[D]e iba diciendo al o[Em]ído\n\"me morí[E7]a de ganas queri[Am]do\nde ve[D]rte otra ve[G]z\".\n\nESTRIBILLO.",
     "id": 3
   },
   {
@@ -3143,6 +3159,14 @@ export const IMPORTED_SONGS = [
     "artist": "Joaquin Sabina",
     "key": "Dm",
     "lyrics": [
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "INTRO: *1"
+          }
+        ]
+      },
       {
         "segments": [
           {
@@ -4050,23 +4074,42 @@ export const IMPORTED_SONGS = [
             "text": ""
           }
         ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "---"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
       }
     ],
     "tabs": [
       {
         "label": "Intro",
-        "content": "e|--10--8--5----3--1----1--|--10--8--5----3--1----1--|\nB|----------------------3--|----------------------3--|\nG|--10--9--5----4--2----2--|--10--9--5----4--2----2--|\nD|--------------------0----|--------------------0----|\nA|-------------------------|-------------------------|\nE|-------------------------|-------------------------|"
+        "content": "e|--10--8--5----3--1----1--|--10--8--5----3--1----1--|\nB|----------------------3--|----------------------3--|\nG|--10--9--5----4--2----2--|--10--9--5----4--2----2--|\nD|--------------------0----|--------------------0----|\nA|-------------------------|-------------------------|\nE|-------------------------|-------------------------|",
+        "ref": "*1"
       },
       {
-        "label": "puente",
-        "content": "e|-------------------------------------|\nB|-------------------------------------|\nG|-------------------------------------|\nD|----0---0---0---0--------------------|\nA|--5---5---5---5---7-8----------------|\nE|------------------------3------------|"
+        "label": "Tab 2",
+        "content": "e|-------------------------------------|\nB|-------------------------------------|\nG|-------------------------------------|\nD|----0---0---0---0--------------------|\nA|--5---5---5---5---7-8----------------|\nE|------------------------3------------|",
+        "ref": null
       },
       {
         "label": "Solo",
-        "content": "e|-----------------|---------------------------------|---------------|\nB|-----------------|---------------------------------|--------1------|\nG|--------0--------|---------2-2-0-2----0---2/3-3/2--|--0-2-3---3-2--|\nD|-----------3-2~--|---------------------------------|---------------|\nA|--0-1-0----------|--0-1--0-------------------------|---------------|\nE|-----------------|---------------------------------|---------------|"
+        "content": "e|-----------------|---------------------------------|---------------|\nB|-----------------|---------------------------------|--------1------|\nG|--------0--------|---------2-2-0-2----0---2/3-3/2--|--0-2-3---3-2--|\nD|-----------3-2~--|---------------------------------|---------------|\nA|--0-1-0----------|--0-1--0-------------------------|---------------|\nE|-----------------|---------------------------------|---------------|",
+        "ref": "**1"
       }
     ],
-    "lyricText": "\n[Gm]Ella le pidió que la llev[Dm]ara al fin del mundo.\n[Gm]El puso su a su nombre todas l[Dm]as olas del mar.\n[A7]Se miraron un segu[Dm]ndo,\n[A7]como dos desc[Dm]onocidos.\n\n[Gm]Todas las ciudades eran p[Dm]ocas a sus ojos.\n[Gm]Ella quiso barcos y el no s[Dm]upo que pescar.\n[A7]Y al final números [Dm]rojos\n[A7]en la cuenta del olv[Dm]ido.\n\n[Bb]Y hubo tanto [Cm7]ruido\nque al fin[Dm]al llegó el final.\n\n[Gm]Mucho, mucho ruido,\n[D]ruido de ventanas,\n[D#]nidos de manzanas\nQue se ac[Cm7]aban por pudrir.\nMucho, m[Bb]ucho ruido[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final\npor fin [Dm]el fin.\nTanto ru[A7]ido y al final...\n\n**1\n\n[Gm]Hubo un accidente, se perdi[Dm]eron las postales.\n[Gm]Quiso carnavales y encontr[Dm]ó fatalidad.\n[A7]Porque todos los fin[Am]ales\n[A7]son el mismo repet[Dm]ido.\n\n[Bb]Y con tanto [Cm7]ruido\nno escuch[Dm]aron el final.\n\n[Gm]Descubrieron que los besos [Dm]no sabían a nada.\n[Gm]hubo una epidemia de trist[Dm]eza en la ciudad.\n[A7]Se borraron las pis[Dm]adas,\n[A7]se apagaron los lat[Dm]idos,\n[Bb]Y con tanto [Cm7]ruido\nno se oyo [Dm]el ruido del mar.\n\n[Gm]Mucho, mucho ruido.\n[D]Ruido de tijeras.\n[D#]Ruido de escaleras\nque se ac[Cm7]aban por bajar.\nMucho, m[Bb]ucho ruido.[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final... [Dm](Ruido de tenazas)\nTanto ru[A7]ido y al final...[Dm](Ruido de estaciones)\ntanto ru[A7]ido y al final [Dm]la soledad. (Ruido de escorpiones)\n\n\n[A7]Ruido de abogados, [Dm]ruido compartido\n[A7]Ruido envenenado, [Dm]demasiado ruido\n(Se repite)\n\nRuido platos rotos, ruido años perdidos,\nRuido viejas fotos, ruido empedernido.\n\nRuido de cristales, ruido de gemidos,\nRuidos animales, Contagioso ruido.\n\n(Apagando cuerdas)\nRuido mentiroso, ruido entrometido,\nRuido escandaloso, Silencioso ruido.\n\nRuido acomplejado, ruido introvertido,\nRuido del pasado, desgastado ruido.\n\nRuido de conjuros, ruido mal nacido,\nRuido tan oscuro, puro y duro ruido.\n\nRuido qué me has hecho ruido yo no he sido,\nRuido insatisfecho, ruido a que has venido.\n\n(Aplauso flamenco)\nRuidos como sables, ruido enloquecido,\nRuido intolerable, ruido incomprendido.\n\nRuido de frenazos, ruido sin sentido,\nRuido de arañazos, ruido, ruido, ruido.\n\n(Intro y algunas veces acompañamiento)\n\n\n",
+    "lyricText": "INTRO: *1\n\n[Gm]Ella le pidió que la llev[Dm]ara al fin del mundo.\n[Gm]El puso su a su nombre todas l[Dm]as olas del mar.\n[A7]Se miraron un segu[Dm]ndo,\n[A7]como dos desc[Dm]onocidos.\n\n[Gm]Todas las ciudades eran p[Dm]ocas a sus ojos.\n[Gm]Ella quiso barcos y el no s[Dm]upo que pescar.\n[A7]Y al final números [Dm]rojos\n[A7]en la cuenta del olv[Dm]ido.\n\n[Bb]Y hubo tanto [Cm7]ruido\nque al fin[Dm]al llegó el final.\n\n[Gm]Mucho, mucho ruido,\n[D]ruido de ventanas,\n[D#]nidos de manzanas\nQue se ac[Cm7]aban por pudrir.\nMucho, m[Bb]ucho ruido[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final\npor fin [Dm]el fin.\nTanto ru[A7]ido y al final...\n\n**1\n\n[Gm]Hubo un accidente, se perdi[Dm]eron las postales.\n[Gm]Quiso carnavales y encontr[Dm]ó fatalidad.\n[A7]Porque todos los fin[Am]ales\n[A7]son el mismo repet[Dm]ido.\n\n[Bb]Y con tanto [Cm7]ruido\nno escuch[Dm]aron el final.\n\n[Gm]Descubrieron que los besos [Dm]no sabían a nada.\n[Gm]hubo una epidemia de trist[Dm]eza en la ciudad.\n[A7]Se borraron las pis[Dm]adas,\n[A7]se apagaron los lat[Dm]idos,\n[Bb]Y con tanto [Cm7]ruido\nno se oyo [Dm]el ruido del mar.\n\n[Gm]Mucho, mucho ruido.\n[D]Ruido de tijeras.\n[D#]Ruido de escaleras\nque se ac[Cm7]aban por bajar.\nMucho, m[Bb]ucho ruido.[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final... [Dm](Ruido de tenazas)\nTanto ru[A7]ido y al final...[Dm](Ruido de estaciones)\ntanto ru[A7]ido y al final [Dm]la soledad. (Ruido de escorpiones)\n\n\n[A7]Ruido de abogados, [Dm]ruido compartido\n[A7]Ruido envenenado, [Dm]demasiado ruido\n(Se repite)\n\nRuido platos rotos, ruido años perdidos,\nRuido viejas fotos, ruido empedernido.\n\nRuido de cristales, ruido de gemidos,\nRuidos animales, Contagioso ruido.\n\n(Apagando cuerdas)\nRuido mentiroso, ruido entrometido,\nRuido escandaloso, Silencioso ruido.\n\nRuido acomplejado, ruido introvertido,\nRuido del pasado, desgastado ruido.\n\nRuido de conjuros, ruido mal nacido,\nRuido tan oscuro, puro y duro ruido.\n\nRuido qué me has hecho ruido yo no he sido,\nRuido insatisfecho, ruido a que has venido.\n\n(Aplauso flamenco)\nRuidos como sables, ruido enloquecido,\nRuido intolerable, ruido incomprendido.\n\nRuido de frenazos, ruido sin sentido,\nRuido de arañazos, ruido, ruido, ruido.\n\n(Intro y algunas veces acompañamiento)\n\n\n\n---\n",
     "id": 4
   },
   {
@@ -4074,6 +4117,14 @@ export const IMPORTED_SONGS = [
     "artist": "Skay Beilinson",
     "key": "G#m",
     "lyrics": [
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
       {
         "segments": [
           {
@@ -4094,11 +4145,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "Bm",
-            "text": "Llueve "
+            "text": "Llueve sobre el d"
           },
           {
             "chord": "G#m",
-            "text": "sobre el docke"
+            "text": "ocke"
           }
         ]
       },
@@ -4138,11 +4189,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "E",
-            "text": "Son "
+            "text": "Son las 5 de la t"
           },
           {
             "chord": "D#",
-            "text": "las 5 de la tarde"
+            "text": "arde"
           }
         ]
       },
@@ -4174,11 +4225,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "Bm",
-            "text": "Caen "
+            "text": "Caen gotas como la"
           },
           {
             "chord": "G#m",
-            "text": "gotas como lagrimas"
+            "text": "grimas"
           }
         ]
       },
@@ -4210,11 +4261,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "E",
-            "text": "Son "
+            "text": "Son las 5 de la t"
           },
           {
             "chord": "D#",
-            "text": "las 5 de la tarde"
+            "text": "arde"
           }
         ]
       },
@@ -4257,63 +4308,16 @@ export const IMPORTED_SONGS = [
             "text": ""
           }
         ]
-      },
-      {
-        "segments": [
-          {
-            "chord": "",
-            "text": ""
-          }
-        ]
-      },
-      {
-        "segments": [
-          {
-            "chord": "",
-            "text": ""
-          }
-        ]
-      },
-      {
-        "segments": [
-          {
-            "chord": "",
-            "text": ""
-          }
-        ]
       }
     ],
     "tabs": [
       {
         "label": "Tab 1",
-        "content": "e|-----------------------|---------------------------|\nB|-----------------------|---------------------------|\nG|-------4-6b-6b-4-4-----|-------4-6b-6b-4-6p-4------|\nD|---4/6----------6-6~---|---4/6---------------6p~---|\nA|-----------------------|---------------------------|\nE|-----------------------|---------------------------|"
-      },
-      {
-        "label": "Tab 2",
-        "content": "e|-----------------------|---------------------------|\nB|-----------------------|---------------------------|\nG|---3/9------9-8-7/9~---|---6b-6b-7b-6b-7~-7-6-7----|\nD|-----------------------|-----9--9--9--9------9-9---|\nA|-----------------------|---------------------------|\nE|-----------------------|---------------------------|"
-      },
-      {
-        "label": "Tab 3",
-        "content": "e|------------------------|------------------------------|\nB|------------------------|------------------------------|\nG|---3/11--11-11-10-9~9---|---3/11-11-11-11-11-10-9-7~---|\nD|------------------------|------------------------------|\nA|------------------------|------------------------------|\nE|------------------------|------------------------------|"
-      },
-      {
-        "label": "Tab 4",
-        "content": "e|------------------------|-------------------------17------|\nB|------------------------|---------------15-17-15-17b17b---|\nG|---3/11--11-11-10-9~9---|---------14-16-------------------|\nD|------------------------|---14-16p------------------------|\nA|------------------------|---------------------------------|\nE|------------------------|---------------------------------|"
-      },
-      {
-        "label": "Tab 5",
-        "content": "e|----------------------|----------------------------|\nB|---5/10-10-10-9-8~8---|---5/10-10-10-10-10-9-8~6---|\nG|----------------------|----------------------------|\nD|----------------------|----------------------------|\nA|----------------------|----------------------------|\nE|----------------------|----------------------------|"
-      },
-      {
-        "label": "Tab 6",
-        "content": "e|----------------------------------------------------------------|\nB|---8b--8b--8b----8b--8b--8b--------11b-11b-11b----11b-11b-11b---|\nG|---10b-10b-10b---10b-10b-10b-------13b-13b-13b----13b-13b-13b---|\nD|----------------------------------------------------------------|\nA|----------------------------------------------------------------|\nE|----------------------------------------------------------------|"
-      },
-      {
-        "label": "Tab 7",
-        "content": "e|----------------------------|---12-10-12b-12-10--10------|\nB|------------------4-5-6-7---|------------------13--12b---|\nG|------------------3-4-5-6---|----------------------------|\nD|---4--5--6--8~--------------|----------------------------|\nA|---3--4--5--7~--------------|----------------------------|\nE|----------------------------|----------------------------|"
+        "content": "e|-----------------------|---------------------------|\nB|-----------------------|---------------------------|\nG|-------4-6b-6b-4-4-----|-------4-6b-6b-4-6p-4------|\nD|---4/6----------6-6~---|---4/6---------------6p~---|\nA|-----------------------|---------------------------|\nE|-----------------------|---------------------------|",
+        "ref": "*1"
       }
     ],
-    "lyricText": "Intro: Bm G#m\n\n[Bm]Llueve [G#m]sobre el docke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son [D#]las 5 de la tarde\ny no para de llover\n\n\n[Bm]Caen [G#m]gotas como lagrimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son [D#]las 5 de la tarde\nBuenos Aires esta gris\n\n\n\n\n\n\n",
+    "lyricText": "\nIntro: Bm G#m\n\n[Bm]Llueve sobre el d[G#m]ocke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son las 5 de la t[D#]arde\ny no para de llover\n\n\n[Bm]Caen gotas como la[G#m]grimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son las 5 de la t[D#]arde\nBuenos Aires esta gris\n\n\n\n",
     "id": 5
   }
 ]
