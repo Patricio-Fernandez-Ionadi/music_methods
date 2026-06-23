@@ -4072,7 +4072,7 @@ export const IMPORTED_SONGS = [
   {
     "name": "Tarde de lluvia",
     "artist": "Skay Beilinson",
-    "key": "A",
+    "key": "G#m",
     "lyrics": [
       {
         "segments": [
@@ -4094,11 +4094,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "Bm",
-            "text": "Llueve sobre el do"
+            "text": "Llueve "
           },
           {
             "chord": "G#m",
-            "text": "cke"
+            "text": "sobre el docke"
           }
         ]
       },
@@ -4138,11 +4138,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "E",
-            "text": "Son las 5 de la tard"
+            "text": "Son "
           },
           {
-            "chord": "D",
-            "text": "e"
+            "chord": "D#",
+            "text": "las 5 de la tarde"
           }
         ]
       },
@@ -4174,11 +4174,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "Bm",
-            "text": "Caen gotas como"
+            "text": "Caen "
           },
           {
             "chord": "G#m",
-            "text": " lagrimas"
+            "text": "gotas como lagrimas"
           }
         ]
       },
@@ -4210,11 +4210,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "E",
-            "text": "Son las 5 de la tard"
+            "text": "Son "
           },
           {
-            "chord": "D",
-            "text": "e"
+            "chord": "D#",
+            "text": "las 5 de la tarde"
           }
         ]
       },
@@ -4313,7 +4313,7 @@ export const IMPORTED_SONGS = [
         "content": "e|----------------------------|---12-10-12b-12-10--10------|\nB|------------------4-5-6-7---|------------------13--12b---|\nG|------------------3-4-5-6---|----------------------------|\nD|---4--5--6--8~--------------|----------------------------|\nA|---3--4--5--7~--------------|----------------------------|\nE|----------------------------|----------------------------|"
       }
     ],
-    "lyricText": "Intro: Bm G#m\n\n[Bm]Llueve sobre el do[G#m]cke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son las 5 de la tard[D]e\ny no para de llover\n\n\n[Bm]Caen gotas como[G#m] lagrimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son las 5 de la tard[D]e\nBuenos Aires esta gris\n\n\n\n\n\n\n",
+    "lyricText": "Intro: Bm G#m\n\n[Bm]Llueve [G#m]sobre el docke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son [D#]las 5 de la tarde\ny no para de llover\n\n\n[Bm]Caen [G#m]gotas como lagrimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son [D#]las 5 de la tarde\nBuenos Aires esta gris\n\n\n\n\n\n\n",
     "id": 5
   }
 ]

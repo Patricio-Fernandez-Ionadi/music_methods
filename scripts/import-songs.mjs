@@ -6,7 +6,6 @@ import { detectKey } from '../src/modules/biblioteca/utils/key-detection.js'
 const SONGS_DIR = resolve('src/data/songs')
 const OUT_FILE = resolve('src/data/songs-generated.js')
 
-const CHORD_RE = /\b([A-G][#b]?(?:m|dim|maj7|m7|maj|aug|sus[24]|7|add\d|°)?)\b/g
 const TAB_STRINGS = new Set(['e', 'B', 'G', 'D', 'A', 'E'])
 
 /* ── File name parsing ───────────────────────────────────── */
@@ -46,22 +45,20 @@ function isSection(line) {
 	return /^(VERSO|ESTRIBILLO|PUENTE|INTRO|SOLO|OUTRO|CODA|PRÉ-ESTRIBILLO|PRE-ESTRIBILLO|PUENTE_VOCAL|FINAL)/i.test(line.trim())
 }
 
-/* ── Format conversion: text[Am] → [Am]text ─────────────── */
-
-function convertAfterText(line) {
-	return line.replace(/([^\s[]+)\[([^\]]+)\]/g, (_, word, chord) => {
-		return `[${chord}]${word}`
-	})
-}
-
 /* ── Chord-above-text merger ─────────────────────────────── */
 
 function mergeChordsIntoLyric(chordLine, lyricLine) {
-	const matches = [...chordLine.matchAll(CHORD_RE)]
-	let result = lyricLine
-	for (let i = matches.length - 1; i >= 0; i--) {
-		const m = matches[i]
-		result = result.slice(0, m.index) + '[' + m[1] + ']' + result.slice(m.index)
+	const chords = chordLine.trim().split(/\s+/)
+	const words = lyricLine.split(/(\s+)/)
+	let chordIdx = 0
+	let result = ''
+	for (const word of words) {
+		if (word.trim() === '' || chordIdx >= chords.length) {
+			result += word
+			continue
+		}
+		result += `[${chords[chordIdx]}]${word}`
+		chordIdx++
 	}
 	return result
 }
