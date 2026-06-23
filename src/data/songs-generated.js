@@ -141,7 +141,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "PUENTE"
           }
         ]
       },
@@ -297,7 +297,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO x1 vacio "
           }
         ]
       },
@@ -313,7 +313,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "VERSO:"
           }
         ]
       },
@@ -473,7 +473,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "PUENTE"
           }
         ]
       },
@@ -629,7 +629,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO:"
           }
         ]
       },
@@ -749,7 +749,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "VERSO:"
           }
         ]
       },
@@ -901,7 +901,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "PUENTE:"
           }
         ]
       },
@@ -1065,7 +1065,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO (fade out):"
           }
         ]
       },
@@ -1167,7 +1167,7 @@ export const IMPORTED_SONGS = [
       }
     ],
     "tabs": [],
-    "lyricText": "Todo empezó[G] cuando aquella serpiente\nme trajo un[Am]a manzana y dijo prueba[C]\nyo me llama[D]ba Adán, seguram[C]ente tu te llamabas [G]Eva.\n\nVivíam[G]os de scuoters en un piso\nabandon[Am]ado de Moratalaz[C]\nsi no has est[D]ado allí no has visto el [C]paraíso terrenal.[G]\n\n\nCogimos u[C]n colchón de una basura\ndos sillas y u[G]na mesa con tres patas\nmientras yo embo[D]rronaba partituras[C]\ntu freías las pat[G]atas.\n\nPlantamos [C]cañamones de ketama\ny un tiesto n[G]os creció ante el ventanal\ncon una r[D]ama de árbol de la ci[C]encia\ndel bien y del mal.[G]\n\n\n\n\nA Eva le[G] gustaba estar morena\ny se tumb[Am]aba cada tarde al sol[C]\nnadie vio n[D]unca una sirena t[C]an desnuda en un balcó[G]n\n\nPronto en cad[G]a ventana hubo un marido\nA la hora en qu[Am]e montaba el show mi chica[C]\naunque la t[D]ele diera en diferi[C]do Real Madrid - Benf[G]ica\n\n\nUn día la v[C]íbora del entresuelo\nen trance a s[G]u consorte sorprendió\nformo un revue[D]lo y telefoneo[D]\nal cero noventa y d[G]os\n\nY como n[C]o teníamos apellidos\nni hojas de p[G]arra, ni un tío concejal\nni mas di[D]os que Cupido no sirvi[C]ó de nada\nprotestar[G]\n\n\n[Am]uh\n[C]Eva tomando el so[G]l\n[D]uh\n[C]bendito descontro[G]l\n\n[Am]uh\n[C]besos, cebolla y p[G]an\n[D]uh\n[C]¿Qué más quieres Ad[G]an?\n\nMODULACION +1 tono\n\n\nUn juez que s[A]e creía Dios dispuso\nque precint[Bb]ara un guardia nuestro piso[D]\nno quedan pl[E]azas para dos intr[D]usos en el paraí[A]so\n\nEstábam[A]os sobre el colchón desnudos\njugando a nue[Bm]stro juego favorito[D]\nal ver entr[A]ar la pasma Eva no p[D]udo sofocar un grito[A]\n\n\nA golpes l[D]a bajo por la escalera\nun ángel d[A]isfrazado de alguacil\nsin import[E]arle un pijo que estuvi[D]era\nen cinta de Ca[A]ín\n\nHoy Eva v[D]nde en un supermercado\nmanzanas d[A]el pecado original\nyo canto en l[E]a calle Preciados\nt[D]odos me llaman Adán[A].\n\n\n[Bm]uh\n[D]Eva tomando el so[A]l\n[E]uh\n[D]bendito descontro[A]l\n\n[Bm]uh\n[D]besos, cebolla y p[A]an\n[E]uh\n[D]¿Qué más quieres Ad[A]an?\n",
+    "lyricText": "Todo empezó[G] cuando aquella serpiente\nme trajo un[Am]a manzana y dijo prueba[C]\nyo me llama[D]ba Adán, seguram[C]ente tu te llamabas [G]Eva.\n\nVivíam[G]os de scuoters en un piso\nabandon[Am]ado de Moratalaz[C]\nsi no has est[D]ado allí no has visto el [C]paraíso terrenal.[G]\n\nPUENTE\nCogimos u[C]n colchón de una basura\ndos sillas y u[G]na mesa con tres patas\nmientras yo embo[D]rronaba partituras[C]\ntu freías las pat[G]atas.\n\nPlantamos [C]cañamones de ketama\ny un tiesto n[G]os creció ante el ventanal\ncon una r[D]ama de árbol de la ci[C]encia\ndel bien y del mal.[G]\n\nESTRIBILLO x1 vacio \n\nVERSO:\nA Eva le[G] gustaba estar morena\ny se tumb[Am]aba cada tarde al sol[C]\nnadie vio n[D]unca una sirena t[C]an desnuda en un balcó[G]n\n\nPronto en cad[G]a ventana hubo un marido\nA la hora en qu[Am]e montaba el show mi chica[C]\naunque la t[D]ele diera en diferi[C]do Real Madrid - Benf[G]ica\n\nPUENTE\nUn día la v[C]íbora del entresuelo\nen trance a s[G]u consorte sorprendió\nformo un revue[D]lo y telefoneo[D]\nal cero noventa y d[G]os\n\nY como n[C]o teníamos apellidos\nni hojas de p[G]arra, ni un tío concejal\nni mas di[D]os que Cupido no sirvi[C]ó de nada\nprotestar[G]\n\nESTRIBILLO:\n[Am]uh\n[C]Eva tomando el so[G]l\n[D]uh\n[C]bendito descontro[G]l\n\n[Am]uh\n[C]besos, cebolla y p[G]an\n[D]uh\n[C]¿Qué más quieres Ad[G]an?\n\nMODULACION +1 tono\n\nVERSO:\nUn juez que s[A]e creía Dios dispuso\nque precint[Bb]ara un guardia nuestro piso[D]\nno quedan pl[E]azas para dos intr[D]usos en el paraí[A]so\n\nEstábam[A]os sobre el colchón desnudos\njugando a nue[Bm]stro juego favorito[D]\nal ver entr[A]ar la pasma Eva no p[D]udo sofocar un grito[A]\n\nPUENTE:\nA golpes l[D]a bajo por la escalera\nun ángel d[A]isfrazado de alguacil\nsin import[E]arle un pijo que estuvi[D]era\nen cinta de Ca[A]ín\n\nHoy Eva v[D]nde en un supermercado\nmanzanas d[A]el pecado original\nyo canto en l[E]a calle Preciados\nt[D]odos me llaman Adán[A].\n\nESTRIBILLO (fade out):\n[Bm]uh\n[D]Eva tomando el so[A]l\n[E]uh\n[D]bendito descontro[A]l\n\n[Bm]uh\n[D]besos, cebolla y p[A]an\n[E]uh\n[D]¿Qué más quieres Ad[A]an?\n",
     "id": 1
   },
   {
@@ -1179,7 +1179,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "INTRO E (A G E)"
           }
         ]
       },
@@ -1187,7 +1187,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "VERSO:"
           }
         ]
       },
@@ -1339,7 +1339,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "PUENTE:"
           }
         ]
       },
@@ -1443,7 +1443,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO:"
           }
         ]
       },
@@ -1567,7 +1567,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "SOLO: E A7 E E7 A A7"
           }
         ]
       },
@@ -1739,13 +1739,13 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO fade out"
           }
         ]
       }
     ],
     "tabs": [],
-    "lyricText": "\n\n[E]Hierven los clubs, y los adolesc[A]entes \ncomen pastillas de col[E]ores,\n\n[E]harto de malvivir el siglo v[A]einte \nmuere de mal de am[E]ores,\n\n[E]los hechiceros de la tribu resuc[A]itan\npara invertir en mis pec[E]ados,\n\n[E]y hacen los traficantes de estamp[A]itas\nsu agosto en el supermerc[E]ado.\n\n\nY la ment[C#m]ira vale m[A7]ás que la verdad\ny la verdad[C#m] es un castillo de ar[A7]ena,\ny por las a[C#m]utopistas de la libe[A7]rtad\nnadie se atreve a conduc[B7]ir sin cadenas.\n\n\n[E]Y yo me muero de g[A]anas de decirte,\nqu[D]e me muero de g[A]anas de decirte que te [E]quiero.\n\nY que no qui[G]ero que venga el dest[D]ino a vengars[E]e de mí\ny que prefi[G]ero la guerra conti[D]go al invierno si[E]n tí\n\n\n\n[E]Cada mañana salto de la ca[A]ma\npisando arenas moved[E]izas.\n[E]Cuesta vivir cuando lo que se [A]ama\nse llena de cen[E]izas.\n\nY por las c[C#m]alles vaga [A7]solo un corazón\nsin un mal b[C#m]eso que llevarse a la b[A7]oca.\nY sopla el vi[C#m]ento frío de la humillac[A7]ión\nenvileciendo cada cu[B7]erpo que toca\n\n",
+    "lyricText": "INTRO E (A G E)\nVERSO:\n[E]Hierven los clubs, y los adolesc[A]entes \ncomen pastillas de col[E]ores,\n\n[E]harto de malvivir el siglo v[A]einte \nmuere de mal de am[E]ores,\n\n[E]los hechiceros de la tribu resuc[A]itan\npara invertir en mis pec[E]ados,\n\n[E]y hacen los traficantes de estamp[A]itas\nsu agosto en el supermerc[E]ado.\n\nPUENTE:\nY la ment[C#m]ira vale m[A7]ás que la verdad\ny la verdad[C#m] es un castillo de ar[A7]ena,\ny por las a[C#m]utopistas de la libe[A7]rtad\nnadie se atreve a conduc[B7]ir sin cadenas.\n\nESTRIBILLO:\n[E]Y yo me muero de g[A]anas de decirte,\nqu[D]e me muero de g[A]anas de decirte que te [E]quiero.\n\nY que no qui[G]ero que venga el dest[D]ino a vengars[E]e de mí\ny que prefi[G]ero la guerra conti[D]go al invierno si[E]n tí\n\nSOLO: E A7 E E7 A A7\n\n[E]Cada mañana salto de la ca[A]ma\npisando arenas moved[E]izas.\n[E]Cuesta vivir cuando lo que se [A]ama\nse llena de cen[E]izas.\n\nY por las c[C#m]alles vaga [A7]solo un corazón\nsin un mal b[C#m]eso que llevarse a la b[A7]oca.\nY sopla el vi[C#m]ento frío de la humillac[A7]ión\nenvileciendo cada cu[B7]erpo que toca\n\nESTRIBILLO fade out",
     "id": 2
   },
   {
@@ -2173,7 +2173,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO:"
           }
         ]
       },
@@ -2301,7 +2301,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "VERSO:"
           }
         ]
       },
@@ -2697,7 +2697,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO."
           }
         ]
       },
@@ -2713,7 +2713,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "VERSO:"
           }
         ]
       },
@@ -3129,13 +3129,13 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "ESTRIBILLO."
           }
         ]
       }
     ],
     "tabs": [],
-    "lyricText": "¿Que adel[G]antas sabi[D]endo mi n[G]ombre?\nCada n[G]oche tengo [D]uno dist[Em]into\ny sigui[G]endo la v[D]oz del inst[G]into \nme l[C]anzo a busc[G]ar\n\nImag[A]ino, preci[C]osa que un [D]hombre,\nalgo m[C]ás, un am[D]ante disc[Em]reto\nque se atr[Am]eva a perd[E7]erme el respe[A]to\n¿Mo quieres pro[D]bar?\n\nVivo ju[B7]sto detras de la esqu[Em]ina, \nno me acu[G7]erdo si tengo mar[C]ido.\nSi me q[G]uitas con [C]arte el vest[G]ido\nte invito un champ[D]agne.\n\nLe solt[C]é al barman mil propinas, \napur[D]é la cerveza de un s[Em]orbo.\n(acert[E7]ó quien \"El templo del m[Am]orbo\"\nle p[D]uso a este b[G]ar)\n\n\nPeor para el s[G]ol\nque se m[F]ete a las siete en la c[C]una\ndel m[F]ar a ronc[G]ar,\nmientras un s[D]ervidor\nle lev[Am]anta la f[C]alda a la L[D]una.\n\n\nAl lleg[G]ar al por[D]tal nos busc[G]amos\ncomo d[G]os estudi[D]antes en c[Em]elo.\nUn piso [G]antes del [D]septimo ci[G]elo\nse abri[C]ó el ascens[G]or.\n\nNos sirvi[Am]ó para el [C]último gr[D]amo \nel crist[C]ál de tu [D]foto de b[Em]oda.\nNo falt[Am]ó ni el desf[E7]ile de m[Am]oda\nde ropa int[D]erior.\n\nEn mi c[B7]ása ni hay nada prohib[Em]ido\npero n[G7]o vayas a enamor[C]arte,\ncon el [G]alba tendr[C]ás que march[G]arte\npara no vov[D]er,\nolvid[C]ando que me has conocido,\nque una vez estuviste en mi c[Em]ama,\nhay capri[E7]chos de amor que una d[Am]ama\nno d[D]ebe ten[G]er.\n\n\n\n\nEs mej[G]or ,le ped[D]í que te c[G]alles,\nno me g[G]usta invet[D]ir en quim[Em]eras,\nme han tra[G]ido hasta aqu[D]í tus cad[G]eras \n[C]no tu coraz[D]ón.\nY despu[Am]és, ¿Para qué[C] mas det[D]alles?\nya sab[C]eis, copas r[D]isas,exc[Em]esos.\n¿Cómo v[Am]an a cab[E7]er tantos b[Em]esos\nen una ca[D]nción?\n\nVolví al b[B7]ar a la noche sigui[Em]ente\na brind[G7]ar con su silla vac[C]ía\nme ped[G]í una cerv[C]eza bien [G]fría \ny entonces no [D]sé\nsi soñe[C] o era tuya la ardiente\nvoz que m[D]e iba diciendo al o[Em]ído\n\"me morí[E7]a de ganas queri[Am]do\nde ve[D]rte otra ve[G]z\".\n\n",
+    "lyricText": "¿Que adel[G]antas sabi[D]endo mi n[G]ombre?\nCada n[G]oche tengo [D]uno dist[Em]into\ny sigui[G]endo la v[D]oz del inst[G]into \nme l[C]anzo a busc[G]ar\n\nImag[A]ino, preci[C]osa que un [D]hombre,\nalgo m[C]ás, un am[D]ante disc[Em]reto\nque se atr[Am]eva a perd[E7]erme el respe[A]to\n¿Mo quieres pro[D]bar?\n\nVivo ju[B7]sto detras de la esqu[Em]ina, \nno me acu[G7]erdo si tengo mar[C]ido.\nSi me q[G]uitas con [C]arte el vest[G]ido\nte invito un champ[D]agne.\n\nLe solt[C]é al barman mil propinas, \napur[D]é la cerveza de un s[Em]orbo.\n(acert[E7]ó quien \"El templo del m[Am]orbo\"\nle p[D]uso a este b[G]ar)\n\nESTRIBILLO:\nPeor para el s[G]ol\nque se m[F]ete a las siete en la c[C]una\ndel m[F]ar a ronc[G]ar,\nmientras un s[D]ervidor\nle lev[Am]anta la f[C]alda a la L[D]una.\n\nVERSO:\nAl lleg[G]ar al por[D]tal nos busc[G]amos\ncomo d[G]os estudi[D]antes en c[Em]elo.\nUn piso [G]antes del [D]septimo ci[G]elo\nse abri[C]ó el ascens[G]or.\n\nNos sirvi[Am]ó para el [C]último gr[D]amo \nel crist[C]ál de tu [D]foto de b[Em]oda.\nNo falt[Am]ó ni el desf[E7]ile de m[Am]oda\nde ropa int[D]erior.\n\nEn mi c[B7]ása ni hay nada prohib[Em]ido\npero n[G7]o vayas a enamor[C]arte,\ncon el [G]alba tendr[C]ás que march[G]arte\npara no vov[D]er,\nolvid[C]ando que me has conocido,\nque una vez estuviste en mi c[Em]ama,\nhay capri[E7]chos de amor que una d[Am]ama\nno d[D]ebe ten[G]er.\n\nESTRIBILLO.\n\nVERSO:\nEs mej[G]or ,le ped[D]í que te c[G]alles,\nno me g[G]usta invet[D]ir en quim[Em]eras,\nme han tra[G]ido hasta aqu[D]í tus cad[G]eras \n[C]no tu coraz[D]ón.\nY despu[Am]és, ¿Para qué[C] mas det[D]alles?\nya sab[C]eis, copas r[D]isas,exc[Em]esos.\n¿Cómo v[Am]an a cab[E7]er tantos b[Em]esos\nen una ca[D]nción?\n\nVolví al b[B7]ar a la noche sigui[Em]ente\na brind[G7]ar con su silla vac[C]ía\nme ped[G]í una cerv[C]eza bien [G]fría \ny entonces no [D]sé\nsi soñe[C] o era tuya la ardiente\nvoz que m[D]e iba diciendo al o[Em]ído\n\"me morí[E7]a de ganas queri[Am]do\nde ve[D]rte otra ve[G]z\".\n\nESTRIBILLO.",
     "id": 3
   },
   {
@@ -4078,7 +4078,7 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "",
-            "text": ""
+            "text": "Intro: Bm G#m"
           }
         ]
       },
@@ -4313,7 +4313,7 @@ export const IMPORTED_SONGS = [
         "content": "e|----------------------------|---12-10-12b-12-10--10------|\nB|------------------4-5-6-7---|------------------13--12b---|\nG|------------------3-4-5-6---|----------------------------|\nD|---4--5--6--8~--------------|----------------------------|\nA|---3--4--5--7~--------------|----------------------------|\nE|----------------------------|----------------------------|"
       }
     ],
-    "lyricText": "\n\n[Bm]Llueve sobre el do[G#m]cke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son las 5 de la tard[D]e\ny no para de llover\n\n\n[Bm]Caen gotas como[G#m] lagrimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son las 5 de la tard[D]e\nBuenos Aires esta gris\n\n\n\n\n\n\n",
+    "lyricText": "Intro: Bm G#m\n\n[Bm]Llueve sobre el do[G#m]cke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son las 5 de la tard[D]e\ny no para de llover\n\n\n[Bm]Caen gotas como[G#m] lagrimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son las 5 de la tard[D]e\nBuenos Aires esta gris\n\n\n\n\n\n\n",
     "id": 5
   }
 ]

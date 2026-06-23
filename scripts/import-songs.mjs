@@ -165,7 +165,7 @@ function parseSongFile(filePath) {
 		}
 
 		if (isSection(trimmed)) {
-			processedLines.push('')
+			processedLines.push(line)
 			continue
 		}
 
