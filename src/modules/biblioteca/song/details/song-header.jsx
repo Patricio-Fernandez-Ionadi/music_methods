@@ -1,8 +1,9 @@
 import React from 'react'
 import { useApp } from '../../../../app/context/app-context'
 import { useNavigate } from 'react-router-dom'
+const KEY_OPTIONS = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B']
 
-export const SongHeader = ({ song }) => {
+export const SongHeader = ({ song, displayKey, onKeyChange }) => {
 	const navigate = useNavigate()
 	const { setSongs, setEditingSong } = useApp()
 	const [menuOpen, setMenuOpen] = React.useState(false)
@@ -30,11 +31,34 @@ export const SongHeader = ({ song }) => {
 		navigate('/biblioteca/nueva')
 	}
 
+	const isMinor = song.key.endsWith('m')
+	const options = isMinor
+		? KEY_OPTIONS.map(k => k + 'm')
+		: KEY_OPTIONS
+
+	const displayIsMinor = displayKey.endsWith('m')
+	const isTransposed = displayKey !== song.key
+
 	return (
 		<div className='song-detail-header'>
 			<h2>{song.name}</h2>
 			{song.artist && <p className='song-detail-artist'>{song.artist}</p>}
-			<span className='song-key'>{song.key}</span>
+			<div className='song-key-row'>
+				<span className={`song-key${isTransposed ? ' transposed' : ''}`}>
+					{song.key}
+				</span>
+				{isTransposed && <span className='song-key-arrow'>→</span>}
+				<select
+					className='song-key-select'
+					value={displayKey}
+					onChange={(e) => onKeyChange(e.target.value)}
+				>
+					{displayIsMinor
+						? options.map(k => <option key={k} value={k}>{k}</option>)
+						: options.map(k => <option key={k} value={k}>{k}</option>)
+					}
+				</select>
+			</div>
 
 			<div className='menu-wrapper' ref={menuRef}>
 				<button

@@ -32,3 +32,13 @@
 		filter: brightness(1.15);
 	}
 }
+
+.btn-save-file {
+	background: $black_dark;
+	color: $primary_light;
+	border: 1px solid $primary_light !important;
+
+	&:hover {
+		background: rgba($primary_light, 0.1);
+	}
+}

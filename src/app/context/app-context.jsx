@@ -17,11 +17,21 @@ export function AppProvider({ children }) {
 	const [selectedTonic, setSelectedTonic] = useState('C')
 	const [selectedMode, setSelectedMode] = useState(MODES.jonico)
 
-	/** Canciones persistentes: arranca desde localStorage o desde los datos iniciales. */
+	/** Canciones persistentes: mergea localStorage con INITIAL_SONGS sin duplicar. */
 	const [songs, setSongs] = useState(() => {
 		try {
 			const saved = localStorage.getItem(STORAGE_KEY)
-			return saved ? JSON.parse(saved) : INITIAL_SONGS
+			const existing = saved ? JSON.parse(saved) : []
+			const known = new Set(existing.map(s => s.name + '|' + s.artist))
+			const merged = [...existing]
+			for (const song of INITIAL_SONGS) {
+				const key = song.name + '|' + song.artist
+				if (!known.has(key)) {
+					known.add(key)
+					merged.push({ ...song, id: merged.length + 1 })
+				}
+			}
+			return merged.length ? merged : INITIAL_SONGS
 		} catch {
 			return INITIAL_SONGS
 		}

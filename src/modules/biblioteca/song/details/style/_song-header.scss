@@ -24,5 +24,35 @@
 		font-size: 0.85rem;
 		font-weight: 700;
 		letter-spacing: 0.5px;
+		&.transposed {
+			text-decoration: line-through;
+			opacity: 0.6;
+		}
+	}
+
+	.song-key-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.25rem;
+	}
+
+	.song-key-arrow {
+		color: $grey_light;
+		font-size: 0.85rem;
+	}
+
+	.song-key-select {
+		font-size: 0.85rem;
+		padding: 2px 6px;
+		border-radius: $thin;
+		background: $background;
+		color: $white;
+		border: 1px solid $grey;
+		cursor: pointer;
+		option {
+			background: $background;
+			color: $white;
+		}
 	}
 }

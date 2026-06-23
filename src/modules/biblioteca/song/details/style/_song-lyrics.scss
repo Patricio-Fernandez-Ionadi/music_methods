@@ -16,25 +16,41 @@
 
 .lyric-line {
 	margin-bottom: 0.6rem;
+	min-height: 1.6em;
 }
 
 .seg {
-	display: inline-flex;
-	flex-direction: column;
-	vertical-align: top;
+	display: inline;
+	white-space: pre-wrap;
+	color: $white;
+}
+
+.seg.has-chord {
+	display: inline-block;
+	position: relative;
+	white-space: nowrap;
+	vertical-align: baseline;
 }
 
 .seg-chord {
+	position: absolute;
+	bottom: calc(100% - 8px);
+	left: 0;
 	font-weight: 700;
 	color: $primary_light;
 	font-family: 'Courier New', monospace;
-	font-size: 0.85rem;
-	line-height: 1.4;
+	font-size: 1;
+	line-height: 1;
 	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
+
+	&:hover {
+		color: $white;
+	}
 }
 
-.seg-text {
+.seg.has-chord .seg-text {
+	display: inline;
 	color: $white;
-	line-height: 1.4;
-	white-space: pre-wrap;
 }

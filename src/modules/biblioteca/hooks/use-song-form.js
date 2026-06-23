@@ -105,9 +105,12 @@ export function useSongForm({
 		}
 
 		if (editingSong) {
-			setSongs((prev) =>
-				prev.map((s) => (s.id === editingSong.id ? { ...s, ...songData } : s)),
-			)
+			console.log('[useSongForm] handleSubmit editingSong.id:', editingSong.id, 'songData:', songData)
+			setSongs((prev) => {
+				const updated = prev.map((s) => (s.id === editingSong.id ? { ...s, ...songData } : s))
+				console.log('[useSongForm] songs after update:', updated.length, 'items, match found:', updated.some(s => s.id === editingSong.id))
+				return updated
+			})
 			setEditingSong(null)
 		} else {
 			setSongs((prev) => [...prev, { ...songData, id: Date.now() }])

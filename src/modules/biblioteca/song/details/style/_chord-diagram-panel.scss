@@ -1,0 +1,71 @@
+@use '../../../../../theme/values' as *;
+
+.chord-panel {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 260px;
+	height: 100vh;
+	background: $black_light;
+	border-left: 1px solid $grey;
+	padding: $pad;
+	z-index: 100;
+	overflow-y: auto;
+	box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.chord-panel-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid $grey;
+}
+
+.chord-panel-title {
+	font-size: 0.85rem;
+	color: $grey_light;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.chord-panel-close {
+	background: none;
+	border: none;
+	color: $grey_light;
+	font-size: 1.3rem;
+	cursor: pointer;
+	padding: 0 4px;
+	line-height: 1;
+}
+
+.chord-panel-body {
+	text-align: center;
+}
+
+.chord-panel-name {
+	font-size: 2rem;
+	font-weight: 700;
+	color: $primary_light;
+	font-family: 'Courier New', monospace;
+	margin-bottom: 1rem;
+}
+
+.chord-panel-desc {
+	font-size: 0.85rem;
+	color: $grey_light;
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}
+
+.chord-panel-info {
+	font-size: 0.85rem;
+	color: $white;
+	line-height: 1.8;
+	text-align: left;
+}
+
+.chord-panel-label {
+	color: $grey_light;
+}

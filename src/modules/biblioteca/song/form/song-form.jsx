@@ -4,6 +4,8 @@ import { SongFormBasicInfo } from './song-form-basic-info'
 import { SongFormLyrics } from './song-form-lyrics'
 import { SongFormTablature } from './song-form-tablature'
 import { SongFormActions } from './song-form-actions'
+import { stringToLyrics } from '../../utils/lyrics'
+import { saveSongToFile } from '../../utils/save-song'
 
 export const SongForm = ({ onSuccess, onCancel }) => {
 	const { songs, setSongs, editingSong, setEditingSong } = useApp()
@@ -21,6 +23,24 @@ export const SongForm = ({ onSuccess, onCancel }) => {
 		setEditingSong,
 		onSuccess,
 	})
+
+	const handleSaveToFile = async () => {
+		const song = {
+			name: form.name.trim(),
+			artist: form.artist.trim(),
+			key: form.key.trim(),
+			lyrics: stringToLyrics(form.lyrics),
+			tabs: form.tabsContent.trim() ? [{ label: form.tabsLabel.trim() || 'Tablatura', content: form.tabsContent }] : [],
+		}
+		const result = await saveSongToFile(song)
+		if (result.ok) {
+			alert('Canción guardada en .txt correctamente.')
+		} else if (result.offline) {
+			alert('La edición en archivo no está disponible en esta versión web. Usá la app en local para guardar.')
+		} else {
+			alert('Error al guardar: ' + (result.error || 'desconocido'))
+		}
+	}
 
 	return (
 		<div className='song-form-view'>
@@ -40,6 +60,7 @@ export const SongForm = ({ onSuccess, onCancel }) => {
 						handleCancel()
 						onCancel?.()
 					}}
+					onSaveToFile={handleSaveToFile}
 				/>
 			</form>
 		</div>

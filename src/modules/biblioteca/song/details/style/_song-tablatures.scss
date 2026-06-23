@@ -12,8 +12,8 @@
 
 	h4 {
 		color: $grey_light;
-		font-size: 0.9rem;
-		margin-bottom: 0.5rem;
+		font-size: 0.85rem;
+		margin-bottom: 0.25rem;
 		font-weight: 400;
 	}
 }
@@ -23,9 +23,10 @@
 	padding: $pad;
 	border-radius: $smooth;
 	font-family: 'Courier New', monospace;
-	font-size: 0.8rem;
-	line-height: 1.5;
+	font-size: 0.82rem;
+	line-height: 1.2;
 	color: $white;
 	overflow-x: auto;
+	max-width: 100%;
 	white-space: pre;
 }

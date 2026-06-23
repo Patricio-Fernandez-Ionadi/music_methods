@@ -1,6 +1,6 @@
 # Documentación del Proyecto
 
-_Generada el 2026-06-21_
+_Generada el 2026-06-23_
 
 ## Vistas
 
@@ -42,6 +42,9 @@ _Generada el 2026-06-21_
 ### `modules/biblioteca/library/song-list.jsx`
   - `SongList`
 
+### `modules/biblioteca/song/details/chord-diagram-panel.jsx`
+  - `ChordDiagramPanel`
+
 ### `modules/biblioteca/song/details/song-header.jsx`
   - `SongHeader`
 
@@ -66,9 +69,17 @@ _Generada el 2026-06-21_
 ### `modules/biblioteca/song/form/song-form.jsx`
   - `SongForm`
 
+### `modules/biblioteca/utils/key-detection.js`
+  - `detectKey`
+
 ### `modules/biblioteca/utils/lyrics.js`
-  - `lyricsToString` — Convierte el array de versos con acordes a string plano.  * Formato de salida: `[Acorde]texto [Otro]más texto` (una línea por verso).  *  * @param {LyricLine[]} lyrics - Letra formateada como objetos con segmentos  * @returns {string} Texto plano listo para editar en un textarea  *  * @example  * lyricsToString([  *   { segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }  * ])  * // => "[Am]Hello [C]world"
-  - `stringToLyrics` — Parsea un string con formato `[Acorde]texto [Otro]más texto`  * al array de objetos que usa internamente la app.  *  * @param {string} str - Texto ingresado por el usuario  * @returns {LyricLine[]} Letra formateada como segmentos  *  * @example  * stringToLyrics("[Am]Hello [C]world")  * // => [{ segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }]
+  - `lyricsToString`
+  - `stringToLyrics`
+
+### `modules/biblioteca/utils/transpose.js`
+  - `transposeChord`
+  - `transposeKey`
+  - `semitonesBetween`
 
 ### `modules/guitarra/chord-dict.jsx`
   - `ChordDict` — ChordDict — Selector de acordes del diccionario.
@@ -210,6 +221,9 @@ _Generada el 2026-06-21_
 
 ### `data/scales.js`
   - `SCALES`
+
+### `data/songs-generated.js`
+  - `IMPORTED_SONGS` — Archivo generado por scripts/import-songs.mjs — NO EDITAR MANUALMENTE
 
 ## App Shell
 

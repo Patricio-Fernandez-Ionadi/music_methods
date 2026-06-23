@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "docs": "node scripts/generate-docs.js",
+    "import-songs": "node scripts/import-songs.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

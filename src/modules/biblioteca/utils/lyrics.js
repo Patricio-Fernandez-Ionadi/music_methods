@@ -10,65 +10,68 @@
  * @property {LyricLine[]} lyrics - Versos de la canción
  */
 
-/**
- * Convierte el array de versos con acordes a string plano.
- * Formato de salida: `[Acorde]texto [Otro]más texto` (una línea por verso).
- *
- * @param {LyricLine[]} lyrics - Letra formateada como objetos con segmentos
- * @returns {string} Texto plano listo para editar en un textarea
- *
- * @example
- * lyricsToString([
- *   { segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }
- * ])
- * // => "[Am]Hello [C]world"
- */
 export function lyricsToString(lyrics) {
-  if (!lyrics || lyrics.length === 0) return ''
-  return lyrics
-    .map(line =>
-      line.segments
-        .map(seg => (seg.chord ? `[${seg.chord}]${seg.text}` : seg.text))
-        .join(''),
-    )
-    .join('\n')
+	if (!lyrics || lyrics.length === 0) return ''
+	return lyrics
+		.map(line =>
+			line.segments
+				.map(seg => (seg.chord ? `[${seg.chord}]${seg.text}` : seg.text))
+				.join(''),
+		)
+		.join('\n')
 }
 
-/**
- * Parsea un string con formato `[Acorde]texto [Otro]más texto`
- * al array de objetos que usa internamente la app.
- *
- * @param {string} str - Texto ingresado por el usuario
- * @returns {LyricLine[]} Letra formateada como segmentos
- *
- * @example
- * stringToLyrics("[Am]Hello [C]world")
- * // => [{ segments: [{ chord: 'Am', text: 'Hello ' }, { chord: 'C', text: 'world' }] }]
- */
 export function stringToLyrics(str) {
-  if (!str.trim()) return []
-  return str.split('\n').filter(Boolean).map(line => {
-    const segments = []
-    const regex = /\[([^\]]+)\]([^[]*)/g
-    let lastIndex = 0
-    let match
+	if (!str.trim()) return []
+	return str.split('\n').map(line => {
+		if (!line.trim()) return { segments: [{ chord: '', text: '' }] }
+		const segments = []
+		const parts = line.split(/(\[[^\]]+\])/)
+		let i = 0
 
-    while ((match = regex.exec(line)) !== null) {
-      if (match.index > lastIndex) {
-        segments.push({ chord: '', text: line.slice(lastIndex, match.index) })
-      }
-      segments.push({ chord: match[1], text: match[2] || '' })
-      lastIndex = regex.lastIndex
-    }
+		while (i < parts.length) {
+			const part = parts[i]
+			if (part === '') { i++; continue }
 
-    if (lastIndex < line.length) {
-      segments.push({ chord: '', text: line.slice(lastIndex) })
-    }
+			if (/^\[[^\]]+\]$/.test(part)) {
+				const chord = part.slice(1, -1)
+				i++
+				const next = i < parts.length ? parts[i] : ''
 
-    if (segments.length === 0) {
-      segments.push({ chord: '', text: line })
-    }
+				const prevSeg = segments.length > 0 ? segments[segments.length - 1] : null
+				const noSpaceBefore = prevSeg && prevSeg.text.length > 0
+					&& !prevSeg.text.endsWith(' ') && !prevSeg.chord
 
-    return { segments }
-  })
+				if (noSpaceBefore) {
+					const text = prevSeg.text
+					const lastSpace = text.lastIndexOf(' ')
+					if (lastSpace > -1) {
+						const before = text.slice(0, lastSpace + 1)
+						const word = text.slice(lastSpace + 1)
+						prevSeg.text = before
+						segments.push({ chord, text: word })
+					} else {
+						prevSeg.chord = chord
+					}
+					if (next) {
+						segments.push({ chord: '', text: next })
+						i++
+					}
+				} else {
+					const text = next || ''
+					segments.push({ chord, text })
+					if (next) i++
+				}
+			} else {
+				segments.push({ chord: '', text: part })
+				i++
+			}
+		}
+
+		if (segments.length === 0) {
+			segments.push({ chord: '', text: line })
+		}
+
+		return { segments }
+	})
 }
