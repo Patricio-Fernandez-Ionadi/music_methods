@@ -13,3 +13,9 @@
 		padding: 100px 16px 24px;
 	}
 }
+
+@media (orientation: landscape) and (max-height: 500px) {
+	.main-content {
+		padding-top: 56px;
+	}
+}
