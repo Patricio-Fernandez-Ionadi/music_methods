@@ -20,16 +20,18 @@
 
 .tab-content,
 .tab-content-inline {
-	background: $black_dark;
-	padding: $pad;
+	background: $primary_darken_dark;
+	padding: 10px 14px;
 	border-radius: $smooth;
-	font-family: 'Courier New', monospace;
+	border: 1px solid $grey_dark;
+	font-family: $font-mono;
 	font-size: 0.82rem;
-	line-height: 1.2;
+	line-height: 1.5;
 	color: $white;
 	overflow-x: auto;
 	max-width: 100%;
 	white-space: pre;
+	font-variant-ligatures: none;
 }
 
 .tab-block-inline {

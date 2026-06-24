@@ -1,6 +1,8 @@
 @use './colors' as *;
 @use './mediaqueries' as *;
 
+$font-mono: 'JetBrains Mono', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+
 :root {
 	font-size: 18px;
 	line-height: 145%;
