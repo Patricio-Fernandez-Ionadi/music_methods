@@ -4113,6 +4113,641 @@ export const IMPORTED_SONGS = [
     "id": 4
   },
   {
+    "name": "Alien Duce",
+    "artist": "Patricio Rey y sus Redonditos de Ricota",
+    "key": "G#m",
+    "lyrics": [
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Intro: D + (Riff 1 x4)"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "*1"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "VERSO 1:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "D",
+            "text": "Alien duce "
+          },
+          {
+            "chord": "G",
+            "text": "adorno tu e"
+          },
+          {
+            "chord": "riff1",
+            "text": "sclavitud"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y "
+          },
+          {
+            "chord": "D",
+            "text": "en un edifi"
+          },
+          {
+            "chord": "G",
+            "text": "cio en llamas t"
+          },
+          {
+            "chord": "riff1",
+            "text": "e encarno "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "VERSO 2:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "C",
+            "text": "Nadando "
+          },
+          {
+            "chord": "D",
+            "text": "en ese minestrón, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "C",
+            "text": "va "
+          },
+          {
+            "chord": "D",
+            "text": "porco rex a porno rock."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "VERSO 1:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Si su look bola de efecto te palmo"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y recoges tu hígado desde un rincón."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "VERSO 2:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Flotando en ese minestrón"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "va porco rex a porno rock."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "*3"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ESTRIBILLO:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": " "
+          },
+          {
+            "chord": "E",
+            "text": "Va "
+          },
+          {
+            "chord": "G",
+            "text": "escribiendo "
+          },
+          {
+            "chord": "Bb",
+            "text": "su "
+          },
+          {
+            "chord": "E",
+            "text": "evangelio"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": " "
+          },
+          {
+            "chord": "E",
+            "text": "en "
+          },
+          {
+            "chord": "G",
+            "text": "los "
+          },
+          {
+            "chord": "Bb",
+            "text": "ticket "
+          },
+          {
+            "chord": "E",
+            "text": "de carrefour "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": " "
+          },
+          {
+            "chord": "E",
+            "text": "y "
+          },
+          {
+            "chord": "G",
+            "text": "es "
+          },
+          {
+            "chord": "Bb",
+            "text": "el "
+          },
+          {
+            "chord": "E",
+            "text": "pequeño gran matón"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": " "
+          },
+          {
+            "chord": "E",
+            "text": "de "
+          },
+          {
+            "chord": "G",
+            "text": "la "
+          },
+          {
+            "chord": "Bb",
+            "text": "internet."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "**1"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "VERSO 1*:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "D",
+            "text": "           "
+          },
+          {
+            "chord": "C",
+            "text": "    "
+          },
+          {
+            "chord": "B",
+            "text": "     "
+          },
+          {
+            "chord": "G",
+            "text": "     riff1"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Alien Duce  dice desde la TV "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "D",
+            "text": "                "
+          },
+          {
+            "chord": "G",
+            "text": "           riff1            "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que no quiere estar jamás en la TV."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "VERSO 2:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Lo sobrevuela un gavilán "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que se hace pasar por el."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ESTRIBILLO:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Va escribiendo su evangelio"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "en los ticket de carrefour"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y es el pequeño gran matón"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "de la internet."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ESTRIBILLO final:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "    "
+          },
+          {
+            "chord": "E",
+            "text": "El "
+          },
+          {
+            "chord": "G",
+            "text": "Alien "
+          },
+          {
+            "chord": "Bb",
+            "text": "Duce"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "    "
+          },
+          {
+            "chord": "E",
+            "text": "chupa "
+          },
+          {
+            "chord": "G",
+            "text": "y "
+          },
+          {
+            "chord": "Bb",
+            "text": "escupe al fin."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "    "
+          },
+          {
+            "chord": "E",
+            "text": "Para "
+          },
+          {
+            "chord": "G",
+            "text": "Alien "
+          },
+          {
+            "chord": "Bb",
+            "text": "Duce"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "E",
+            "text": "Dios "
+          },
+          {
+            "chord": "G",
+            "text": "es "
+          },
+          {
+            "chord": "Bb",
+            "text": "digital."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      }
+    ],
+    "tabs": [
+      {
+        "label": "Riff 1",
+        "content": "e|----------------||\nB|----------------||\nG|----------------||\nD|---------5--4~--||\nA|----3h5---------||\nE|--5-------------||",
+        "ref": "*1"
+      },
+      {
+        "label": "Verso 2",
+        "content": "e|--------|--------------|--8-8-8--|--------------|\nB|--------|--3--3--3--3--|--8-8-8--|--------------|\nG|--5-5-5-|--2--2--2--2--|---------|---------(7)~-|\nD|--5-5-5-|--0--0--0--0--|---------|-6p5p4--------|\nA|--3-3-3-|--------------|---------|-------5------|\nE|--------|--------------|---------|--------------|",
+        "ref": "*2"
+      },
+      {
+        "label": "Estribillo",
+        "content": "e|-----------|-------|-----------|--0--0--0--|\nB|-----------|-------|-----------|--0--0--0--|\nG|-----------|-------|-----------|-----------|\nD|-----------|-------|--3-3-3-3--|-----------|\nA|--2-2-2-2--|--5-5--|--1-1-1-1--|-----------|\nE|--0-0-0-0--|--3-3--|-----------|-----------|",
+        "ref": "*3"
+      },
+      {
+        "label": "Puente",
+        "content": "e|-----------------------|------------------------------|\nB|-----------------------|------------------------------|\nG|-----7-6-4--7p6--------|-----9-8-9--11----------------|\nD|--7-------------9-(7)--|--4------------(9)-9-(9)~--/--|\nA|--7--------------------|--4---------------------------|\nE|--5--------------------|--2---------------------------|",
+        "ref": "**1"
+      }
+    ],
+    "lyricText": "\nIntro: D + (Riff 1 x4)\n\n*1\n\nVERSO 1:\n[D]Alien duce [G]adorno tu e[riff1]sclavitud\ny [D]en un edifi[G]cio en llamas t[riff1]e encarno \n\nVERSO 2:\n[C]Nadando [D]en ese minestrón, \n[C]va [D]porco rex a porno rock.\n\nVERSO 1:\nSi su look bola de efecto te palmo\ny recoges tu hígado desde un rincón.\n\nVERSO 2:\nFlotando en ese minestrón\nva porco rex a porno rock.\n\n*3\n\nESTRIBILLO:\n [E]Va [G]escribiendo [Bb]su [E]evangelio\n [E]en [G]los [Bb]ticket [E]de carrefour \n [E]y [G]es [Bb]el [E]pequeño gran matón\n [E]de [G]la [Bb]internet.\n\n**1\n\nVERSO 1*:\n[D]           [C]    [B]     [G]     riff1\nAlien Duce  dice desde la TV \n[D]                [G]           riff1            \nque no quiere estar jamás en la TV.\n\nVERSO 2:\nLo sobrevuela un gavilán \nque se hace pasar por el.\n\nESTRIBILLO:\nVa escribiendo su evangelio\nen los ticket de carrefour\ny es el pequeño gran matón\nde la internet.\n\nESTRIBILLO final:\n\n    [E]El [G]Alien [Bb]Duce\n    [E]chupa [G]y [Bb]escupe al fin.\n    [E]Para [G]Alien [Bb]Duce\n[E]Dios [G]es [Bb]digital.\n\n\n\n",
+    "id": 5
+  },
+  {
     "name": "Tarde de lluvia",
     "artist": "Skay Beilinson",
     "key": "G#m",
@@ -4312,12 +4947,12 @@ export const IMPORTED_SONGS = [
     ],
     "tabs": [
       {
-        "label": "Tab 1",
+        "label": "Solo",
         "content": "e|-----------------------|---------------------------|\nB|-----------------------|---------------------------|\nG|-------4-6b-6b-4-4-----|-------4-6b-6b-4-6p-4------|\nD|---4/6----------6-6~---|---4/6---------------6p~---|\nA|-----------------------|---------------------------|\nE|-----------------------|---------------------------|",
         "ref": "*1"
       }
     ],
     "lyricText": "\nIntro: Bm G#m\n\n[Bm]Llueve sobre el d[G#m]ocke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son las 5 de la t[D#]arde\ny no para de llover\n\n\n[Bm]Caen gotas como la[G#m]grimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son las 5 de la t[D#]arde\nBuenos Aires esta gris\n\n\n\n",
-    "id": 5
+    "id": 6
   }
 ]
