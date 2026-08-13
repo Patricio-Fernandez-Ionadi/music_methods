@@ -1,6 +1,500 @@
 // Archivo generado por scripts/import-songs.mjs — NO EDITAR MANUALMENTE
 export const IMPORTED_SONGS = [
   {
+    "name": "Balada de Tolito",
+    "artist": "Joaquin Sabina",
+    "key": "D",
+    "lyrics": [
+      {
+        "segments": [
+          {
+            "chord": "D",
+            "text": "Tolito tiene un dado y una pal"
+          },
+          {
+            "chord": "Em",
+            "text": "oma, "
+          },
+          {
+            "chord": "F#m - G",
+            "text": " "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "una "
+          },
+          {
+            "chord": "F#m7",
+            "text": "t"
+          },
+          {
+            "chord": "",
+            "text": "os y una copa llena de "
+          },
+          {
+            "chord": "Em",
+            "text": "v"
+          },
+          {
+            "chord": "",
+            "text": "ino, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "Bm",
+            "text": "y unas ropas con polvo de lo"
+          },
+          {
+            "chord": "C#7",
+            "text": "s caminos, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "F#7",
+            "text": "c"
+          },
+          {
+            "chord": "",
+            "text": "aminos que jamás llevaban a "
+          },
+          {
+            "chord": "Bm",
+            "text": "R"
+          },
+          {
+            "chord": "",
+            "text": "oma. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Mago de las barajas y las sonrisas, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "malabarista errante de las plazuelas, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "corazón que le sale por la camisa, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "botas de andar sin prisa, ni medias suelas. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "Am",
+            "text": "Empi"
+          },
+          {
+            "chord": "",
+            "text": "eza la función, "
+          },
+          {
+            "chord": "B7",
+            "text": "pon"
+          },
+          {
+            "chord": "",
+            "text": "gan atención "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "G",
+            "text": "el circo cabe en"
+          },
+          {
+            "chord": "D",
+            "text": " un asiento d"
+          },
+          {
+            "chord": "A",
+            "text": "el vagón. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "Am",
+            "text": "Empi"
+          },
+          {
+            "chord": "",
+            "text": "eza la función, "
+          },
+          {
+            "chord": "B7",
+            "text": "pon"
+          },
+          {
+            "chord": "",
+            "text": "gan atención "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "G",
+            "text": "bill"
+          },
+          {
+            "chord": "",
+            "text": "ete de "
+          },
+          {
+            "chord": "D",
+            "text": "segu"
+          },
+          {
+            "chord": "",
+            "text": "nda "
+          },
+          {
+            "chord": "A",
+            "text": "próxima"
+          },
+          {
+            "chord": "",
+            "text": " estación. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "A no ser por el alma y por la melena "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "de sus vecinos no se distinguiría; "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "su oficio es retorcerle el cuello a la pena "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y abrir una ventana a la fantasía. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Para dormir a pierna suelta le basta "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "con tener para vino pan y tabaco, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "igual que rifa un peine echa las cartas, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y saca el rey de bastos de tu sobaco. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Si quieres verlo ven, busca en el andén, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Tolito siempre está bajando de algún tren. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Si quieres verlo bien, busca en el andén "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Tolito siempre está subiendo al primer tren. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "cada vez que se encuentran los caminantes "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "se cuentan sus andanzas y sus querellas, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "le cuelgan a la noche un interrogante, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y llegan hasta el fondo de las botellas. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Luego entre cuatro muros y dos escuetos "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "colchones rescatados de la miseria "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "se intercambian los trucos y los secretos "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "del arte de ir rodando de feria en feria. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Ponnos dos copas más   antes de cerrar "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "morirse debe ser    dejar de caminar. "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Ponnos dos copas más   antes de cerrar "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "hoy bebo a tu salud   mañana Dios dirá."
+          }
+        ]
+      }
+    ],
+    "tabs": [],
+    "lyricText": "[D]Tolito tiene un dado y una pal[Em]oma, [F#m - G] \nuna t[F#m7]os y una copa llena de v[Em]ino, \n[Bm]y unas ropas con polvo de lo[C#7]s caminos, \nc[F#7]aminos que jamás llevaban a R[Bm]oma. \n\nMago de las barajas y las sonrisas, \nmalabarista errante de las plazuelas, \ncorazón que le sale por la camisa, \nbotas de andar sin prisa, ni medias suelas. \n\n\nEmpi[Am]eza la función, pon[B7]gan atención \n[G]el circo cabe en[D] un asiento d[A]el vagón. \nEmpi[Am]eza la función, pon[B7]gan atención \nbill[G]ete de segu[D]nda próxima[A] estación. \n\n\nA no ser por el alma y por la melena \nde sus vecinos no se distinguiría; \nsu oficio es retorcerle el cuello a la pena \ny abrir una ventana a la fantasía. \n\nPara dormir a pierna suelta le basta \ncon tener para vino pan y tabaco, \nigual que rifa un peine echa las cartas, \ny saca el rey de bastos de tu sobaco. \n\n\nSi quieres verlo ven, busca en el andén, \nTolito siempre está bajando de algún tren. \nSi quieres verlo bien, busca en el andén \nTolito siempre está subiendo al primer tren. \n\n\ncada vez que se encuentran los caminantes \nse cuentan sus andanzas y sus querellas, \nle cuelgan a la noche un interrogante, \ny llegan hasta el fondo de las botellas. \n\nLuego entre cuatro muros y dos escuetos \ncolchones rescatados de la miseria \nse intercambian los trucos y los secretos \ndel arte de ir rodando de feria en feria. \n\n\nPonnos dos copas más   antes de cerrar \nmorirse debe ser    dejar de caminar. \nPonnos dos copas más   antes de cerrar \nhoy bebo a tu salud   mañana Dios dirá.",
+    "id": 1
+  },
+  {
     "name": "Eva tomando el sol",
     "artist": "Joaquin Sabina",
     "key": "G",
@@ -1176,7 +1670,7 @@ export const IMPORTED_SONGS = [
     ],
     "tabs": [],
     "lyricText": "VERSO:\nTodo empez[G]ó cuando aquella serpiente\nme trajo un[Am]a manzana y dijo prueba[C]\nyo me llama[D]ba Adán, seguram[C]ente tu te llamabas [G]Eva.\n\nVivíam[G]os de scuoters en un piso\nabandon[Am]ado de Moratalaz[C]\nsi no has est[D]ado allí no has visto el [C]paraíso terrenal.[G]\n\nPUENTE\nCogimos u[C]n colchón de una basura\ndos sillas y u[G]na mesa con tres patas\nmientras yo embo[D]rronaba partituras[C]\ntu freías las pat[G]atas.\n\nPlantamos [C]cañamones de ketama\ny un tiesto n[G]os creció ante el ventanal\ncon una r[D]ama de árbol de la ci[C]encia\ndel bien y del mal.[G]\n\nESTRIBILLO x1 vacio \n\nVERSO:\nA Eva le[G] gustaba estar morena\ny se tumb[Am]aba cada tarde al sol[C]\nnadie vio n[D]unca una sirena t[C]an desnuda en un balcó[G]n\n\nPronto en cad[G]a ventana hubo un marido\nA la hora en qu[Am]e montaba el show mi chica[C]\naunque la t[D]ele diera en diferi[C]do Real Madrid - Benf[G]ica\n\nPUENTE\nUn día la v[C]íbora del entresuelo\nen trance a s[G]u consorte sorprendió\nformo un revue[D]lo y telefoneo[D]\nal cero noventa y d[G]os\n\nY como n[C]o teníamos apellidos\nni hojas de p[G]arra, ni un tío concejal\nni mas di[D]os que Cupido no sirvi[C]ó de nada\nprotestar[G]\n\nESTRIBILLO:\n[Am]uh\n[C]Eva tomando el so[G]l\n[D]uh\n[C]bendito descontro[G]l\n\n[Am]uh\n[C]besos, cebolla y p[G]an\n[D]uh\n[C]¿Qué más quieres Ad[G]an?\n\nMODULACION +1 tono\n\nVERSO:\nUn juez que s[A]e creía Dios dispuso\nque precint[Bb]ara un guardia nuestro piso[D]\nno quedan pl[E]azas para dos intr[D]usos en el paraí[A]so\n\nEstábam[A]os sobre el colchón desnudos\njugando a nue[Bm]stro juego favorito[D]\nal ver entr[A]ar la pasma Eva no p[D]udo sofocar un grito[A]\n\nPUENTE:\nA golpes l[D]a bajo por la escalera\nun ángel d[A]isfrazado de alguacil\nsin import[E]arle un pijo que estuvi[D]era\nen cinta de Ca[A]ín\n\nHoy Eva v[D]nde en un supermercado\nmanzanas d[A]el pecado original\nyo canto en l[E]a calle Preciados\nt[D]odos me llaman Adán[A].\n\nESTRIBILLO (fade out):\n[Bm]uh\n[D]Eva tomando el so[A]l\n[E]uh\n[D]bendito descontro[A]l\n\n[Bm]uh\n[D]besos, cebolla y p[A]an\n[E]uh\n[D]¿Qué más quieres Ad[A]an?\n",
-    "id": 1
+    "id": 2
   },
   {
     "name": "Ganas de",
@@ -1754,7 +2248,693 @@ export const IMPORTED_SONGS = [
     ],
     "tabs": [],
     "lyricText": "INTRO E (A G E)\nVERSO:\n[E]Hierven los clubs, y los adolesc[A]entes \ncomen pastillas de col[E]ores,\n\n[E]harto de malvivir el siglo v[A]einte \nmuere de mal de am[E]ores,\n\n[E]los hechiceros de la tribu resuc[A]itan\npara invertir en mis pec[E]ados,\n\n[E]y hacen los traficantes de estamp[A]itas\nsu agosto en el supermerc[E]ado.\n\nPUENTE:\nY la ment[C#m]ira vale m[A7]ás que la verdad\ny la verdad[C#m] es un castillo de ar[A7]ena,\ny por las a[C#m]utopistas de la libe[A7]rtad\nnadie se atreve a conduc[B7]ir sin cadenas.\n\nESTRIBILLO:\n[E]Y yo me muero de g[A]anas de decirte,\nqu[D]e me muero de g[A]anas de decirte que te [E]quiero.\n\nY que no qui[G]ero que venga el dest[D]ino a vengars[E]e de mí\ny que prefi[G]ero la guerra conti[D]go al invierno si[E]n tí\n\nSOLO: E A7 E E7 A A7\n\n[E]Cada mañana salto de la ca[A]ma\npisando arenas moved[E]izas.\n[E]Cuesta vivir cuando lo que se [A]ama\nse llena de cen[E]izas.\n\nY por las c[C#m]alles vaga [A7]solo un corazón\nsin un mal b[C#m]eso que llevarse a la b[A7]oca.\nY sopla el vi[C#m]ento frío de la humillac[A7]ión\nenvileciendo cada cu[B7]erpo que toca\n\nESTRIBILLO fade out",
-    "id": 2
+    "id": 3
+  },
+  {
+    "name": "Medias Negras",
+    "artist": "Joaquin Sabina",
+    "key": "G",
+    "lyrics": [
+      {
+        "segments": [
+          {
+            "chord": "G",
+            "text": "La vi en un paso cebra"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "toreaba con el bolso a un autobús,"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "llevaba medias negras,"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "G7",
+            "text": "buf"
+          },
+          {
+            "chord": "",
+            "text": "anda a cuadros, minifalda "
+          },
+          {
+            "chord": "C",
+            "text": "azul"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "C",
+            "text": "Me dijo “¿tienes fuego?"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "tranqui, que me lo monto de "
+          },
+          {
+            "chord": "G",
+            "text": "leg"
+          },
+          {
+            "chord": "",
+            "text": "al"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "salí ayer del "
+          },
+          {
+            "chord": "D",
+            "text": "taleg"
+          },
+          {
+            "chord": "",
+            "text": "o"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que "
+          },
+          {
+            "chord": "C",
+            "text": "gu"
+          },
+          {
+            "chord": "",
+            "text": "ay si me invitaras a "
+          },
+          {
+            "chord": "G",
+            "text": "cen"
+          },
+          {
+            "chord": "",
+            "text": "ar”."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "G",
+            "text": "Me echó un cable la lluvia"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "yo andaba con paraguas y ella no"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "“A donde vamos, rubia”."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "“'A "
+          },
+          {
+            "chord": "G7",
+            "text": "do"
+          },
+          {
+            "chord": "",
+            "text": "nde tu me lleves”, "
+          },
+          {
+            "chord": "C",
+            "text": "cont"
+          },
+          {
+            "chord": "",
+            "text": "estó."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "C",
+            "text": "Así que fuimos hasta"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "mi casa que es el polo le "
+          },
+          {
+            "chord": "G",
+            "text": "advert"
+          },
+          {
+            "chord": "",
+            "text": "í"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "“Con un colchón nos "
+          },
+          {
+            "chord": "D",
+            "text": "b"
+          },
+          {
+            "chord": "",
+            "text": "asta,"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "de "
+          },
+          {
+            "chord": "C",
+            "text": "e"
+          },
+          {
+            "chord": "",
+            "text": "stufa , corazón, te tengo a "
+          },
+          {
+            "chord": "G",
+            "text": "t"
+          },
+          {
+            "chord": "",
+            "text": "i”."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "D",
+            "text": "Rec"
+          },
+          {
+            "chord": "",
+            "text": "alenté una sopa con"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "C",
+            "text": "v"
+          },
+          {
+            "chord": "",
+            "text": "ino tinto, pan y "
+          },
+          {
+            "chord": "G",
+            "text": "salchich"
+          },
+          {
+            "chord": "",
+            "text": "ón."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "A "
+          },
+          {
+            "chord": "D",
+            "text": "la segunda copa"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "“¿Qué "
+          },
+          {
+            "chord": "C",
+            "text": "hac"
+          },
+          {
+            "chord": "",
+            "text": "emos con la ropa?” "
+          },
+          {
+            "chord": "Bm",
+            "text": "pregunt"
+          },
+          {
+            "chord": "",
+            "text": "ó."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Y "
+          },
+          {
+            "chord": "G7",
+            "text": "yo que nunca tuve más "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "religión que un cuerpo de "
+          },
+          {
+            "chord": "C",
+            "text": "muj"
+          },
+          {
+            "chord": "",
+            "text": "er"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Del "
+          },
+          {
+            "chord": "Am",
+            "text": "c"
+          },
+          {
+            "chord": "",
+            "text": "uello de una nube"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "Bm",
+            "text": "aqu"
+          },
+          {
+            "chord": "",
+            "text": "ella madrugada me "
+          },
+          {
+            "chord": "C",
+            "text": "colg"
+          },
+          {
+            "chord": "",
+            "text": "ué, eh eh "
+          },
+          {
+            "chord": "D",
+            "text": "eh eeeh....."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Estaba solo cuando"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "al día siguiente el sol me desveló"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "me desperté abrazando"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "La ausencia de su cuerpo en mi  colchón."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Lo malo no es que huyera"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "con mi cartera y mi ordenador..."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "peor es que se fuera"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "robándome además, el corazón."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "De noche piel de hada,"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "a plena luz del día, Cruela De Ville"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Maldita madrugada, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y yo que me creía Steve Mc Queen"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Si en algún paso cebra la encuentras"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "dile que le he escrito un blues..."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Llevaba medias negras,  "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "bufanda a cuadros, minifalda azul, uh uh uh uuuh."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "G7",
+            "text": "Me dijo “¿tienes fue"
+          },
+          {
+            "chord": "C",
+            "text": "go?"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "tranqui, que me lo monto de "
+          },
+          {
+            "chord": "G",
+            "text": "leg"
+          },
+          {
+            "chord": "",
+            "text": "al"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "salí ayer del "
+          },
+          {
+            "chord": "D",
+            "text": "tal"
+          },
+          {
+            "chord": "",
+            "text": "ego"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que "
+          },
+          {
+            "chord": "C",
+            "text": "gu"
+          },
+          {
+            "chord": "",
+            "text": "ay si me invitaras a "
+          },
+          {
+            "chord": "G",
+            "text": "cen"
+          },
+          {
+            "chord": "",
+            "text": "ar”."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "De noche piel de hada,"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "a plena luz del día, Cruela De Ville"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Maldita madrugada, "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y yo que me creía Steve Mc Queen"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Si en algún paso cebra la encuentras"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "dile que le he escrito un blues..."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Llevaba medias negras,  "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "bufanda a cuadros, minifalda azul, uh uh uh uuuh."
+          }
+        ]
+      }
+    ],
+    "tabs": [],
+    "lyricText": "[G]La vi en un paso cebra\ntoreaba con el bolso a un autobús,\nllevaba medias negras,\nbuf[G7]anda a cuadros, minifalda azul[C]\n\n[C]Me dijo “¿tienes fuego?\ntranqui, que me lo monto de leg[G]al\nsalí ayer del taleg[D]o\nque gu[C]ay si me invitaras a cen[G]ar”.\n\n[G]Me echó un cable la lluvia\nyo andaba con paraguas y ella no\n“A donde vamos, rubia”.\n“'A do[G7]nde tu me lleves”, cont[C]estó.\n\n[C]Así que fuimos hasta\nmi casa que es el polo le advert[G]í\n“Con un colchón nos b[D]asta,\nde e[C]stufa , corazón, te tengo a t[G]i”.\n\nRec[D]alenté una sopa con\nv[C]ino tinto, pan y salchich[G]ón.\nA [D]la segunda copa\n“¿Qué hac[C]emos con la ropa?” pregunt[Bm]ó.\nY [G7]yo que nunca tuve más \nreligión que un cuerpo de muj[C]er\nDel c[Am]uello de una nube\naqu[Bm]ella madrugada me colg[C]ué, eh eh [D]eh eeeh.....\n\nEstaba solo cuando\nal día siguiente el sol me desveló\nme desperté abrazando\nLa ausencia de su cuerpo en mi  colchón.\nLo malo no es que huyera\ncon mi cartera y mi ordenador...\npeor es que se fuera\nrobándome además, el corazón.\n\nDe noche piel de hada,\na plena luz del día, Cruela De Ville\nMaldita madrugada, \ny yo que me creía Steve Mc Queen\nSi en algún paso cebra la encuentras\ndile que le he escrito un blues...\nLlevaba medias negras,  \nbufanda a cuadros, minifalda azul, uh uh uh uuuh.\n\n[G7]Me dijo “¿tienes fue[C]go?\ntranqui, que me lo monto de leg[G]al\nsalí ayer del tal[D]ego\nque gu[C]ay si me invitaras a cen[G]ar”.\n\nDe noche piel de hada,\na plena luz del día, Cruela De Ville\nMaldita madrugada, \ny yo que me creía Steve Mc Queen\nSi en algún paso cebra la encuentras\ndile que le he escrito un blues...\nLlevaba medias negras,  \nbufanda a cuadros, minifalda azul, uh uh uh uuuh.",
+    "id": 4
   },
   {
     "name": "Peor para el sol",
@@ -3152,7 +4332,7 @@ export const IMPORTED_SONGS = [
     ],
     "tabs": [],
     "lyricText": "VERSO:\n¿Que adel[G]antas sabi[D]endo mi n[G]ombre?\nCada n[G]oche tengo [D]uno dist[Em]into\ny sigui[G]endo la v[D]oz del inst[G]into \nme l[C]anzo a busc[G]ar\n\nImag[A]ino, preci[C]osa que un [D]hombre,\nalgo m[C]ás, un am[D]ante disc[Em]reto\nque se atr[Am]eva a perd[E7]erme el respe[A]to\n¿Mo quieres pro[D]bar?\n\nVivo ju[B7]sto detras de la esqu[Em]ina, \nno me acu[G7]erdo si tengo mar[C]ido.\nSi me q[G]uitas con [C]arte el vest[G]ido\nte invito un champ[D]agne.\n\nLe solt[C]é al barman mil propinas, \napur[D]é la cerveza de un s[Em]orbo.\n(acert[E7]ó quien \"El templo del m[Am]orbo\"\nle p[D]uso a este b[G]ar)\n\nESTRIBILLO:\nPeor para el s[G]ol\nque se m[F]ete a las siete en la c[C]una\ndel m[F]ar a ronc[G]ar,\nmientras un s[D]ervidor\nle lev[Am]anta la f[C]alda a la L[D]una.\n\nVERSO:\nAl lleg[G]ar al por[D]tal nos busc[G]amos\ncomo d[G]os estudi[D]antes en c[Em]elo.\nUn piso [G]antes del [D]septimo ci[G]elo\nse abri[C]ó el ascens[G]or.\n\nNos sirvi[Am]ó para el [C]último gr[D]amo \nel crist[C]ál de tu [D]foto de b[Em]oda.\nNo falt[Am]ó ni el desf[E7]ile de m[Am]oda\nde ropa int[D]erior.\n\nEn mi c[B7]ása ni hay nada prohib[Em]ido\npero n[G7]o vayas a enamor[C]arte,\ncon el [G]alba tendr[C]ás que march[G]arte\npara no vov[D]er,\nolvid[C]ando que me has conocido,\nque una vez estuviste en mi c[Em]ama,\nhay capri[E7]chos de amor que una d[Am]ama\nno d[D]ebe ten[G]er.\n\nESTRIBILLO.\n\nVERSO:\nEs mej[G]or ,le ped[D]í que te c[G]alles,\nno me g[G]usta invet[D]ir en quim[Em]eras,\nme han tra[G]ido hasta aqu[D]í tus cad[G]eras \n[C]no tu coraz[D]ón.\nY despu[Am]és, ¿Para qué[C] mas det[D]alles?\nya sab[C]eis, copas r[D]isas,exc[Em]esos.\n¿Cómo v[Am]an a cab[E7]er tantos b[Em]esos\nen una ca[D]nción?\n\nVolví al b[B7]ar a la noche sigui[Em]ente\na brind[G7]ar con su silla vac[C]ía\nme ped[G]í una cerv[C]eza bien [G]fría \ny entonces no [D]sé\nsi soñe[C] o era tuya la ardiente\nvoz que m[D]e iba diciendo al o[Em]ído\n\"me morí[E7]a de ganas queri[Am]do\nde ve[D]rte otra ve[G]z\".\n\nESTRIBILLO.",
-    "id": 3
+    "id": 5
   },
   {
     "name": "Ruido",
@@ -3498,7 +4678,7 @@ export const IMPORTED_SONGS = [
             "text": "Porque todos los fin"
           },
           {
-            "chord": "Am",
+            "chord": "Dm",
             "text": "ales"
           }
         ]
@@ -4109,8 +5289,574 @@ export const IMPORTED_SONGS = [
         "ref": "**1"
       }
     ],
-    "lyricText": "INTRO: *1\n\n[Gm]Ella le pidió que la llev[Dm]ara al fin del mundo.\n[Gm]El puso su a su nombre todas l[Dm]as olas del mar.\n[A7]Se miraron un segu[Dm]ndo,\n[A7]como dos desc[Dm]onocidos.\n\n[Gm]Todas las ciudades eran p[Dm]ocas a sus ojos.\n[Gm]Ella quiso barcos y el no s[Dm]upo que pescar.\n[A7]Y al final números [Dm]rojos\n[A7]en la cuenta del olv[Dm]ido.\n\n[Bb]Y hubo tanto [Cm7]ruido\nque al fin[Dm]al llegó el final.\n\n[Gm]Mucho, mucho ruido,\n[D]ruido de ventanas,\n[D#]nidos de manzanas\nQue se ac[Cm7]aban por pudrir.\nMucho, m[Bb]ucho ruido[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final\npor fin [Dm]el fin.\nTanto ru[A7]ido y al final...\n\n**1\n\n[Gm]Hubo un accidente, se perdi[Dm]eron las postales.\n[Gm]Quiso carnavales y encontr[Dm]ó fatalidad.\n[A7]Porque todos los fin[Am]ales\n[A7]son el mismo repet[Dm]ido.\n\n[Bb]Y con tanto [Cm7]ruido\nno escuch[Dm]aron el final.\n\n[Gm]Descubrieron que los besos [Dm]no sabían a nada.\n[Gm]hubo una epidemia de trist[Dm]eza en la ciudad.\n[A7]Se borraron las pis[Dm]adas,\n[A7]se apagaron los lat[Dm]idos,\n[Bb]Y con tanto [Cm7]ruido\nno se oyo [Dm]el ruido del mar.\n\n[Gm]Mucho, mucho ruido.\n[D]Ruido de tijeras.\n[D#]Ruido de escaleras\nque se ac[Cm7]aban por bajar.\nMucho, m[Bb]ucho ruido.[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final... [Dm](Ruido de tenazas)\nTanto ru[A7]ido y al final...[Dm](Ruido de estaciones)\ntanto ru[A7]ido y al final [Dm]la soledad. (Ruido de escorpiones)\n\n\n[A7]Ruido de abogados, [Dm]ruido compartido\n[A7]Ruido envenenado, [Dm]demasiado ruido\n(Se repite)\n\nRuido platos rotos, ruido años perdidos,\nRuido viejas fotos, ruido empedernido.\n\nRuido de cristales, ruido de gemidos,\nRuidos animales, Contagioso ruido.\n\n(Apagando cuerdas)\nRuido mentiroso, ruido entrometido,\nRuido escandaloso, Silencioso ruido.\n\nRuido acomplejado, ruido introvertido,\nRuido del pasado, desgastado ruido.\n\nRuido de conjuros, ruido mal nacido,\nRuido tan oscuro, puro y duro ruido.\n\nRuido qué me has hecho ruido yo no he sido,\nRuido insatisfecho, ruido a que has venido.\n\n(Aplauso flamenco)\nRuidos como sables, ruido enloquecido,\nRuido intolerable, ruido incomprendido.\n\nRuido de frenazos, ruido sin sentido,\nRuido de arañazos, ruido, ruido, ruido.\n\n(Intro y algunas veces acompañamiento)\n\n\n\n---\n",
-    "id": 4
+    "lyricText": "INTRO: *1\n\n[Gm]Ella le pidió que la llev[Dm]ara al fin del mundo.\n[Gm]El puso su a su nombre todas l[Dm]as olas del mar.\n[A7]Se miraron un segu[Dm]ndo,\n[A7]como dos desc[Dm]onocidos.\n\n[Gm]Todas las ciudades eran p[Dm]ocas a sus ojos.\n[Gm]Ella quiso barcos y el no s[Dm]upo que pescar.\n[A7]Y al final números [Dm]rojos\n[A7]en la cuenta del olv[Dm]ido.\n\n[Bb]Y hubo tanto [Cm7]ruido\nque al fin[Dm]al llegó el final.\n\n[Gm]Mucho, mucho ruido,\n[D]ruido de ventanas,\n[D#]nidos de manzanas\nQue se ac[Cm7]aban por pudrir.\nMucho, m[Bb]ucho ruido[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final\npor fin [Dm]el fin.\nTanto ru[A7]ido y al final...\n\n**1\n\n[Gm]Hubo un accidente, se perdi[Dm]eron las postales.\n[Gm]Quiso carnavales y encontr[Dm]ó fatalidad.\n[A7]Porque todos los fin[Dm]ales\n[A7]son el mismo repet[Dm]ido.\n\n[Bb]Y con tanto [Cm7]ruido\nno escuch[Dm]aron el final.\n\n[Gm]Descubrieron que los besos [Dm]no sabían a nada.\n[Gm]hubo una epidemia de trist[Dm]eza en la ciudad.\n[A7]Se borraron las pis[Dm]adas,\n[A7]se apagaron los lat[Dm]idos,\n[Bb]Y con tanto [Cm7]ruido\nno se oyo [Dm]el ruido del mar.\n\n[Gm]Mucho, mucho ruido.\n[D]Ruido de tijeras.\n[D#]Ruido de escaleras\nque se ac[Cm7]aban por bajar.\nMucho, m[Bb]ucho ruido.[A7]\nTanto, tanto ru[Dm]ido.\nTanto ru[A7]ido y al final... [Dm](Ruido de tenazas)\nTanto ru[A7]ido y al final...[Dm](Ruido de estaciones)\ntanto ru[A7]ido y al final [Dm]la soledad. (Ruido de escorpiones)\n\n\n[A7]Ruido de abogados, [Dm]ruido compartido\n[A7]Ruido envenenado, [Dm]demasiado ruido\n(Se repite)\n\nRuido platos rotos, ruido años perdidos,\nRuido viejas fotos, ruido empedernido.\n\nRuido de cristales, ruido de gemidos,\nRuidos animales, Contagioso ruido.\n\n(Apagando cuerdas)\nRuido mentiroso, ruido entrometido,\nRuido escandaloso, Silencioso ruido.\n\nRuido acomplejado, ruido introvertido,\nRuido del pasado, desgastado ruido.\n\nRuido de conjuros, ruido mal nacido,\nRuido tan oscuro, puro y duro ruido.\n\nRuido qué me has hecho ruido yo no he sido,\nRuido insatisfecho, ruido a que has venido.\n\n(Aplauso flamenco)\nRuidos como sables, ruido enloquecido,\nRuido intolerable, ruido incomprendido.\n\nRuido de frenazos, ruido sin sentido,\nRuido de arañazos, ruido, ruido, ruido.\n\n(Intro y algunas veces acompañamiento)\n\n\n\n---\n",
+    "id": 6
+  },
+  {
+    "name": "De Regreso al Penal",
+    "artist": "Pala Ancha",
+    "key": "Bb",
+    "lyrics": [
+      {
+        "segments": [
+          {
+            "chord": "Gm",
+            "text": "Abrio la celda y su vista adelante"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "de su "
+          },
+          {
+            "chord": "D#",
+            "text": "libert"
+          },
+          {
+            "chord": "",
+            "text": "ad"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Lo q "
+          },
+          {
+            "chord": "F",
+            "text": "anhel"
+          },
+          {
+            "chord": "",
+            "text": "aba, lo que mas soniaba"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "era estar en su "
+          },
+          {
+            "chord": "Gm",
+            "text": "ho"
+          },
+          {
+            "chord": "",
+            "text": "gar"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Metio la viola dentro de su celda"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ya no queria tocar"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "solo queria llegar a su casa"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "no aguantaba mas"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Se subio a un bondi que paro en la esquina"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "cerca del penal"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y careteando el boleto, el chofer "
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "le dijo pasa"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ESTRIBILLO:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Y se "
+          },
+          {
+            "chord": "D#",
+            "text": "sent"
+          },
+          {
+            "chord": "",
+            "text": "o y le "
+          },
+          {
+            "chord": "F",
+            "text": "pareci"
+          },
+          {
+            "chord": "",
+            "text": "o"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "Bb",
+            "text": "que vol"
+          },
+          {
+            "chord": "Gm",
+            "text": "aba"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y cuando "
+          },
+          {
+            "chord": "D#",
+            "text": "lleg"
+          },
+          {
+            "chord": "",
+            "text": "o el nunca "
+          },
+          {
+            "chord": "F",
+            "text": "pens"
+          },
+          {
+            "chord": "",
+            "text": "o"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "no lo "
+          },
+          {
+            "chord": "Gm",
+            "text": "imagin"
+          },
+          {
+            "chord": "",
+            "text": "aba."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que "
+          },
+          {
+            "chord": "D#",
+            "text": "s"
+          },
+          {
+            "chord": "",
+            "text": "e iba a encontrar"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "con su amigo y su "
+          },
+          {
+            "chord": "F",
+            "text": "am"
+          },
+          {
+            "chord": "",
+            "text": "or"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "dentro de su "
+          },
+          {
+            "chord": "Gm",
+            "text": "c"
+          },
+          {
+            "chord": "",
+            "text": "ama"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Mato a su esposa a su amigo del alma"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y se puso a llorar"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Y caminando, todo ensangrentado"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "regresó al penal"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Se abrio la celda y entro cabizbajo"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "el no quiso hablar"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "de lo ocurrido, de lo sucedido"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "con los del penal"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Se prendio un faso y tomo su guitarra"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y se puso a cantar"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "yo la queria con toda mi vida"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ahora ya no esta."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ESTRIBILLO x2:"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Y se sentó y le pareció"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que volaba"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y cuando llegó el nunca pensó"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "no lo imaginaba."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Y los mató, no les preguntó"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "porque lo enganiaban"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y se entregó muy solo quedó"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "ya no tenia nada"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "Y se sentó y le pareció"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que volaba"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "y cuando llegó el nunca pensó"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "no lo imaginaba."
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "que estar en prision, enfrió la pasión"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": "de la que amaba"
+          }
+        ]
+      },
+      {
+        "segments": [
+          {
+            "chord": "",
+            "text": ""
+          }
+        ]
+      }
+    ],
+    "tabs": [],
+    "lyricText": "[Gm]Abrio la celda y su vista adelante\nde su libert[D#]ad\nLo q anhel[F]aba, lo que mas soniaba\nera estar en su ho[Gm]gar\n\nMetio la viola dentro de su celda\nya no queria tocar\nsolo queria llegar a su casa\nno aguantaba mas\n\nSe subio a un bondi que paro en la esquina\ncerca del penal\ny careteando el boleto, el chofer \nle dijo pasa\n\nESTRIBILLO:\nY se sent[D#]o y le pareci[F]o\n[Bb]que vol[Gm]aba\ny cuando lleg[D#]o el nunca pens[F]o\nno lo imagin[Gm]aba.\nque s[D#]e iba a encontrar\ncon su amigo y su am[F]or\ndentro de su c[Gm]ama\n\nMato a su esposa a su amigo del alma\ny se puso a llorar\nY caminando, todo ensangrentado\nregresó al penal\n\nSe abrio la celda y entro cabizbajo\nel no quiso hablar\nde lo ocurrido, de lo sucedido\ncon los del penal\n\nSe prendio un faso y tomo su guitarra\ny se puso a cantar\nyo la queria con toda mi vida\nahora ya no esta.\n\nESTRIBILLO x2:\nY se sentó y le pareció\nque volaba\ny cuando llegó el nunca pensó\nno lo imaginaba.\n\nY los mató, no les preguntó\nporque lo enganiaban\ny se entregó muy solo quedó\nya no tenia nada\n\nY se sentó y le pareció\nque volaba\ny cuando llegó el nunca pensó\nno lo imaginaba.\n\nque estar en prision, enfrió la pasión\nde la que amaba\n",
+    "id": 7
   },
   {
     "name": "Alien Duce",
@@ -4221,11 +5967,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "C",
-            "text": "Nadando "
+            "text": "Nadando en ese m"
           },
           {
             "chord": "D",
-            "text": "en ese minestrón, "
+            "text": "inestrón, "
           }
         ]
       },
@@ -4233,11 +5979,11 @@ export const IMPORTED_SONGS = [
         "segments": [
           {
             "chord": "C",
-            "text": "va "
+            "text": "va porco rex a p"
           },
           {
             "chord": "D",
-            "text": "porco rex a porno rock."
+            "text": "orno rock."
           }
         ]
       },
@@ -4744,8 +6490,8 @@ export const IMPORTED_SONGS = [
         "ref": "**1"
       }
     ],
-    "lyricText": "\nIntro: D + (Riff 1 x4)\n\n*1\n\nVERSO 1:\n[D]Alien duce [G]adorno tu e[riff1]sclavitud\ny [D]en un edifi[G]cio en llamas t[riff1]e encarno \n\nVERSO 2:\n[C]Nadando [D]en ese minestrón, \n[C]va [D]porco rex a porno rock.\n\nVERSO 1:\nSi su look bola de efecto te palmo\ny recoges tu hígado desde un rincón.\n\nVERSO 2:\nFlotando en ese minestrón\nva porco rex a porno rock.\n\n*3\n\nESTRIBILLO:\n [E]Va [G]escribiendo [Bb]su [E]evangelio\n [E]en [G]los [Bb]ticket [E]de carrefour \n [E]y [G]es [Bb]el [E]pequeño gran matón\n [E]de [G]la [Bb]internet.\n\n**1\n\nVERSO 1*:\n[D]           [C]    [B]     [G]     riff1\nAlien Duce  dice desde la TV \n[D]                [G]           riff1            \nque no quiere estar jamás en la TV.\n\nVERSO 2:\nLo sobrevuela un gavilán \nque se hace pasar por el.\n\nESTRIBILLO:\nVa escribiendo su evangelio\nen los ticket de carrefour\ny es el pequeño gran matón\nde la internet.\n\nESTRIBILLO final:\n\n    [E]El [G]Alien [Bb]Duce\n    [E]chupa [G]y [Bb]escupe al fin.\n    [E]Para [G]Alien [Bb]Duce\n[E]Dios [G]es [Bb]digital.\n\n\n\n",
-    "id": 5
+    "lyricText": "\nIntro: D + (Riff 1 x4)\n\n*1\n\nVERSO 1:\n[D]Alien duce [G]adorno tu e[riff1]sclavitud\ny [D]en un edifi[G]cio en llamas t[riff1]e encarno \n\nVERSO 2:\n[C]Nadando en ese m[D]inestrón, \n[C]va porco rex a p[D]orno rock.\n\nVERSO 1:\nSi su look bola de efecto te palmo\ny recoges tu hígado desde un rincón.\n\nVERSO 2:\nFlotando en ese minestrón\nva porco rex a porno rock.\n\n*3\n\nESTRIBILLO:\n [E]Va [G]escribiendo [Bb]su [E]evangelio\n [E]en [G]los [Bb]ticket [E]de carrefour \n [E]y [G]es [Bb]el [E]pequeño gran matón\n [E]de [G]la [Bb]internet.\n\n**1\n\nVERSO 1*:\n[D]           [C]    [B]     [G]     riff1\nAlien Duce  dice desde la TV \n[D]                [G]           riff1            \nque no quiere estar jamás en la TV.\n\nVERSO 2:\nLo sobrevuela un gavilán \nque se hace pasar por el.\n\nESTRIBILLO:\nVa escribiendo su evangelio\nen los ticket de carrefour\ny es el pequeño gran matón\nde la internet.\n\nESTRIBILLO final:\n\n    [E]El [G]Alien [Bb]Duce\n    [E]chupa [G]y [Bb]escupe al fin.\n    [E]Para [G]Alien [Bb]Duce\n[E]Dios [G]es [Bb]digital.\n\n\n\n",
+    "id": 8
   },
   {
     "name": "Tarde de lluvia",
@@ -4953,6 +6699,6 @@ export const IMPORTED_SONGS = [
       }
     ],
     "lyricText": "\nIntro: Bm G#m\n\n[Bm]Llueve sobre el d[G#m]ocke\nHace frío y esta gris\nGris el cielo, gris el alma\nBuenos Aires esta gris\n\n[E]Son las 5 de la t[D#]arde\ny no para de llover\n\n\n[Bm]Caen gotas como la[G#m]grimas\nSobre los techos de zinc\nObsesivas como maquinas\n\n[E]Son las 5 de la t[D#]arde\nBuenos Aires esta gris\n\n\n\n",
-    "id": 6
+    "id": 9
   }
 ]
