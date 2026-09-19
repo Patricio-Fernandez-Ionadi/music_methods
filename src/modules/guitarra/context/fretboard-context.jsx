@@ -3,25 +3,11 @@ import { useApp } from '../../../app/context/app-context'
 import { useFretboardState } from '../hooks/use-fretboard-state'
 import { useChordDictionary } from '../hooks/use-chord-dictionary'
 import { NOTES } from '../../../data'
+import { NOTE_CSS_VARS } from '../../../shared/utils/note-css-vars'
+
+export { NOTE_CSS_VARS }
 
 export const FretboardContext = createContext(null)
-
-/** Mapea nombre de nota → nombre de CSS custom property definida en theme/values/_notes.scss.
- *  Usa 's' para sostenido (#) y 'b' para bemol. */
-export const NOTE_CSS_VARS = {
-	C: '--note-C',
-	'C#': '--note-Cs',
-	D: '--note-D',
-	'D#': '--note-Ds',
-	E: '--note-E',
-	F: '--note-F',
-	'F#': '--note-Fs',
-	G: '--note-G',
-	'G#': '--note-Gs',
-	A: '--note-A',
-	Bb: '--note-Bb',
-	B: '--note-B',
-}
 
 export function FretboardProvider({ children }) {
 	const app = useApp()

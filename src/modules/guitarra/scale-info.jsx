@@ -1,6 +1,6 @@
 import { Field } from '../../app/components/field/field'
 import { useFretboard } from './context/fretboard-context'
-import { normalizeNote } from './utils/scale-utils'
+import { normalizeNote } from '../../shared/utils/scale-utils'
 
 export const ScaleInfo = () => {
 	const { selectedTonic, selectedMode, currentScale, NOTE_CSS_VARS } =

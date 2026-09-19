@@ -1,0 +1,86 @@
+export const PROGRESSIONS = [
+	{
+		id: 'I-IV-V-I',
+		name: 'I - IV - V - I',
+		description: 'Progresion basica mayor',
+		chords: [
+			{ root: 'C', type: 'M' },
+			{ root: 'F', type: 'M' },
+			{ root: 'G', type: 'M' },
+			{ root: 'C', type: 'M' },
+		],
+	},
+	{
+		id: 'I-V-vi-IV',
+		name: 'I - V - vi - IV',
+		description: 'Pop moderno (Let It Be, No Woman No Cry)',
+		chords: [
+			{ root: 'C', type: 'M' },
+			{ root: 'G', type: 'M' },
+			{ root: 'A', type: 'm' },
+			{ root: 'F', type: 'M' },
+		],
+	},
+	{
+		id: 'ii-V-I',
+		name: 'ii - V - I (jazz)',
+		description: 'La progresion jazz por excelencia',
+		chords: [
+			{ root: 'D', type: 'm' },
+			{ root: 'G', type: 'M' },
+			{ root: 'C', type: 'M' },
+		],
+	},
+	{
+		id: 'I-vi-IV-V',
+		name: 'I - vi - IV - V',
+		description: '50s doo-wop (Stand By Me)',
+		chords: [
+			{ root: 'C', type: 'M' },
+			{ root: 'A', type: 'm' },
+			{ root: 'F', type: 'M' },
+			{ root: 'G', type: 'M' },
+		],
+	},
+	{
+		id: '12-bar-blues',
+		name: '12 Bar Blues',
+		description: 'Blues estandar en mayor',
+		chords: [
+			{ root: 'C', type: 'M' },
+			{ root: 'C', type: 'M' },
+			{ root: 'C', type: 'M' },
+			{ root: 'C', type: 'M' },
+			{ root: 'F', type: 'M' },
+			{ root: 'F', type: 'M' },
+			{ root: 'C', type: 'M' },
+			{ root: 'C', type: 'M' },
+			{ root: 'G', type: 'M' },
+			{ root: 'F', type: 'M' },
+			{ root: 'C', type: 'M' },
+			{ root: 'G', type: 'M' },
+		],
+	},
+	{
+		id: 'i-iv-v-i',
+		name: 'i - iv - v - i (menor)',
+		description: 'Progresion basica menor',
+		chords: [
+			{ root: 'A', type: 'm' },
+			{ root: 'D', type: 'm' },
+			{ root: 'E', type: 'm' },
+			{ root: 'A', type: 'm' },
+		],
+	},
+	{
+		id: 'i-VI-III-VII',
+		name: 'i - VI - III - VII',
+		description: 'Pop menor (Zombie, Apocalyptic)',
+		chords: [
+			{ root: 'A', type: 'm' },
+			{ root: 'F', type: 'M' },
+			{ root: 'C', type: 'M' },
+			{ root: 'G', type: 'M' },
+		],
+	},
+]

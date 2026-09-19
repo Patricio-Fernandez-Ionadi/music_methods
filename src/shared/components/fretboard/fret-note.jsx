@@ -1,6 +1,6 @@
 import { STRING_INDEXES } from '../../../data'
-import { getChordNoteLabel } from '../utils/chord-labels'
-import { scaleNoteName } from '../utils/scale-utils'
+import { getChordNoteLabel } from './chord-labels'
+import { scaleNoteName } from '../../utils/scale-utils'
 
 const SINGLE_MARKERS = [3, 5, 7, 9, 15, 17, 19]
 const DOUBLE_MARKERS = [12]

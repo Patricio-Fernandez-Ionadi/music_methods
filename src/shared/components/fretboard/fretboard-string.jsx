@@ -1,5 +1,5 @@
 import { STRING_NOTES } from '../../../data'
-import { FretNote } from '../note/fret-note'
+import { FretNote } from './fret-note'
 
 export function FretboardString({
 	stringName,

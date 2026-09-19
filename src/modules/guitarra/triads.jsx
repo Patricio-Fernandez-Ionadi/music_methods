@@ -1,9 +1,9 @@
 import { useFretboard } from './context/fretboard-context'
 import { useMemo } from 'react'
 import { Field } from '../../app/components/field/field'
-import { buildChordName } from './utils/chord-names'
+import { buildChordName } from '../../shared/utils/chord-names'
 import { TriadButton } from './triad-button'
-import { getChordVoicings } from './data/chord-dictionary'
+import { getChordVoicings } from '../../shared/data/chord-dictionary'
 
 export const Triads = () => {
 	const {

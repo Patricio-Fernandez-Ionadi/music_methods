@@ -1,7 +1,7 @@
 import { useApp } from '../../../app/context/app-context'
 import { useTriadState } from './use-triad-state'
 import { usePositionState } from './use-position-state'
-import { normalizeNote } from '../utils/scale-utils'
+import { normalizeNote } from '../../../shared/utils/scale-utils'
 
 export function useFretboardState() {
 	const { selectedMode, currentScale, rawTriads } = useApp()

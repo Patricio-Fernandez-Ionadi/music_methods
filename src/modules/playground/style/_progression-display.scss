@@ -1,0 +1,48 @@
+@use '../../../theme/values' as *;
+
+.progression-display {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
+.progression-chord {
+	background: $black;
+	border: 2px solid $black_light;
+	border-radius: 8px;
+	padding: 10px 16px;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.15s;
+	font-family: inherit;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 60px;
+
+	.progression-chord-roman {
+		color: $grey_light;
+		font-size: 11px;
+		text-transform: uppercase;
+	}
+
+	.progression-chord-name {
+		color: $white;
+		font-size: 16px;
+		font-weight: 700;
+	}
+
+	&:hover {
+		border-color: $grey_dark;
+	}
+
+	&.active {
+		border-color: $primary;
+		background: rgba($primary, 0.1);
+
+		.progression-chord-name {
+			color: $primary_light;
+		}
+	}
+}

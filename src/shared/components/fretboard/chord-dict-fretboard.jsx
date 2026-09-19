@@ -1,27 +1,11 @@
 import { STRING_INDEXES } from '../../../data'
-import { voicingToIndexes } from '../data/chord-dictionary'
-import { CHORD_INTERVALS, NOTE_IDX } from '../utils/voicing-generators'
-import { CHROMATIC, SHARP_TO_FLAT } from '../utils/scale-utils'
-import { FretboardContext, NOTE_CSS_VARS } from '../context/fretboard-context'
-import { Fretboard } from '../fretboard'
+import { voicingToIndexes } from '../../data/chord-dictionary'
+import { CHORD_INTERVALS, NOTE_IDX } from '../../utils/voicing-generators'
+import { CHROMATIC, SHARP_TO_FLAT } from '../../utils/scale-utils'
+import { NOTE_CSS_VARS } from '../../utils/note-css-vars'
+import { Fretboard } from './fretboard'
 
 const DEFAULT_RANGE = { start: 0, end: 4 }
-
-const QUIET_CONTEXT = {
-	showTriad: false,
-	showThird: false,
-	showFifth: false,
-	normalizedScale: [],
-	currentScale: [],
-	showScaleTonic: false,
-	currentTriadDegrees: { root: null, third: null, fifth: null },
-	getPositionIndexes: () => new Set(),
-	getChordVoicingIndexes: () => new Set(),
-	activeTriadIndex: 0,
-	activePositions: [],
-	activeTriadVoicing: null,
-	NOTE_CSS_VARS,
-}
 
 const FLAT_INTERVALS = new Set([3, 10])
 
@@ -57,17 +41,16 @@ export function ChordDictFretboard({ activeVoicing, root, type }) {
 		? voicingToIndexes(activeVoicing, STRING_INDEXES)
 		: null
 
-	const contextValue = { ...QUIET_CONTEXT, currentScale }
-
 	return (
 		<div className='chord-dict-fretboard'>
-			<FretboardContext.Provider value={contextValue}>
-				<Fretboard
-					fretRange={fretRange}
-					showFretLabels
-					highlightedOnlyIndexes={indexes}
-				/>
-			</FretboardContext.Provider>
+			<Fretboard
+				fretRange={fretRange}
+				showFretLabels
+				highlightedOnlyIndexes={indexes}
+				currentScale={currentScale}
+				normalizedScale={currentScale}
+				NOTE_CSS_VARS={NOTE_CSS_VARS}
+			/>
 		</div>
 	)
 }

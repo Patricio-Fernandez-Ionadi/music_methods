@@ -9,10 +9,18 @@ src/
 │   ├── biblioteca/     ← /biblioteca/* routes
 │   ├── funcional/      ← /funcional route
 │   ├── modos/          ← /modos route
-│   └── guitarra/       ← /guitarra route
+│   ├── guitarra/       ← /guitarra route
+│   └── playground/     ← /playground route
+├── shared/             ← Cross-module shared code (utils, data, components)
+│   ├── utils/          ← Musical utilities (scale-utils, voicing-generators, etc.)
+│   ├── data/           ← Shared data (chord-dictionary)
+│   ├── components/     ← Shared UI components
+│   │   └── fretboard/  ← Fretboard rendering (Fretboard, FretNote, FretboardString)
+│   └── style/_index.scss
 ├── modules/            ← Feature modules (logic + components)
 │   ├── biblioteca/     ← Song library feature
-│   ├── guitarra/      ← Guitar fretboard feature
+│   ├── guitarra/       ← Guitar fretboard feature (CAGED positions, triads, selectors)
+│   ├── playground/     ← Chord progression playground
 │   ├── modes/          ← Music modes feature
 │   └── style/_index.scss
 ├── app/                ← App shell
@@ -25,6 +33,28 @@ src/
 ```
 
 ## Architecture Rules
+
+### 0. `shared/` — Cross-module shared code
+
+Code that is consumed by 2+ modules lives in `src/shared/`:
+
+- `shared/utils/` — Musical theory utilities (scale-utils, voicing-generators, chord-names, note-css-vars)
+- `shared/data/` — Shared data catalogs (chord-dictionary)
+- `shared/components/` — Shared UI components (Fretboard, FretNote, FretboardString)
+
+**Rule**: modules NEVER import from each other's internals. If two modules need the same function/data/component, it belongs in `shared/`.
+
+### 0a. Coherencia visual — componentes compartidos
+
+Cuando un componente compartido (e.g., `Fretboard`) se usa en múltiples módulos, **todos los fretboards deben verse idénticos**:
+
+- Misma altura, mismos colores, misma separación entre trastes y cuerdas
+- Misma pestaña de numeración de trastes
+- Lo **único** que cambia es la ventana de trastes visible (`fretRange`)
+
+**NUNCA** sobreescribir dimensiones del componente compartido con `!important` o clases auxiliares (e.g., `.fretboard-compact { height: 100px }`). Si necesitas un tamaño diferente, es porque el componente compartido no está bien parametrizado — ajusta el componente, no el consumidor.
+
+**Regla práctica**: antes de crear un override visual, preguntarse _"¿esto debería ser el comportamiento por defecto del componente?"_. Si la respuesta es sí, modificar el componente compartido.
 
 ### 1. `views/` — Thin orchestrators ONLY
 

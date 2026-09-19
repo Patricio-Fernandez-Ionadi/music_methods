@@ -1,0 +1,71 @@
+@use '../../../theme/values' as *;
+
+.saved-list {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid $black_light;
+	border-radius: 8px;
+	padding: 16px;
+
+	h3 {
+		color: $white;
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+}
+
+.saved-list-items {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.saved-list-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.saved-list-item-load {
+	flex: 1;
+	background: $black;
+	border: 1px solid $black_light;
+	border-radius: 6px;
+	padding: 8px 12px;
+	cursor: pointer;
+	text-align: left;
+	font-family: inherit;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	transition: all 0.15s;
+
+	strong {
+		color: $white;
+		font-size: 13px;
+	}
+
+	span {
+		color: $grey_light;
+		font-size: 11px;
+	}
+
+	&:hover {
+		border-color: $grey_dark;
+		background: #2a2a2a;
+	}
+}
+
+.saved-list-item-delete {
+	background: none;
+	border: none;
+	color: $grey_light;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 4px 8px;
+	border-radius: 4px;
+
+	&:hover {
+		color: #e74c3c;
+		background: rgba(#e74c3c, 0.1);
+	}
+}

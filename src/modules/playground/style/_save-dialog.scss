@@ -1,0 +1,88 @@
+@use '../../../theme/values' as *;
+
+.save-dialog-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+}
+
+.save-dialog {
+	background: #1a1a1a;
+	border: 1px solid $black_light;
+	border-radius: 12px;
+	padding: 24px;
+	min-width: 320px;
+
+	h3 {
+		color: $white;
+		font-size: 16px;
+		margin-bottom: 16px;
+	}
+}
+
+.save-dialog-input {
+	width: 100%;
+	background: $black;
+	border: 1px solid $black_light;
+	border-radius: 6px;
+	padding: 8px 12px;
+	font-size: 14px;
+	color: $white;
+	font-family: inherit;
+	margin-bottom: 16px;
+
+	&:focus {
+		outline: none;
+		border-color: $primary;
+	}
+
+	&::placeholder {
+		color: $grey_dark;
+	}
+}
+
+.save-dialog-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+.save-dialog-cancel,
+.save-dialog-save {
+	border-radius: 6px;
+	padding: 6px 16px;
+	cursor: pointer;
+	font-size: 13px;
+	font-family: inherit;
+	transition: all 0.15s;
+}
+
+.save-dialog-cancel {
+	background: none;
+	border: 1px solid $black_light;
+	color: $grey_light;
+
+	&:hover {
+		border-color: $grey_dark;
+		color: $white;
+	}
+}
+
+.save-dialog-save {
+	background: $primary;
+	border: 1px solid $primary;
+	color: $white;
+
+	&:hover:not(:disabled) {
+		background: $primary_light;
+	}
+
+	&:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+}

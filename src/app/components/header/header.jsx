@@ -30,6 +30,11 @@ export const Header = () => {
 			links: [{ label: 'Diapasón', anchor: '#fretboard' }],
 		},
 		{
+			title: 'Playground',
+			path: '/playground',
+			links: [{ label: 'Progresiones', anchor: '#playground' }],
+		},
+		{
 			title: 'Biblioteca',
 			path: '/biblioteca',
 			links: [{ label: 'Cancionero', anchor: '#cancionero' }],

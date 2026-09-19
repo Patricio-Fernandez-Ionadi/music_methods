@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from 'react'
-import { CHORD_TYPES, getChordVoicings } from '../data/chord-dictionary'
+import { CHORD_TYPES, getChordVoicings } from '../../../shared/data/chord-dictionary'
 
 const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B']
 

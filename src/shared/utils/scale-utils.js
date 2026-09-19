@@ -1,4 +1,4 @@
-import { ENHARMONICS } from '../../../data'
+import { ENHARMONICS } from '../../data'
 
 export const CHROMATIC = [
 	'C',

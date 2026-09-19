@@ -1,6 +1,6 @@
-import { CHORD_TYPES } from './data/chord-dictionary'
+import { CHORD_TYPES } from '../../shared/data/chord-dictionary'
 import { Field } from '../../app/components/field/field'
-import { ChordDictFretboard } from './chord-dict/chord-dict-fretboard'
+import { ChordDictFretboard } from '../../shared/components/fretboard/chord-dict-fretboard'
 
 /**
  * ChordDict — Selector de acordes del diccionario.

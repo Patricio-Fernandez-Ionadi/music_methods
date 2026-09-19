@@ -1,0 +1,72 @@
+@use '../../../theme/values' as *;
+
+.playground-view {
+	padding: $pad;
+
+	h2 {
+		color: $white;
+		margin-bottom: 24px;
+	}
+}
+
+.playground-main {
+	display: grid;
+	grid-template-columns: 1fr 340px;
+	gap: 24px;
+
+	@media (max-width: $medium) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.playground-left {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.playground-right {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.playground-controls {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.playground-mode-btn,
+.playground-save-btn {
+	background: $black;
+	border: 1px solid $black_light;
+	border-radius: 6px;
+	padding: 6px 14px;
+	cursor: pointer;
+	font-size: 13px;
+	color: $grey_light;
+	transition: all 0.15s;
+	font-family: inherit;
+
+	&:hover {
+		border-color: $grey_dark;
+		color: $white;
+	}
+
+	&.active {
+		border-color: $primary;
+		background: rgba($primary, 0.12);
+		color: $primary_light;
+	}
+}
+
+.playground-save-btn {
+	margin-left: auto;
+	border-color: $primary;
+
+	&:hover {
+		background: rgba($primary, 0.15);
+		color: $primary_light;
+	}
+}

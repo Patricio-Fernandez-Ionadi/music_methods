@@ -14,6 +14,7 @@ export const AppRouter = () => {
 						<Route path='/funcional' element={<v.FuncionalView />} />
 						<Route path='/modos' element={<v.ModosView />} />
 						<Route path='/guitarra' element={<v.GuitarraView />} />
+						<Route path='/playground' element={<v.PlaygroundView />} />
 						<Route path='/biblioteca'>
 							<Route index element={<v.BibliotecaView />} />
 							<Route path='nueva' element={<v.SongFormView />} />
