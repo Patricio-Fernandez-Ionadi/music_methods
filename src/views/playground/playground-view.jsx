@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useProgression } from '../../modules/playground/hooks/use-progression'
 import { ProgressionSelector } from '../../modules/playground/progression-selector'
-import { ProgressionBuilder } from '../../modules/playground/progression-builder'
 import { ProgressionDisplay } from '../../modules/playground/progression-display'
 import { FretboardPanel } from '../../modules/playground/fretboard-panel'
 import { KeyAnalyzer } from '../../modules/playground/key-analyzer'
@@ -11,7 +10,7 @@ import { SavedList } from '../../modules/playground/saved-list'
 export const PlaygroundView = () => {
 	const {
 		chords, selectedIndex, displayMode, keyAnalysis, savedProgressions,
-		selectChord, addChord, removeChord, moveChord, setChord,
+		selectChord, addChord, removeChord, setChord,
 		loadPreset, loadProgression, toggleDisplayMode,
 		saveProgression, deleteProgression,
 	} = useProgression()
@@ -52,6 +51,9 @@ export const PlaygroundView = () => {
 						selectedIndex={selectedIndex}
 						keyAnalysis={keyAnalysis}
 						onSelect={selectChord}
+						onSet={setChord}
+						onRemove={removeChord}
+						onAdd={addChord}
 					/>
 
 					<FretboardPanel
@@ -65,14 +67,6 @@ export const PlaygroundView = () => {
 				</div>
 
 				<div className='playground-right'>
-					<ProgressionBuilder
-						chords={chords}
-						onAdd={addChord}
-						onRemove={removeChord}
-						onSet={setChord}
-						onMove={moveChord}
-					/>
-
 					<SavedList
 						savedProgressions={savedProgressions}
 						onLoad={(prog) => loadProgression(prog.chords)}

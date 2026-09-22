@@ -3,11 +3,28 @@
 .progression-display {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
-	margin-bottom: 8px;
+	gap: 10px;
+	align-items: flex-end;
 }
 
-.progression-chord {
+.progression-chord-slot {
+	// opacity: 0;
+	display: grid;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	position: relative;
+}
+
+.progression-chord-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	position: relative;
+}
+
+.progression-chord-note {
 	background: $black;
 	border: 2px solid $black_light;
 	border-radius: 8px;
@@ -16,21 +33,18 @@
 	text-align: center;
 	transition: all 0.15s;
 	font-family: inherit;
+	color: $white;
+	font-size: 16px;
+	font-weight: 700;
+	min-width: 60px;
 	display: flex;
 	flex-direction: column;
 	gap: 2px;
-	min-width: 60px;
 
 	.progression-chord-roman {
 		color: $grey_light;
 		font-size: 11px;
 		text-transform: uppercase;
-	}
-
-	.progression-chord-name {
-		color: $white;
-		font-size: 16px;
-		font-weight: 700;
 	}
 
 	&:hover {
@@ -40,9 +54,118 @@
 	&.active {
 		border-color: $primary;
 		background: rgba($primary, 0.1);
+		color: $primary_light;
+	}
+}
 
-		.progression-chord-name {
-			color: $primary_light;
-		}
+.progression-chord-type {
+	background: $black;
+	border: 2px solid $black_light;
+	border-radius: 6px;
+	padding: 5px 12px;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.15s;
+	font-family: inherit;
+	color: $grey_light;
+	font-size: 12px;
+	min-width: 60px;
+	height: 50%;
+
+	&:hover {
+		border-color: $grey_dark;
+		color: $white;
+	}
+}
+
+.progression-chord-remove-slot {
+	opacity: 0;
+	&.visible {
+		opacity: 1;
+	}
+}
+.progression-chord-remove {
+	background: $black;
+	border: 2px solid $black_light;
+	border-radius: 6px;
+	padding: 5px 12px;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.15s;
+	font-family: inherit;
+	color: $grey_light;
+	font-size: 12px;
+	min-width: 60px;
+	height: 50%;
+
+	&:hover {
+		border-color: #e55;
+		color: #e55;
+	}
+}
+
+.progression-chord-add {
+	position: relative;
+	bottom: 32px;
+	height: 62px;
+	background: $black;
+	border: 2px dashed $black_light;
+	border-radius: 8px;
+	padding: 10px 16px;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.15s;
+	font-family: inherit;
+	color: $grey_light;
+	font-size: 16px;
+	font-weight: 700;
+	min-width: 60px;
+
+	&:hover {
+		border-color: $primary;
+		color: $primary_light;
+	}
+}
+
+.progression-dropdown {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 4px;
+	background: $black;
+	border: 1px solid $black_light;
+	border-radius: 6px;
+	padding: 4px;
+	z-index: 10;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2px;
+	min-width: 200px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.progression-dropdown-item {
+	background: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 6px 8px;
+	cursor: pointer;
+	color: $grey_light;
+	font-size: 12px;
+	font-family: inherit;
+	text-align: center;
+	transition: all 0.1s;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.05);
+		border-color: $black_light;
+		color: $white;
+	}
+
+	&.selected {
+		background: rgba($primary, 0.15);
+		border-color: $primary;
+		color: $primary_light;
 	}
 }
