@@ -72,3 +72,137 @@
 	font-size: 12px;
 	color: $grey_light;
 }
+
+.key-analyzer-variants {
+	margin-top: 12px;
+
+	h4 {
+		color: $grey_light;
+		font-size: 11px;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		margin-bottom: 8px;
+	}
+}
+
+.key-analyzer-variant-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.key-analyzer-variant-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid $black_light;
+	border-radius: 4px;
+	padding: 3px 8px;
+	font-size: 11px;
+	color: $grey_light;
+
+	&.best {
+		background: rgba($primary, 0.12);
+		border-color: $primary;
+		color: $primary_light;
+		font-weight: 600;
+	}
+}
+
+.key-analyzer-variant-pct {
+	color: $grey_dark;
+	font-size: 10px;
+
+	.best & {
+		color: $primary_light;
+	}
+}
+
+.key-analyzer-transpose {
+	margin-top: 14px;
+
+	h4 {
+		color: $grey_light;
+		font-size: 11px;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		margin-bottom: 8px;
+	}
+}
+
+.key-analyzer-transpose-controls {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.key-analyzer-note-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 3px;
+}
+
+.key-analyzer-note-btn {
+	background: $black;
+	border: 1px solid $black_light;
+	border-radius: 4px;
+	padding: 5px 0;
+	cursor: pointer;
+	font-size: 11px;
+	font-family: inherit;
+	color: $grey_light;
+	transition: all 0.1s;
+
+	&:hover {
+		border-color: $grey_dark;
+		color: $white;
+	}
+
+	&.active {
+		border-color: $primary;
+		background: rgba($primary, 0.12);
+		color: $primary_light;
+		font-weight: 600;
+	}
+}
+
+.key-analyzer-mode-toggle {
+	display: flex;
+	gap: 3px;
+}
+
+.key-analyzer-mode-btn {
+	flex: 1;
+	background: $black;
+	border: 1px solid $black_light;
+	border-radius: 4px;
+	padding: 5px 0;
+	cursor: pointer;
+	font-size: 11px;
+	font-family: inherit;
+	color: $grey_light;
+	transition: all 0.1s;
+
+	&:hover {
+		border-color: $grey_dark;
+		color: $white;
+	}
+
+	&.active {
+		border-color: $primary;
+		background: rgba($primary, 0.12);
+		color: $primary_light;
+		font-weight: 600;
+	}
+}
+
+.key-analyzer-transpose-hint {
+	color: $grey_dark;
+	font-size: 10px;
+	line-height: 1.4;
+	margin-top: 4px;
+	text-align: center;
+}

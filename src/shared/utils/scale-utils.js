@@ -24,6 +24,11 @@ for (const [flat, sharp] of Object.entries(ENHARMONICS)) {
 	SHARP_TO_FLAT[sharp] = flat
 }
 
+export function noteToPitchClass(note) {
+	const normalized = normalizeNote(note)
+	return CHROMATIC.indexOf(normalized)
+}
+
 export function scaleNoteName(note, currentScale) {
 	if (currentScale.includes(note)) return note
 	const flat = SHARP_TO_FLAT[note]

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { CHROMATIC as NOTES } from '../../shared/utils/scale-utils'
 import { CHORD_TYPES } from '../../shared/data/chord-dictionary'
-import { chordToRoman } from './utils/chord-utils'
+import { analyzeChord } from './utils/chord-utils'
 
 const TYPE_KEYS = Object.keys(CHORD_TYPES)
 const TYPE_LABELS = {
@@ -17,9 +17,6 @@ export function ProgressionDisplay({
 	onRemove,
 	onAdd,
 }) {
-	const { tonic, mode } = keyAnalysis
-	const isMinorKey = mode === 'Menor'
-
 	const [dropdown, setDropdown] = useState(null)
 	const containerRef = useRef(null)
 
@@ -64,9 +61,12 @@ export function ProgressionDisplay({
 	return (
 		<div className='progression-display' ref={containerRef}>
 			{chords.map((chord, i) => {
-				const roman = chordToRoman(chord, tonic, isMinorKey)
+				const analysis = analyzeChord(chord, keyAnalysis.best)
+				const { roman, suggestion, qualitySuggestion, isAccidental, matchesQuality } = analysis
 				const isActive = selectedIndex === i
 				const isDropdownOpen = dropdown?.chordIndex === i
+
+				const romanClass = isAccidental ? ' foreign' : (!matchesQuality && qualitySuggestion ? ' mismatch' : '')
 
 				return (
 					<div key={i} className='progression-chord-slot'>
@@ -84,7 +84,7 @@ export function ProgressionDisplay({
 								className={`progression-chord-note${isActive ? ' active' : ''}`}
 								onClick={() => toggleRoot(i)}
 							>
-								<span className='progression-chord-roman'>{roman}</span>
+								<span className={`progression-chord-roman${romanClass}`}>{roman}</span>
 								{chord.root}
 							</button>
 
@@ -123,6 +123,27 @@ export function ProgressionDisplay({
 								</div>
 							)}
 						</div>
+
+						{(suggestion || qualitySuggestion) && (
+							<div className='progression-chord-suggestion'>
+								{suggestion && (
+									<span
+										className='progression-suggestion-chip'
+										title={`Sugerencia: acorde diatónico más cercano`}
+									>
+										→ {suggestion.label}
+									</span>
+								)}
+								{qualitySuggestion && (
+									<span
+										className='progression-suggestion-chip quality'
+										title={`Calidad esperada en este grado`}
+									>
+										→ {qualitySuggestion.label}
+									</span>
+								)}
+							</div>
+						)}
 					</div>
 				)
 			})}

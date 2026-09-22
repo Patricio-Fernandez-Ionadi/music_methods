@@ -1,4 +1,4 @@
-import { transposeChord } from '../../utils/transpose'
+import { transposeChord } from '../../../../shared/utils/transpose'
 
 function renderTextWithRefs(text, tabs) {
 	const parts = text.split(/(\*{1,2}\d+)/)

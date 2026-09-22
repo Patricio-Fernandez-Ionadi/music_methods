@@ -45,6 +45,14 @@
 		color: $grey_light;
 		font-size: 11px;
 		text-transform: uppercase;
+
+		&.foreign {
+			color: #e55;
+		}
+
+		&.mismatch {
+			color: #d9a033;
+		}
 	}
 
 	&:hover {
@@ -167,5 +175,25 @@
 		background: rgba($primary, 0.15);
 		border-color: $primary;
 		color: $primary_light;
+	}
+}
+
+.progression-chord-suggestion {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1px;
+	margin-top: 1px;
+}
+
+.progression-suggestion-chip {
+	font-size: 9px;
+	color: $grey_dark;
+	cursor: default;
+	white-space: nowrap;
+
+	&.quality {
+		color: $primary_light;
+		opacity: 0.7;
 	}
 }

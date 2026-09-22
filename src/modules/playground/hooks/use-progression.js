@@ -1,5 +1,9 @@
 import { useState, useCallback, useMemo, useEffect } from 'react'
 import { analyzeKey } from '../utils/key-analyzer'
+import { analyzeChord } from '../utils/chord-utils'
+import { transposeChordObject } from '../../../shared/utils/transpose'
+import { noteToPitchClass } from '../../../shared/utils/scale-utils'
+import { SCALES } from '../../../data/scales'
 import { PROGRESSIONS } from '../data/progressions'
 
 const STORAGE_KEY = 'playground-progressions'
@@ -18,6 +22,7 @@ export function useProgression() {
 	const [selectedIndex, setSelectedIndex] = useState(0)
 	const [displayMode, setDisplayMode] = useState('individual')
 	const [savedProgressions, setSavedProgressions] = useState(loadSaved)
+	const [transposeMode, setTransposeMode] = useState('puro')
 
 	useEffect(() => {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(savedProgressions))
@@ -88,12 +93,60 @@ export function useProgression() {
 		setSavedProgressions((prev) => prev.filter((p) => p.id !== id))
 	}, [])
 
+	const transposeTo = useCallback((newTonic) => {
+		const fromTonic = keyAnalysis.best.tonic
+		if (!fromTonic || fromTonic === newTonic) return
+
+		const fromPc = noteToPitchClass(fromTonic)
+		const toPc = noteToPitchClass(newTonic)
+		if (fromPc == null || toPc == null) return
+		const delta = (toPc - fromPc + 12) % 12
+
+		const { modeId, quality, expectedChords } = keyAnalysis.best
+
+		let newScaleNotes
+		if (modeId === 'armonica') {
+			const intervals = [2, 1, 2, 2, 1, 3, 3]
+			const pc = noteToPitchClass(newTonic)
+			newScaleNotes = []
+			let pos = 0
+			for (const step of intervals) {
+				newScaleNotes.push((pos + pc) % 12)
+				pos += step
+			}
+		} else {
+			const scaleData = SCALES[newTonic]?.[modeId]
+			newScaleNotes = scaleData ? scaleData.map(noteToPitchClass) : null
+		}
+
+		setChords((prev) => prev.map((chord) => {
+			const transposed = transposeChordObject(chord, delta)
+			if (transposeMode === 'inteligente' && newScaleNotes) {
+				const analysis = analyzeChord(transposed, {
+					tonic: newTonic,
+					quality,
+					scaleNotes: newScaleNotes,
+					expectedChords,
+				})
+				if (!analysis.inScale && analysis.suggestion) {
+					return { root: analysis.suggestion.root, type: analysis.suggestion.type }
+				}
+			}
+			return transposed
+		}))
+	}, [keyAnalysis, transposeMode])
+
+	const toggleTransposeMode = useCallback(() => {
+		setTransposeMode((prev) => (prev === 'puro' ? 'inteligente' : 'puro'))
+	}, [])
+
 	return {
 		chords,
 		selectedIndex,
 		displayMode,
 		keyAnalysis,
 		savedProgressions,
+		transposeMode,
 		selectChord,
 		addChord,
 		removeChord,
@@ -104,5 +157,7 @@ export function useProgression() {
 		toggleDisplayMode,
 		saveProgression,
 		deleteProgression,
+		transposeTo,
+		toggleTransposeMode,
 	}
 }

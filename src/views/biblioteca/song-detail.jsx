@@ -7,7 +7,7 @@ import { SongHeader } from '../../modules/biblioteca/song/details/song-header'
 import { SongTablatures } from '../../modules/biblioteca/song/details/song-tablatures'
 import { SongLyrics } from '../../modules/biblioteca/song/details/song-lyrics'
 import { ChordDiagramPanel } from '../../modules/biblioteca/song/details/chord-diagram-panel'
-import { semitonesBetween } from '../../modules/biblioteca/utils/transpose'
+import { semitonesBetween } from '../../shared/utils/transpose'
 
 export const SongDetail = () => {
 	const { songId } = useParams()

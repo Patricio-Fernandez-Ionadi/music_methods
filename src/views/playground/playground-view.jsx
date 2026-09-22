@@ -10,9 +10,11 @@ import { SavedList } from '../../modules/playground/saved-list'
 export const PlaygroundView = () => {
 	const {
 		chords, selectedIndex, displayMode, keyAnalysis, savedProgressions,
+		transposeMode,
 		selectChord, addChord, removeChord, setChord,
 		loadPreset, loadProgression, toggleDisplayMode,
 		saveProgression, deleteProgression,
+		transposeTo, toggleTransposeMode,
 	} = useProgression()
 
 	const [showSave, setShowSave] = useState(false)
@@ -63,7 +65,13 @@ export const PlaygroundView = () => {
 						onSelect={selectChord}
 					/>
 
-					<KeyAnalyzer keyAnalysis={keyAnalysis} chords={chords} />
+					<KeyAnalyzer
+						keyAnalysis={keyAnalysis}
+						chords={chords}
+						transposeMode={transposeMode}
+						transposeTo={transposeTo}
+						toggleTransposeMode={toggleTransposeMode}
+					/>
 				</div>
 
 				<div className='playground-right'>
