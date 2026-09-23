@@ -10,8 +10,9 @@ import { SavedList } from '../../modules/playground/saved-list'
 export const PlaygroundView = () => {
 	const {
 		chords, selectedIndex, displayMode, keyAnalysis, savedProgressions,
-		transposeMode,
+		transposeMode, selectedKey,
 		selectChord, addChord, removeChord, setChord,
+		selectKey,
 		loadPreset, loadProgression, toggleDisplayMode,
 		saveProgression, deleteProgression,
 		transposeTo, toggleTransposeMode,
@@ -71,6 +72,8 @@ export const PlaygroundView = () => {
 						transposeMode={transposeMode}
 						transposeTo={transposeTo}
 						toggleTransposeMode={toggleTransposeMode}
+						selectedKey={selectedKey}
+						onSelectKey={selectKey}
 					/>
 				</div>
 

@@ -1,0 +1,38 @@
+@use '../../../theme/values' as *;
+
+.scale-panel {
+	margin-top: 14px;
+	border-top: 1px solid $black_light;
+	padding-top: 12px;
+
+	.scale-panel-header {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+		margin-bottom: 8px;
+
+		h4 {
+			color: $grey_light;
+			font-size: 11px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			margin: 0;
+		}
+
+		.scale-panel-key {
+			color: $primary_light;
+			font-size: 15px;
+			font-weight: 700;
+		}
+	}
+
+	.scale-notes {
+		margin-bottom: 8px;
+	}
+
+	.scale-panel-empty {
+		color: $grey_dark;
+		font-size: 12px;
+	}
+}

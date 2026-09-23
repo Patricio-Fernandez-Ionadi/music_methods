@@ -1,17 +1,34 @@
 import { CHROMATIC as NOTES } from '../../shared/utils/scale-utils'
 import { buildChordLabel } from './utils/chord-utils'
+import { ScalePanel } from './scale-panel'
 
-export function KeyAnalyzer({ keyAnalysis, chords, transposeMode, transposeTo, toggleTransposeMode }) {
+export function KeyAnalyzer({
+	keyAnalysis,
+	chords,
+	transposeMode,
+	transposeTo,
+	toggleTransposeMode,
+	selectedKey,
+	onSelectKey,
+}) {
 	const { best, variants } = keyAnalysis
 	const { tonic, modeName, fitPercent } = best
+
+	const activeKey = selectedKey ?? { tonic, modeId: best.modeId, modeName }
+
+	const isActiveBest =
+		activeKey.tonic === tonic && activeKey.modeId === best.modeId
 
 	return (
 		<div className='key-analyzer'>
 			<h3>Tonalidad detectada</h3>
-			<div className='key-analyzer-result'>
+			<button
+				className={`key-analyzer-result${isActiveBest ? ' selected' : ''}`}
+				onClick={() => onSelectKey(best.tonic, best.modeId, best.modeName)}
+			>
 				<span className='key-analyzer-key'>{tonic}</span>
 				<span className='key-analyzer-mode'>{modeName}</span>
-			</div>
+			</button>
 			<div className='key-analyzer-fit'>
 				<span>Ajuste: {fitPercent}%</span>
 				<div className='key-analyzer-bar'>
@@ -34,18 +51,23 @@ export function KeyAnalyzer({ keyAnalysis, chords, transposeMode, transposeTo, t
 				<div className='key-analyzer-variants'>
 					<h4>También encaja en</h4>
 					<div className='key-analyzer-variant-list'>
-						{variants.map((v, i) => (
-							<span
-								key={i}
-								className={`key-analyzer-variant-chip${v.isBest ? ' best' : ''}`}
-								title={`${v.fitPercent}% de ajuste`}
-							>
-								{v.tonic} {v.modeName}
-								{v.fitPercent > 0 && (
-									<span className='key-analyzer-variant-pct'>{v.fitPercent}%</span>
-								)}
-							</span>
-						))}
+						{variants.map((v, i) => {
+							const isSelected =
+								activeKey.tonic === v.tonic && activeKey.modeId === v.modeId
+							return (
+								<button
+									key={i}
+									className={`key-analyzer-variant-chip${v.isBest ? ' best' : ''}${isSelected ? ' selected' : ''}`}
+									title={`${v.fitPercent}% de ajuste`}
+									onClick={() => onSelectKey(v.tonic, v.modeId, v.modeName)}
+								>
+									{v.tonic} {v.modeName}
+									{v.fitPercent > 0 && (
+										<span className='key-analyzer-variant-pct'>{v.fitPercent}%</span>
+									)}
+								</button>
+							)
+						})}
 					</div>
 				</div>
 			)}
@@ -85,6 +107,12 @@ export function KeyAnalyzer({ keyAnalysis, chords, transposeMode, transposeTo, t
 					</p>
 				</div>
 			</div>
+
+			<ScalePanel
+				tonic={activeKey.tonic}
+				modeId={activeKey.modeId}
+				modeName={activeKey.modeName}
+			/>
 		</div>
 	)
 }

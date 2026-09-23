@@ -23,6 +23,7 @@ export function useProgression() {
 	const [displayMode, setDisplayMode] = useState('individual')
 	const [savedProgressions, setSavedProgressions] = useState(loadSaved)
 	const [transposeMode, setTransposeMode] = useState('puro')
+	const [selectedKey, setSelectedKey] = useState(null)
 
 	useEffect(() => {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(savedProgressions))
@@ -30,16 +31,26 @@ export function useProgression() {
 
 	const keyAnalysis = useMemo(() => analyzeKey(chords), [chords])
 
+	/** Actualiza los acordes y vuelve a seguir la tonalidad detectada. */
+	const updateChords = useCallback((next) => {
+		setChords(next)
+		setSelectedKey(null)
+	}, [])
+
 	const selectChord = useCallback((index) => {
 		setSelectedIndex(index)
 	}, [])
 
-	const addChord = useCallback((chord) => {
-		setChords((prev) => [...prev, { ...chord }])
+	const selectKey = useCallback((tonic, modeId, modeName) => {
+		setSelectedKey({ tonic, modeId, modeName })
 	}, [])
 
+	const addChord = useCallback((chord) => {
+		updateChords((prev) => [...prev, { ...chord }])
+	}, [updateChords])
+
 	const removeChord = useCallback((index) => {
-		setChords((prev) => {
+		updateChords((prev) => {
 			const next = prev.filter((_, i) => i !== index)
 			return next
 		})
@@ -49,31 +60,31 @@ export function useProgression() {
 			if (index === prev) return Math.max(0, prev - 1)
 			return prev
 		})
-	}, [chords.length])
+	}, [updateChords, chords.length])
 
 	const moveChord = useCallback((from, to) => {
-		setChords((prev) => {
+		updateChords((prev) => {
 			const next = [...prev]
 			const [item] = next.splice(from, 1)
 			next.splice(to, 0, item)
 			return next
 		})
 		setSelectedIndex(to)
-	}, [])
+	}, [updateChords])
 
 	const setChord = useCallback((index, chord) => {
-		setChords((prev) => prev.map((c, i) => (i === index ? { ...chord } : c)))
-	}, [])
+		updateChords((prev) => prev.map((c, i) => (i === index ? { ...chord } : c)))
+	}, [updateChords])
 
 	const loadPreset = useCallback((preset) => {
-		setChords(preset.chords.map((c) => ({ ...c })))
+		updateChords(preset.chords.map((c) => ({ ...c })))
 		setSelectedIndex(0)
-	}, [])
+	}, [updateChords])
 
 	const loadProgression = useCallback((savedChords) => {
-		setChords(savedChords.map((c) => ({ ...c })))
+		updateChords(savedChords.map((c) => ({ ...c })))
 		setSelectedIndex(0)
-	}, [])
+	}, [updateChords])
 
 	const toggleDisplayMode = useCallback(() => {
 		setDisplayMode((prev) => (prev === 'individual' ? 'all' : 'individual'))
@@ -119,7 +130,7 @@ export function useProgression() {
 			newScaleNotes = scaleData ? scaleData.map(noteToPitchClass) : null
 		}
 
-		setChords((prev) => prev.map((chord) => {
+		updateChords((prev) => prev.map((chord) => {
 			const transposed = transposeChordObject(chord, delta)
 			if (transposeMode === 'inteligente' && newScaleNotes) {
 				const analysis = analyzeChord(transposed, {
@@ -134,7 +145,7 @@ export function useProgression() {
 			}
 			return transposed
 		}))
-	}, [keyAnalysis, transposeMode])
+	}, [keyAnalysis, transposeMode, updateChords])
 
 	const toggleTransposeMode = useCallback(() => {
 		setTransposeMode((prev) => (prev === 'puro' ? 'inteligente' : 'puro'))
@@ -147,7 +158,9 @@ export function useProgression() {
 		keyAnalysis,
 		savedProgressions,
 		transposeMode,
+		selectedKey,
 		selectChord,
+		selectKey,
 		addChord,
 		removeChord,
 		moveChord,

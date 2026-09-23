@@ -1,6 +1,6 @@
 # Documentación del Proyecto
 
-_Generada el 2026-09-22_
+_Generada el 2026-09-23_
 
 ## Vistas
 
@@ -170,6 +170,9 @@ _Generada el 2026-09-22_
 
 ### `modules/playground/saved-list.jsx`
   - `SavedList`
+
+### `modules/playground/scale-panel.jsx`
+  - `ScalePanel`
 
 ### `modules/playground/utils/chord-utils.js`
   - `buildChordLabel` — Construye el nombre legible de un acorde.  * @param {string} root  * @param {string} type  * @returns {string} e.g. 'Cm', 'G7', 'F#dim'

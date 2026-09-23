@@ -1,4 +1,4 @@
-import { ENHARMONICS } from '../../data'
+import { ENHARMONICS, SCALES } from '../../data'
 
 export const CHROMATIC = [
 	'C',
@@ -27,6 +27,14 @@ for (const [flat, sharp] of Object.entries(ENHARMONICS)) {
 export function noteToPitchClass(note) {
 	const normalized = normalizeNote(note)
 	return CHROMATIC.indexOf(normalized)
+}
+
+export function getScaleNotes(tonic, modeId) {
+	const currentScale = SCALES[tonic]?.[modeId] ?? []
+	return {
+		currentScale,
+		normalizedScale: currentScale.map(normalizeNote),
+	}
 }
 
 export function scaleNoteName(note, currentScale) {

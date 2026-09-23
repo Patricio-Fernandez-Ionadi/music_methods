@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useMemo, useEffect } from 'react'
-import { MODES, SCALES } from '../../data'
+import { MODES } from '../../data'
+import { getScaleNotes } from '../../shared/utils/scale-utils'
 import { INITIAL_SONGS } from '../../data/biblioteca'
 
 const STORAGE_KEY = 'biblioteca-songs'
@@ -58,8 +59,8 @@ export function AppProvider({ children }) {
 	/** Canción seleccionada para editar (se precarga en el formulario). */
 	const [editingSong, setEditingSong] = useState(null)
 
-	const currentScale = useMemo(
-		() => SCALES[selectedTonic]?.[selectedMode.id] || [],
+	const { currentScale } = useMemo(
+		() => getScaleNotes(selectedTonic, selectedMode.id),
 		[selectedTonic, selectedMode],
 	)
 

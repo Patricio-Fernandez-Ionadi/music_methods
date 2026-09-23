@@ -1,22 +1,13 @@
 import { Field } from '../../app/components/field/field'
 import { useFretboard } from './context/fretboard-context'
-import { normalizeNote } from '../../shared/utils/scale-utils'
+import { ScaleNotes } from '../../shared/components/scale-notes/scale-notes'
 
 export const ScaleInfo = () => {
 	const { selectedTonic, selectedMode, currentScale, NOTE_CSS_VARS } =
 		useFretboard()
 	return (
 		<Field label={`${selectedMode.name} - ${selectedTonic}`}>
-			<div className='scale-notes'>
-				{currentScale.map((note) => (
-					<span
-						key={note}
-						style={{ color: `var(${NOTE_CSS_VARS[normalizeNote(note)]})` }}
-					>
-						{note}
-					</span>
-				))}
-			</div>
+			<ScaleNotes scale={currentScale} NOTE_CSS_VARS={NOTE_CSS_VARS} />
 		</Field>
 	)
 }
