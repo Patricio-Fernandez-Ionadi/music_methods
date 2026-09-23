@@ -1,6 +1,7 @@
 import { FretboardString } from './fretboard-string'
 import { STRING_INDEXES } from '../../../data'
 import { voicingToIndexes } from '../../data/chord-dictionary'
+import { FRETBOARD_VARIANTS } from './fretboard-config'
 
 const STRING_ORDER = ['e', 'b', 'g', 'D', 'A', 'E']
 const FRET_LABEL_MARKERS = [0, 3, 5, 7, 9, 12]
@@ -10,6 +11,7 @@ export function Fretboard({
 	showFretLabels,
 	highlightedOnlyIndexes,
 	containerClass = 'fretboard-container',
+	variant = 'full',
 	normalizedScale = [],
 	currentScale = [],
 	showScaleTonic = true,
@@ -41,7 +43,12 @@ export function Fretboard({
 		? (highlightedOnlyIndexes || null)
 		: (hasTriadVoicing ? triadVoicingIndexes : null)
 
-	const range = fretRange ?? { start: 0, end: 19 }
+	const range = fretRange ?? FRETBOARD_VARIANTS[variant]?.fretRange ?? { start: 0, end: 19 }
+
+	const variantConfig = FRETBOARD_VARIANTS[variant]
+	const boardStyle = variantConfig?.width
+		? { width: `${variantConfig.width}px`, margin: '0 auto' }
+		: undefined
 
 	const stringProps = {
 		normalizedScale,
@@ -65,7 +72,7 @@ export function Fretboard({
 	}
 
 	return (
-		<div className={containerClass}>
+		<div className={containerClass} style={boardStyle}>
 			<div className='fretboardDinamic'>
 				{STRING_ORDER.map((stringName) => (
 					<FretboardString

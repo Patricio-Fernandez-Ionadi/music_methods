@@ -26,6 +26,7 @@ export function FretboardView() {
 			</div>
 
 			<Fretboard
+				variant='full'
 				normalizedScale={ctx.normalizedScale}
 				currentScale={ctx.currentScale}
 				showScaleTonic={ctx.showScaleTonic}

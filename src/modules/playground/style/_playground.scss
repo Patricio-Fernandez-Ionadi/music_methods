@@ -11,12 +11,8 @@
 
 .playground-main {
 	display: grid;
-	grid-template-columns: 1fr 340px;
+	grid-template-columns: 1fr;
 	gap: 24px;
-
-	@media (max-width: $medium) {
-		grid-template-columns: 1fr;
-	}
 }
 
 .playground-left {

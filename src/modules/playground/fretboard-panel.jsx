@@ -5,9 +5,10 @@ import { NOTE_CSS_VARS } from '../../shared/utils/note-css-vars'
 import { CHORD_INTERVALS, NOTE_IDX } from '../../shared/utils/voicing-generators'
 import { CHROMATIC, SHARP_TO_FLAT } from '../../shared/utils/scale-utils'
 import { STRING_INDEXES } from '../../data'
+import { FRETBOARD_VARIANTS } from '../../shared/components/fretboard/fretboard-config'
 
 const FLAT_INTERVALS = new Set([3, 10])
-const WINDOW_SIZE = 6
+const WINDOW_SIZE = FRETBOARD_VARIANTS.voicing.window
 
 const CHORD_COLORS = [
 	'--note-C', '--note-F', '--note-G', '--note-D',
@@ -105,6 +106,7 @@ export function FretboardPanel({ chords, selectedIndex, displayMode, onSelect })
 					{allVoicingData?.map((data, i) => (
 						<Fretboard
 							key={i}
+							variant='voicing'
 							containerClass='fretboard-container'
 							fretRange={data.fretRange}
 							highlightedOnlyIndexes={data.indexes.size > 0 ? data.indexes : null}
@@ -127,6 +129,7 @@ export function FretboardPanel({ chords, selectedIndex, displayMode, onSelect })
 				</div>
 			)}
 			<Fretboard
+				variant='voicing'
 				containerClass='fretboard-container'
 				fretRange={selectedFretRange}
 				highlightedOnlyIndexes={selectedVoicingIndexes}

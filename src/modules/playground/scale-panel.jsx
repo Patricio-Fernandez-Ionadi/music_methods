@@ -44,6 +44,7 @@ export function ScalePanel({ tonic, modeId, modeName }) {
 				<>
 					<ScaleNotes scale={currentScale} NOTE_CSS_VARS={NOTE_CSS_VARS} />
 					<Fretboard
+						variant='full'
 						containerClass='fretboard-container'
 						normalizedScale={normalizedScale}
 						currentScale={currentScale}

@@ -4,8 +4,10 @@ import { CHORD_INTERVALS, NOTE_IDX } from '../../utils/voicing-generators'
 import { CHROMATIC, SHARP_TO_FLAT } from '../../utils/scale-utils'
 import { NOTE_CSS_VARS } from '../../utils/note-css-vars'
 import { Fretboard } from './fretboard'
+import { FRETBOARD_VARIANTS } from './fretboard-config'
 
-const DEFAULT_RANGE = { start: 0, end: 4 }
+const WINDOW_SIZE = FRETBOARD_VARIANTS.chordDict.window
+const DEFAULT_RANGE = { start: 0, end: WINDOW_SIZE - 1 }
 
 const FLAT_INTERVALS = new Set([3, 10])
 
@@ -27,9 +29,9 @@ function computeFretRange(frets) {
 	const min = Math.min(...played)
 	const max = Math.max(...played)
 	const center = Math.floor((min + max) / 2)
-	let start = center - 2
+	let start = center - Math.floor(WINDOW_SIZE / 2)
 	if (start < 0) start = 0
-	return { start, end: start + 4 }
+	return { start, end: start + WINDOW_SIZE - 1 }
 }
 
 export function ChordDictFretboard({ activeVoicing, root, type }) {
@@ -44,6 +46,7 @@ export function ChordDictFretboard({ activeVoicing, root, type }) {
 	return (
 		<div className='chord-dict-fretboard'>
 			<Fretboard
+				variant='chordDict'
 				fretRange={fretRange}
 				showFretLabels
 				highlightedOnlyIndexes={indexes}
