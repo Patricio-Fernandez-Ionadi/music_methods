@@ -15,7 +15,7 @@ src/
 │   ├── utils/          ← Musical utilities (scale-utils, voicing-generators, etc.)
 │   ├── data/           ← Shared data (chord-dictionary)
 │   ├── components/     ← Shared UI components
-│   │   └── fretboard/  ← Fretboard rendering (Fretboard, FretNote, FretboardString)
+│   │   └── fretboard/  ← Fretboard rendering + fretboard-config (medidas estándar)
 │   └── style/_index.scss
 ├── modules/            ← Feature modules (logic + components)
 │   ├── biblioteca/     ← Song library feature
@@ -50,11 +50,28 @@ Cuando un componente compartido (e.g., `Fretboard`) se usa en múltiples módulo
 
 - Misma altura, mismos colores, misma separación entre trastes y cuerdas
 - Misma pestaña de numeración de trastes
-- Lo **único** que cambia es la ventana de trastes visible (`fretRange`)
+- Lo que varía es la **variante** del `Fretboard` (prop `variant`), que define la ventana de trastes y el ancho fijo — ver §0b
 
 **NUNCA** sobreescribir dimensiones del componente compartido con `!important` o clases auxiliares (e.g., `.fretboard-compact { height: 100px }`). Si necesitas un tamaño diferente, es porque el componente compartido no está bien parametrizado — ajusta el componente, no el consumidor.
 
 **Regla práctica**: antes de crear un override visual, preguntarse _"¿esto debería ser el comportamiento por defecto del componente?"_. Si la respuesta es sí, modificar el componente compartido.
+
+### 0b. Diapasones — medidas estándar (única fuente: `fretboard-config.js`)
+
+Todas las medidas de los diapasones viven en **un único objeto de configuración**:
+`src/shared/components/fretboard/fretboard-config.js` → `FRETBOARD_VARIANTS`.
+
+| Variante | Ventana de trastes | Traste | Ancho fijo | Usos |
+|---|---|---|---|---|
+| `full` | `{ start: 0, end: 12 }` (13 trastes) | 50px | 13 × 50 = **650px** | Guitarra principal + ScalePanel (playground) |
+| `voicing` | 6 trastes (centrado dinámico) | 70px | 6 × 70 = **420px** | FretboardPanel (playground) |
+| `chordDict` | 5 trastes (centrado dinámico) | 70px | 5 × 70 = **350px** | ChordDict de guitarra — **modelo de los reducidos** |
+
+**Reglas**:
+- Los **reducidos** (`voicing`, `chordDict`) llevan trastes **más anchos** (70px) que el `full` (50px). El modelo de los reducidos es el `ChordDict`.
+- El `Fretboard` compartido recibe la prop `variant` (`'full' | 'voicing' | 'chordDict'`, default `'full'`): resuelve el `fretRange`/`window` por defecto y aplica `width` fija + `margin: 0 auto` **solo** cuando la variante define `width`.
+- Las ventanas dinámicas se calculan desde `variant.window` — **no** redefinir `WINDOW_SIZE`/`DEFAULT_RANGE` en los consumidores.
+- **NUNCA deformar un diapasón** estirando/comprimiendo trastes para que quepa en un espacio menor del que necesita: si no cabe, se ajusta el layout (p. ej. playground es de una sola columna para el `full` de 650px), nunca el fretboard.
 
 ### 1. `views/` — Thin orchestrators ONLY
 
@@ -265,7 +282,7 @@ When extracting inline JSX into atomic components:
 | `modules/guitarra/utils/chord-names.js` | buildChordName — 'C', 'Dm', 'Gdim' |
 | `modules/guitarra/utils/position-utils.js` | TOTAL_FRETS, getNoteIndexes, positionApplies, noteToGlobalIndex |
 | `modules/guitarra/chord-dict.jsx` | UI: root select + type buttons + voicing buttons + ChordDictFretboard |
-| `modules/guitarra/chord-dict/chord-dict-fretboard.jsx` | Fretboard con currentScale contextual para nombres enharmónicos correctos |
+| `shared/components/fretboard/chord-dict-fretboard.jsx` | Fretboard con currentScale contextual para nombres enharmónicos correctos (variant `chordDict`, 5 trastes, 350px) |
 | `modules/guitarra/fretboard-view.jsx` | Orquestador delgado: compone Selectors + ScaleInfo + Triads + Fretboard + Positions + ChordDict |
 | `modules/guitarra/fretboard.jsx` | Grid del diapasón: 6 strings × frets, con positionIndexes, chordVoicingIndexes, chordDictIndexes |
 | `modules/guitarra/note/fret-note.jsx` | Nota individual: clases CSS según contexto + scaleNoteName para enharmónicos |

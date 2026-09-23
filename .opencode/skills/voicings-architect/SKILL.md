@@ -71,3 +71,12 @@ fret-note.jsx → render as triadRoot/Third/Fifth or triadVoicingNote
 | 2 | D, G, B | Medio-agudo |
 | 3 | A, D, G | Medio-grave |
 | 4 | E, A, D (bottom 3) | Grave |
+
+## Fretboard windows (from `fretboard-config.js`)
+
+The dynamic fret windows that show voicings come from `FRETBOARD_VARIANTS` in `src/shared/components/fretboard/fretboard-config.js`:
+
+- `voicing.window: 6` → playground `fretboard-panel.jsx` (range centered on the voicing's frets)
+- `chordDict.window: 5` → guitarra `chord-dict-fretboard.jsx` (range centered on the voicing's frets)
+
+Consumers must read the window from the config — never hardcode `WINDOW_SIZE`/`DEFAULT_RANGE`.

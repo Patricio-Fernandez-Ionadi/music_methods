@@ -59,6 +59,20 @@ theme/index.scss
 - **Component SCSS** lives in `style/` alongside the JSX file
 - **`@use` path depth** varies: from `modules/biblioteca/song/form/style/` → `@use '../../../../../../theme/values' as *;` (6 levels up)
 - **No inline `<style>` or JS style objects** — prefer CSS classes via `className`
+  - **Excepción medida**: el `Fretboard` compartido aplica su `width` fija (px) y `margin: 0 auto` vía `style` desde `FRETBOARD_VARIANTS` (ver §Fretboard sizes abajo). Los estilos visuales (colores, alto, radios, notas) siguen igual en SCSS.
+
+## Fretboard sizes (única fuente: `fretboard-config.js`)
+
+Las medidas de los diapasones viven en **`src/shared/components/fretboard/fretboard-config.js`** y las aplica el `Fretboard` compartido con inline `width`.
+
+| Variante | Ventana | Traste | Ancho | Uso |
+|---|---|---|---|---|
+| `full` | 13 trastes (0–12) | 50px | 650px | guitarra + ScalePanel |
+| `voicing` | 6 trastes | 70px | 420px | FretboardPanel |
+| `chordDict` | 5 trastes | 70px | 350px | ChordDict (modelo de los reducidos) |
+
+- Los reducidos tienen trastes más anchos que el full; no deformar nunca (ajustar layout, p. ej. playground en una sola columna).
+- `theme/values/_fretboard.scss` conserva colores + alto (210px) y los puntos de nota (`.fretTonic`, `.positionNote`, etc.) — única fuente de estilo, sin magic numbers por módulo.
 
 ## Notas
 

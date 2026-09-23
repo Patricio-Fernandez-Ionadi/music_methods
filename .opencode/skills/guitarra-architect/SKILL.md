@@ -53,6 +53,22 @@ src/modules/guitarra/
 └── triads.jsx                         ← triad degree selector (I–VII)
 ```
 
+## Fretboard measurements — single source of truth
+
+All fretboard dimensions live in **`src/shared/components/fretboard/fretboard-config.js`** → `FRETBOARD_VARIANTS`.
+
+| Variant | Fret window | Fret width | Fixed width | Where |
+|---|---|---|---|---|
+| `full` | `{ start: 0, end: 12 }` (13 frets) | 50px | 650px | guitarra main (`fretboard-view.jsx`) + playground ScalePanel — `variant='full'` |
+| `voicing` | 6 frets (dynamic centering) | 70px | 420px | playground FretboardPanel — `variant='voicing'` |
+| `chordDict` | 5 frets (dynamic centering) | 70px | 350px | guitarra ChordDict — `variant='chordDict'`, **model for all reduced boards** |
+
+Rules:
+- Reduced boards (`voicing`, `chordDict`) use **wider frets** (70px) than `full` (50px). Model = `ChordDict`.
+- The shared `Fretboard` (`shared/components/fretboard/fretboard.jsx`) takes `variant` (default `'full'`); it only applies the fixed `width` + `margin: 0 auto` when the variant defines one. Reduced variants keep their own sized wrappers.
+- Dynamic windows come from `variant.window` — do NOT redefine `WINDOW_SIZE`/`DEFAULT_RANGE` in consumers (see `fretboard-panel.jsx`, `chord-dict-fretboard.jsx`).
+- NEVER stretch/squash frets to fit a container: adjust the layout, never the fretboard (playground is a single column so the 650px `full` always fits).
+
 ## Data flow
 
 ```
